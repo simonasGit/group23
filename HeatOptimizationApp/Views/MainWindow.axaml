@@ -12,7 +12,7 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Right"
                     Margin="0,0,0,10">
-            <Button Content="👤 Admin"
+            <Button Content="Admin"
                     Width="100"
                     Height="30"
                     Background="#E5E7EB"
@@ -21,7 +21,8 @@
         </StackPanel>
 
         <!-- Main Title -->
-        <TextBlock Text="System Components"
+        <TextBlock DockPanel.Dock="Top"
+                   Text="System Components"
                    FontSize="24"
                    FontWeight="Bold"
                    Margin="0,0,0,20"/>
@@ -34,11 +35,7 @@
                    Orientation="Horizontal">
 
             <Button Width="380" Height="90" Margin="10"
-                    HorizontalContentAlignment="Left"
-                    VerticalContentAlignment="Top"
-                    Padding="10"
-                    Background="White"
-                    BorderBrush="#D1D5DB">
+                    Background="White" BorderBrush="#D1D5DB">
                 <StackPanel>
                     <TextBlock Text="⚙️  Asset Manager (AM)"
                                FontWeight="Bold"
@@ -50,11 +47,7 @@
             </Button>
 
             <Button Width="380" Height="90" Margin="10"
-                    HorizontalContentAlignment="Left"
-                    VerticalContentAlignment="Top"
-                    Padding="10"
-                    Background="White"
-                    BorderBrush="#D1D5DB">
+                    Background="White" BorderBrush="#D1D5DB">
                 <StackPanel>
                     <TextBlock Text="🛢️  Source Data Manager (SDM)"
                                FontWeight="Bold"
@@ -66,11 +59,7 @@
             </Button>
 
             <Button Width="380" Height="90" Margin="10"
-                    HorizontalContentAlignment="Left"
-                    VerticalContentAlignment="Top"
-                    Padding="10"
-                    Background="White"
-                    BorderBrush="#D1D5DB">
+                    Background="White" BorderBrush="#D1D5DB">
                 <StackPanel>
                     <TextBlock Text="📊 Result Data Manager (RDM)"
                                FontWeight="Bold"
@@ -82,11 +71,7 @@
             </Button>
 
             <Button Width="380" Height="90" Margin="10"
-                    HorizontalContentAlignment="Left"
-                    VerticalContentAlignment="Top"
-                    Padding="10"
-                    Background="White"
-                    BorderBrush="#D1D5DB">
+                    Background="White" BorderBrush="#D1D5DB">
                 <StackPanel>
                     <TextBlock Text="🧠 Optimizer (OPT)"
                                FontWeight="Bold"
@@ -97,12 +82,10 @@
                 </StackPanel>
             </Button>
 
-            <Button Width="780" Height="90" Margin="10"
-                    HorizontalContentAlignment="Left"
-                    VerticalContentAlignment="Top"
-                    Padding="10"
-                    Background="White"
-                    BorderBrush="#D1D5DB">
+            <!-- Data Visualization Button (named properly) -->
+            <Button Name="DataVisualizationButton"
+                    Width="780" Height="90" Margin="10"
+                    Background="White" BorderBrush="#D1D5DB">
                 <StackPanel>
                     <TextBlock Text="📈 Data Visualization (DV)"
                                FontWeight="Bold"
@@ -112,6 +95,7 @@
                                FontSize="12"/>
                 </StackPanel>
             </Button>
+
         </WrapPanel>
     </DockPanel>
 </Window>

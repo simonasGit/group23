@@ -24,5 +24,8 @@ build_property.EnableCodeStyleSeverity =
 [C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/DataVisualizationWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
