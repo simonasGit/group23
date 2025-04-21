@@ -1,20 +1,117 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:HeatOptimizationApp.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="HeatOptimizationApp.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="HeatOptimizationApp">
+        Width="900" Height="650"
+        Title="District Heat Manager"
+        Background="#F9FAFB"
+        Padding="20">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+    <DockPanel LastChildFill="True">
+        <!-- Top Bar -->
+        <StackPanel DockPanel.Dock="Top"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,0,10">
+            <Button Content="👤 Admin"
+                    Width="100"
+                    Height="30"
+                    Background="#E5E7EB"
+                    BorderBrush="#D1D5DB"
+                    Foreground="Black"/>
+        </StackPanel>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <!-- Main Title -->
+        <TextBlock Text="System Components"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="0,0,0,20"/>
 
+        <!-- Component Buttons Grid -->
+        <WrapPanel ItemWidth="400"
+                   ItemHeight="100"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Orientation="Horizontal">
+
+            <Button Width="380" Height="90" Margin="10"
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Top"
+                    Padding="10"
+                    Background="White"
+                    BorderBrush="#D1D5DB">
+                <StackPanel>
+                    <TextBlock Text="⚙️  Asset Manager (AM)"
+                               FontWeight="Bold"
+                               FontSize="16"/>
+                    <TextBlock Text="Manages and monitors all heating assets and their operational parameters."
+                               TextWrapping="Wrap"
+                               FontSize="12"/>
+                </StackPanel>
+            </Button>
+
+            <Button Width="380" Height="90" Margin="10"
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Top"
+                    Padding="10"
+                    Background="White"
+                    BorderBrush="#D1D5DB">
+                <StackPanel>
+                    <TextBlock Text="🛢️  Source Data Manager (SDM)"
+                               FontWeight="Bold"
+                               FontSize="16"/>
+                    <TextBlock Text="Handles input data collection and processing from various sources."
+                               TextWrapping="Wrap"
+                               FontSize="12"/>
+                </StackPanel>
+            </Button>
+
+            <Button Width="380" Height="90" Margin="10"
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Top"
+                    Padding="10"
+                    Background="White"
+                    BorderBrush="#D1D5DB">
+                <StackPanel>
+                    <TextBlock Text="📊 Result Data Manager (RDM)"
+                               FontWeight="Bold"
+                               FontSize="16"/>
+                    <TextBlock Text="Processes and stores optimization results and historical analysis."
+                               TextWrapping="Wrap"
+                               FontSize="12"/>
+                </StackPanel>
+            </Button>
+
+            <Button Width="380" Height="90" Margin="10"
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Top"
+                    Padding="10"
+                    Background="White"
+                    BorderBrush="#D1D5DB">
+                <StackPanel>
+                    <TextBlock Text="🧠 Optimizer (OPT)"
+                               FontWeight="Bold"
+                               FontSize="16"/>
+                    <TextBlock Text="Executes algorithms for heat production and cost efficiency."
+                               TextWrapping="Wrap"
+                               FontSize="12"/>
+                </StackPanel>
+            </Button>
+
+            <Button Width="780" Height="90" Margin="10"
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Top"
+                    Padding="10"
+                    Background="White"
+                    BorderBrush="#D1D5DB">
+                <StackPanel>
+                    <TextBlock Text="📈 Data Visualization (DV)"
+                               FontWeight="Bold"
+                               FontSize="16"/>
+                    <TextBlock Text="Provides dashboards and real-time monitoring visuals."
+                               TextWrapping="Wrap"
+                               FontSize="12"/>
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+    </DockPanel>
 </Window>
