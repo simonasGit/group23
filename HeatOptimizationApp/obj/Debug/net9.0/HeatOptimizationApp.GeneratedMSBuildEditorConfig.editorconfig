@@ -24,8 +24,23 @@ build_property.EnableCodeStyleSeverity =
 [C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/AdminWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/AssetManagerWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/DataVisualizationWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/OptimizerWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/ResultDataManagerWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/SourceDataManagerWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

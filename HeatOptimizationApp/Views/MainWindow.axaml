@@ -12,7 +12,8 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Right"
                     Margin="0,0,0,10">
-            <Button Content="Admin"
+            <Button Name="AdminButton"
+                    Content="Admin"
                     Width="100"
                     Height="30"
                     Background="#E5E7EB"
@@ -34,7 +35,8 @@
                    VerticalAlignment="Top"
                    Orientation="Horizontal">
 
-            <Button Width="380" Height="90" Margin="10"
+            <Button Name="AssetManagerButton"
+                Width="380" Height="90" Margin="10"
                     Background="White" BorderBrush="#D1D5DB">
                 <StackPanel>
                     <TextBlock Text="⚙️  Asset Manager (AM)"
@@ -46,7 +48,8 @@
                 </StackPanel>
             </Button>
 
-            <Button Width="380" Height="90" Margin="10"
+            <Button Name="SourceDataManagerButton"
+                Width="380" Height="90" Margin="10"
                     Background="White" BorderBrush="#D1D5DB">
                 <StackPanel>
                     <TextBlock Text="🛢️  Source Data Manager (SDM)"
@@ -58,7 +61,8 @@
                 </StackPanel>
             </Button>
 
-            <Button Width="380" Height="90" Margin="10"
+            <Button Name="ResultDataManagerButton"
+                Width="380" Height="90" Margin="10"
                     Background="White" BorderBrush="#D1D5DB">
                 <StackPanel>
                     <TextBlock Text="📊 Result Data Manager (RDM)"
@@ -70,7 +74,8 @@
                 </StackPanel>
             </Button>
 
-            <Button Width="380" Height="90" Margin="10"
+            <Button Name="OptimizerButton"
+                Width="380" Height="90" Margin="10"
                     Background="White" BorderBrush="#D1D5DB">
                 <StackPanel>
                     <TextBlock Text="🧠 Optimizer (OPT)"

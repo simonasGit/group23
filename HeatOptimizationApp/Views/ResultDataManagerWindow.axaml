@@ -1,0 +1,70 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="HeatOptimizationApp.Views.ResultDataManagerWindow"
+        Width="900" Height="650"
+        Title="Result Data Manager (RDM)">
+
+  <ScrollViewer>
+    <StackPanel Margin="20" Spacing="15">
+
+      <TextBlock Text="🗃 Result Data Manager (RDM)" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+
+      <WrapPanel ItemWidth="420" ItemHeight="180" Orientation="Horizontal">
+
+        <!-- Production Metrics -->
+        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
+          <StackPanel Spacing="5">
+            <TextBlock Text="Production Metrics" FontWeight="Bold" FontSize="16"/>
+            <TextBlock Text="🔥 Heat Production: 0 MWh" FontSize="12"/>
+            <TextBlock Text="⚡ Electricity Production: 0 MWh" FontSize="12"/>
+            <TextBlock Text="🔌 Electricity Consumption: 0 MWh" FontSize="12"/>
+          </StackPanel>
+        </Border>
+
+        <!-- Financial Metrics -->
+        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
+          <StackPanel Spacing="5">
+            <TextBlock Text="Financial Metrics" FontWeight="Bold" FontSize="16"/>
+            <TextBlock Text="💰 Total Revenue: DKK 000,000" FontSize="12"/>
+            <TextBlock Text="📉 Operating Expenses: DKK 000,000" FontSize="12"/>
+            <TextBlock Text="🏦 Net Profit: DKK 000,000" FontSize="12"/>
+          </StackPanel>
+        </Border>
+
+        <!-- Energy Consumption -->
+        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
+          <StackPanel Spacing="10">
+            <TextBlock Text="Energy Consumption" FontWeight="Bold" FontSize="16"/>
+            <StackPanel Spacing="5">
+              <TextBlock Text="Primary Energy" FontSize="12"/>
+              <ProgressBar Value="80" Height="10" CornerRadius="5"/>
+              <TextBlock Text="000 MWh" FontSize="12" HorizontalAlignment="Right"/>
+            </StackPanel>
+            <StackPanel Spacing="5">
+              <TextBlock Text="Secondary Energy" FontSize="12"/>
+              <ProgressBar Value="40" Height="10" CornerRadius="5"/>
+              <TextBlock Text="000 MWh" FontSize="12" HorizontalAlignment="Right"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+
+        <!-- Environmental Impact -->
+        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
+          <StackPanel Spacing="10">
+            <TextBlock Text="Environmental Impact" FontWeight="Bold" FontSize="16"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+              <TextBlock Text="🏭 CO2 Emissions" FontSize="12"/>
+              <TextBlock Text="00.0 tons" FontSize="12" Margin="1,0,0,0" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+              <TextBlock Text="🌿 Carbon Offset" FontSize="12"/>
+              <TextBlock Text="00.0 tons" FontSize="12" Margin="1,0,0,0" FontWeight="Bold"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+
+      </WrapPanel>
+
+    </StackPanel>
+  </ScrollViewer>
+</Window>

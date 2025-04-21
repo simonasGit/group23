@@ -25,11 +25,11 @@
             </Border>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
               <TextBlock Text="Current Demand" FontSize="12"/>
-              <TextBlock Text="85.4 MW" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
+              <TextBlock Text="00.0 MW" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
               <TextBlock Text="Production Rate" FontSize="12"/>
-              <TextBlock Text="92.1 MW" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
+              <TextBlock Text="00.0 MW" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
             </StackPanel>
           </StackPanel>
         </Border>
@@ -45,11 +45,11 @@
             </Border>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
               <TextBlock Text="Production" FontSize="12"/>
-              <TextBlock Text="24.8 MWh" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
+              <TextBlock Text="00.0 MWh" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
               <TextBlock Text="Consumption" FontSize="12"/>
-              <TextBlock Text="18.3 MWh" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
+              <TextBlock Text="00.0 MWh" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
             </StackPanel>
           </StackPanel>
         </Border>
@@ -90,11 +90,11 @@
             </Border>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
               <TextBlock Text="Operating Costs" FontSize="12"/>
-              <TextBlock Text="DKK 12,450/day" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
+              <TextBlock Text="DKK 00,000/day" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
               <TextBlock Text="Revenue" FontSize="12"/>
-              <TextBlock Text="DKK 15,780/day" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
+              <TextBlock Text="DKK 00,000/day" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
             </StackPanel>
           </StackPanel>
         </Border>

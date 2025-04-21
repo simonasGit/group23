@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="HeatOptimizationApp.Views.SourceDataManagerWindow"
+        Width="900" Height="650"
+        Title="Source Data Manager (SDM)">
+
+  <ScrollViewer>
+    <StackPanel Margin="20" Spacing="20">
+
+      <!-- Header -->
+      <StackPanel>
+        <TextBlock Text="🛢 Source Data Manager (SDM)" FontSize="24" FontWeight="Bold"/>
+        <TextBlock Text="Source repository for dynamic system information and time series data"
+                   FontSize="14" Foreground="#6B7280"/>
+      </StackPanel>
+
+      <!-- Graph Cards -->
+      <WrapPanel ItemWidth="420" ItemHeight="280" Orientation="Horizontal">
+
+        <!-- Heat Demand Time Series -->
+        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
+          <StackPanel Spacing="8">
+            <TextBlock Text="Heat Demand Time Series" FontWeight="Bold" FontSize="16"/>
+            <Border Height="150" Background="#E5E7EB" CornerRadius="4">
+              <TextBlock Text="📉 Heat Demand Graph (1-hour resolution)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#9CA3AF"/>
+            </Border>
+            <StackPanel Orientation="Vertical" Spacing="4">
+              <TextBlock Text="Time Resolution: 1 hour" FontSize="12"/>
+              <TextBlock Text="Data Points: 24/day" FontSize="12"/>
+              <TextBlock Text="Last Updated: 0000-00-00 00:00" FontSize="12"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+
+        <!-- Electricity Price Time Series -->
+        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
+          <StackPanel Spacing="8">
+            <TextBlock Text="Electricity Prices Time Series" FontWeight="Bold" FontSize="16"/>
+            <Border Height="150" Background="#E5E7EB" CornerRadius="4">
+              <TextBlock Text="📉 Electricity Price Graph (1-hour resolution)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#9CA3AF"/>
+            </Border>
+            <StackPanel Orientation="Vertical" Spacing="4">
+              <TextBlock Text="Time Resolution: 1 hour" FontSize="12"/>
+              <TextBlock Text="Market Data: Day-ahead" FontSize="12"/>
+              <TextBlock Text="Last Updated: 0000-00-00 00:00" FontSize="12"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+
+      </WrapPanel>
+
+      <!-- Controls -->
+      <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
+        <StackPanel>
+          <TextBlock Text="Data Management Controls" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+          <WrapPanel ItemWidth="250" ItemHeight="30">
+            <Button Content="⏱ Update" Background="#E5E7EB" Foreground="Black"/>
+            <Button Content="💾 Save" Background="#E5E7EB" Foreground="Black"/>
+          </WrapPanel>
+        </StackPanel>
+      </Border>
+
+    </StackPanel>
+  </ScrollViewer>
+</Window>
