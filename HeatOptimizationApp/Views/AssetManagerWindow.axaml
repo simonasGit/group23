@@ -28,11 +28,11 @@
             <TextBlock Text="System Overview" FontWeight="Bold" FontSize="16" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
               <TextBlock Text="Total Heat Capacity" FontSize="12"/>
-              <TextBlock Text="45 MW" FontSize="12" FontWeight="Bold" HorizontalAlignment="Right"/>
+              <TextBlock Text="00 MW" FontSize="12" FontWeight="Bold" HorizontalAlignment="Right"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
               <TextBlock Text="Network Length" FontSize="12"/>
-              <TextBlock Text="12.5 km" FontSize="12" FontWeight="Bold" HorizontalAlignment="Right"/>
+              <TextBlock Text="00.0 km" FontSize="12" FontWeight="Bold" HorizontalAlignment="Right"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
               <TextBlock Text="Connected Buildings" FontSize="12"/>
@@ -54,9 +54,9 @@
            <!--  <Image Width="32" Height="32" Source="/Assets/Icons/boiler.png"/> this is commented becaus avalonia coulndt find it and crashed i think-->
             <StackPanel>
               <TextBlock Text="Gas Boiler Unit 1" FontWeight="Bold" />
-              <TextBlock Text="Heat Output: 15 MW" FontSize="12"/>
-              <TextBlock Text="Efficiency: 92%" FontSize="12"/>
-              <TextBlock Text="CO2 Emissions: 2.1 kg/MWh" FontSize="12"/>
+              <TextBlock Text="Heat Output: 00 MW" FontSize="12"/>
+              <TextBlock Text="Efficiency: 100%" FontSize="12"/>
+              <TextBlock Text="CO2 Emissions: 0.0 kg/MWh" FontSize="12"/>
             </StackPanel>
           </StackPanel>
         </Border>
@@ -64,12 +64,12 @@
         <!-- Heat Pump -->
         <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
           <StackPanel Orientation="Horizontal" Spacing="10">
-            <Image Width="32" Height="32" Source="/Assets/Icons/heatpump.png"/>
+           <!-- <Image Width="32" Height="32" Source="/Assets/Icons/heatpump.png"/>-->
             <StackPanel>
               <TextBlock Text="Heat Pump Unit" FontWeight="Bold" />
-              <TextBlock Text="Heat Output: 8 MW" FontSize="12"/>
-              <TextBlock Text="COP: 4.2" FontSize="12"/>
-              <TextBlock Text="Electricity Use: 1.9 MW" FontSize="12"/>
+              <TextBlock Text="Heat Output: 0 MW" FontSize="12"/>
+              <TextBlock Text="COP: 0.0" FontSize="12"/>
+              <TextBlock Text="Electricity Use: 0.0 MW" FontSize="12"/>
             </StackPanel>
           </StackPanel>
         </Border>

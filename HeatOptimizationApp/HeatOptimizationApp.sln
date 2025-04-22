@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeatOptimizationApp", "HeatOptimizationApp.csproj", "{177DE68E-066A-8CD4-D268-2841C477A7ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{177DE68E-066A-8CD4-D268-2841C477A7ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{177DE68E-066A-8CD4-D268-2841C477A7ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{177DE68E-066A-8CD4-D268-2841C477A7ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{177DE68E-066A-8CD4-D268-2841C477A7ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB7937D9-4292-46EE-B001-FDA59FB16B4B}
+	EndGlobalSection
+EndGlobal
