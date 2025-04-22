@@ -6,8 +6,8 @@
 
   <DockPanel>
 
-    <!-- Sidebar -->
-    <StackPanel DockPanel.Dock="Left"
+    <!-- Sidebar  this part is commented because there ane no tabs and it would make no sense, also admin page is a silly idea for me-->
+    <!--<StackPanel DockPanel.Dock="Left"
                 Background="#F3F4F6"
                 Width="180"
                 Margin="10">
@@ -16,7 +16,7 @@
       <TextBlock Text="📈 Energy Market" Margin="0,5"/>
       <TextBlock Text="🗓 Scheduling" Margin="0,5"/>
       <TextBlock Text="⚙ Settings" Margin="0,5"/>
-    </StackPanel>
+    </StackPanel> -->
 
     <!-- Main Content -->
     <ScrollViewer>

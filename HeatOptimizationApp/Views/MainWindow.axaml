@@ -2,7 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="HeatOptimizationApp.Views.MainWindow"
         Width="900" Height="650"
-        Title="District Heat Manager"
+        Title="District Heat Manager - G23"
         Background="#F9FAFB"
         Padding="20">
 
@@ -23,7 +23,7 @@
 
         <!-- Main Title -->
         <TextBlock DockPanel.Dock="Top"
-                   Text="System Components"
+                   Text="System Components "
                    FontSize="24"
                    FontWeight="Bold"
                    Margin="0,0,0,20"/>

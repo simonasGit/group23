@@ -49,7 +49,7 @@
                             <TextBlock Text="Scenario 2" FontWeight="Bold" FontSize="12" Margin="0,10,0,0"/>
                             <StackPanel Margin="10,5">
                                 <TextBlock Text="⚫ One gas boiler" FontSize="12"/>
-                                <TextBlock Text="⚫ One oil boiler" FontSize="12"/>
+                                <TextBlock Text="⚫ One ooil boiler" FontSize="12"/>
                                 <TextBlock Text="⚫ One gas motor" FontSize="12"/>
                                 <TextBlock Text="⚫ One heat pump" FontSize="12"/>
                             </StackPanel>
@@ -64,11 +64,11 @@
                         <StackPanel Margin="10,10">
                             <TextBlock Text="Winter Period" FontWeight="Bold" FontSize="12"/>
                             <StackPanel Margin="10,5">
-                                <TextBlock Text="❄️ October - March" FontSize="12"/>
+                                <TextBlock Text="❄️" FontSize="12"/>
                             </StackPanel>
                             <TextBlock Text="Summer Period" FontWeight="Bold" FontSize="12" Margin="0,10,0,0"/>
                             <StackPanel Margin="10,5">
-                                <TextBlock Text="☀️ April - September" FontSize="12"/>
+                                <TextBlock Text="☀️" FontSize="12"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

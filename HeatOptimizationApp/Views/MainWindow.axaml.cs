@@ -21,15 +21,10 @@ public partial class MainWindow : Window
         };
         AssetManagerButton.Click += (_, _) =>
         {//using try catch because it was catching, this is for debug and should be removed later hopefuly
-            try
-            {
-                var amWindow = new AssetManagerWindow();
-                amWindow.Show();
-            }
-            catch (Exception ex)
-            {
-        Console.WriteLine("AssetManagerWindow failed: " + ex.Message);
-            }
+        
+            var amWindow = new AssetManagerWindow();
+            amWindow.Show();
+            
         };
         SourceDataManagerButton.Click += (_, _) => 
         {
