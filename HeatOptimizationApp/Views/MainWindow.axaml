@@ -8,18 +8,18 @@
 
     <DockPanel LastChildFill="True">
         <!-- Top Bar -->
-        <StackPanel DockPanel.Dock="Top"
+       <!--  <StackPanel DockPanel.Dock="Top"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right"
                     Margin="0,0,0,10">
             <Button Name="AdminButton"
-                    Content="Admin"
+                    Content="Settings"
                     Width="100"
                     Height="30"
                     Background="#E5E7EB"
                     BorderBrush="#D1D5DB"
                     Foreground="Black"/>
-        </StackPanel>
+        </StackPanel>-->
 
         <!-- Main Title -->
         <TextBlock DockPanel.Dock="Top"

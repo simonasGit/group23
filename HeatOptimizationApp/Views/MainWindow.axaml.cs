@@ -9,11 +9,12 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        AdminButton.Click += (_, _) =>
-        {
-            var adminWindow = new AdminWindow();
-        adminWindow.Show();
-        };  
+        //commented because admin button doesnt need to work
+        //!AdminButton.Click += (_, _) => 
+      //  {
+       //     var adminWindow = new AdminWindow();
+      //  adminWindow.Show();
+       // };
         DataVisualizationButton.Click += (_, _) =>
         {
             var dvWindow = new DataVisualizationWindow();
