@@ -1475,27 +1475,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rafae\\.nuget\\packages\\": {}
+    "C:\\Users\\T490\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rafae\\OneDrive\\Ambiente de Trabalho\\SemesterProjG232025\\group23\\HeatOptimizationApp\\HeatOptimizationApp.csproj",
+      "projectUniqueName": "C:\\Users\\T490\\Documents\\group23\\HeatOptimizationApp\\HeatOptimizationApp.csproj",
       "projectName": "HeatOptimizationApp",
-      "projectPath": "C:\\Users\\rafae\\OneDrive\\Ambiente de Trabalho\\SemesterProjG232025\\group23\\HeatOptimizationApp\\HeatOptimizationApp.csproj",
-      "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rafae\\OneDrive\\Ambiente de Trabalho\\SemesterProjG232025\\group23\\HeatOptimizationApp\\obj\\",
+      "projectPath": "C:\\Users\\T490\\Documents\\group23\\HeatOptimizationApp\\HeatOptimizationApp.csproj",
+      "packagesPath": "C:\\Users\\T490\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\T490\\Documents\\group23\\HeatOptimizationApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\T490\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1561,7 +1558,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\T490\\Downloads\\dotnet-sdk-9.0.202-win-x64\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
