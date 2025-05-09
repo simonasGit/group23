@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\T490\\Documents\\group23\\HeatOptimizationApp\\HeatOptimizationApp.csproj": {}
+    "/home/basil/code/skool/group23/HeatOptimizationApp/HeatOptimizationApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\T490\\Documents\\group23\\HeatOptimizationApp\\HeatOptimizationApp.csproj": {
+    "/home/basil/code/skool/group23/HeatOptimizationApp/HeatOptimizationApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\T490\\Documents\\group23\\HeatOptimizationApp\\HeatOptimizationApp.csproj",
+        "projectUniqueName": "/home/basil/code/skool/group23/HeatOptimizationApp/HeatOptimizationApp.csproj",
         "projectName": "HeatOptimizationApp",
-        "projectPath": "C:\\Users\\T490\\Documents\\group23\\HeatOptimizationApp\\HeatOptimizationApp.csproj",
-        "packagesPath": "C:\\Users\\T490\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\T490\\Documents\\group23\\HeatOptimizationApp\\obj\\",
+        "projectPath": "/home/basil/code/skool/group23/HeatOptimizationApp/HeatOptimizationApp.csproj",
+        "packagesPath": "/home/basil/.nuget/packages/",
+        "outputPath": "/home/basil/code/skool/group23/HeatOptimizationApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\T490\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/basil/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -80,12 +80,31 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.3, 9.0.3]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[9.0.3, 9.0.3]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.3, 9.0.3]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\T490\\Downloads\\dotnet-sdk-9.0.202-win-x64\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.104/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
         }
       }
     }
