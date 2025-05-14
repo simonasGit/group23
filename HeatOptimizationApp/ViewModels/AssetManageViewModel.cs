@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+
+namespace HeatOptimizationApp
+{
+    
+    public class Asset
+    {
+        public string Name { get; set; }
+        public double MaxHeat { get; set; }
+        public double ProductionCost { get; set; } // this is in DKK/MWh(th) but we can maybe change it late
+        public double CO2Emissions { get; set; }   // kg/MWh(th)
+    }
+
+    
+    public class GasBoiler : Asset
+    {
+        public double GasConsumption { get; set; } // MWh(gas)/MWh(th)
+    }
+
+    public class OilBoiler : Asset
+    {
+        public double OilConsumption { get; set; } // MWh(oil)/MWh(th) remember the units later beacuse converting mught be a problem 
+    }
+
+    public class GasMotor : Asset
+    {
+        public double MaxElectricity { get; set; }
+        public double GasConsumption { get; set; }
+    }
+
+    public class HeatPump : Asset
+    {
+        public double MaxElectricity { get; set; }
+    }
+
+
+    public class AssetManager //theyre all public so they can be acessed outside and from the other files
+    {
+        public List<Asset> Assets { get; } = new List<Asset>();
+
+        public AssetManager()
+        {
+            LoadAssets();
+        }
+
+        private void LoadAssets()
+        {
+            Assets.Add(new GasBoiler
+            {
+                Name = "GB1",
+                MaxHeat = 4.0,
+                ProductionCost = 520,
+                CO2Emissions = 175,
+                GasConsumption = 0.9
+            });
+
+            Assets.Add(new GasBoiler
+            {
+                Name = "GB2",
+                MaxHeat = 3.0,
+                ProductionCost = 560,
+                CO2Emissions = 130,
+                GasConsumption = 0.7
+            });
+
+            Assets.Add(new OilBoiler
+            {
+                Name = "OB1",
+                MaxHeat = 4.0,
+                ProductionCost = 670,
+                CO2Emissions = 330,
+                OilConsumption = 1.5
+            });
+
+            Assets.Add(new GasMotor
+            {
+                Name = "GM1",
+                MaxHeat = 3.5,
+                MaxElectricity = 2.6,
+                ProductionCost = 650,
+                CO2Emissions = 190,
+                GasConsumption = 1.8
+            });
+
+            Assets.Add(new HeatPump
+            {
+                Name = "HP1",
+                MaxHeat = 6.0,
+                MaxElectricity = 6.0,
+                ProductionCost = 260,
+                CO2Emissions = 0
+            });
+        }
+    }
+
+
+
+}
