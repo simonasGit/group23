@@ -26,17 +26,14 @@
         <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
           <StackPanel Spacing="5">
             <TextBlock Text="System Overview" FontWeight="Bold" FontSize="16" />
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-              <TextBlock Text="Total Heat Capacity" FontSize="12"/>
-              <TextBlock Text="00 MW" FontSize="12" FontWeight="Bold" HorizontalAlignment="Right"/>
-            </StackPanel>
+          
             <StackPanel Orientation="Horizontal">
-              <TextBlock Text="Network Length" FontSize="12"/>
-              <TextBlock Text="00.0 km" FontSize="12" FontWeight="Bold" HorizontalAlignment="Right"/>
+              <TextBlock Text="Heatington" FontSize="12"/>
+              
             </StackPanel>
             <StackPanel Orientation="Horizontal">
               <TextBlock Text="Connected Buildings" FontSize="12"/>
-              <TextBlock Text="00" FontSize="12" FontWeight="Bold" HorizontalAlignment="Right"/>
+              <TextBlock Text="1600" FontSize="12" FontWeight="Bold" HorizontalAlignment="Right"/>
             </StackPanel>
           </StackPanel>
         </Border>
@@ -46,7 +43,7 @@
       <!-- Production Units -->
       <TextBlock Text="Production Units" FontWeight="Bold" FontSize="16" Margin="10,0"/>
 
-      <WrapPanel ItemWidth="400" ItemHeight="120" Orientation="Horizontal">
+      <WrapPanel ItemWidth="410" ItemHeight="120" Orientation="Horizontal">
 
         <!-- Gas Boiler -->
         <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
@@ -54,9 +51,10 @@
            <!--  <Image Width="32" Height="32" Source="/Assets/Icons/boiler.png"/> this is commented becaus avalonia coulndt find it and crashed i think-->
             <StackPanel>
               <TextBlock Text="Gas Boiler Unit 1" FontWeight="Bold" />
-              <TextBlock Text="Heat Output: 00 MW" FontSize="12"/>
-              <TextBlock Text="Efficiency: 100%" FontSize="12"/>
-              <TextBlock Text="CO2 Emissions: 0.0 kg/MWh" FontSize="12"/>
+              <TextBlock Text="Max Heat: 4,0 MW" FontSize="12"/>
+              <TextBlock Text="Production costs: 520 DKK/MWh(th)" FontSize="12"/>
+              <TextBlock Text="CO2 Emissions: 175 kg/MWh(th)" FontSize="12"/>
+              <TextBlock Text="Gas consumption: 0,9 MWh(gas)/MWh(th))" FontSize="12"/>
             </StackPanel>
           </StackPanel>
         </Border>
@@ -65,11 +63,52 @@
         <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
           <StackPanel Orientation="Horizontal" Spacing="10">
            <!-- <Image Width="32" Height="32" Source="/Assets/Icons/heatpump.png"/>-->
+           <StackPanel>
+              <TextBlock Text="Gas Boiler Unit 2" FontWeight="Bold" />
+              <TextBlock Text="Max Heat: 3,0 MW" FontSize="12"/>
+              <TextBlock Text="Production costs: 560 DKK/MWh(th)" FontSize="12"/>
+              <TextBlock Text="CO2 Emissions: 130 kg/MWh(th)" FontSize="12"/>
+              <TextBlock Text="Gas consumption: 0,7 MWh(gas)/MWh(th))" FontSize="12"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+
+        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
+          <StackPanel Orientation="Horizontal" Spacing="10">
+           <!-- <Image Width="32" Height="32" Source="/Assets/Icons/heatpump.png"/>-->
             <StackPanel>
-              <TextBlock Text="Heat Pump Unit" FontWeight="Bold" />
-              <TextBlock Text="Heat Output: 0 MW" FontSize="12"/>
-              <TextBlock Text="COP: 0.0" FontSize="12"/>
-              <TextBlock Text="Electricity Use: 0.0 MW" FontSize="12"/>
+              <TextBlock Text="Oil Boiler Unit 1" FontWeight="Bold" />
+              <TextBlock Text="Max Heat: 4,0 MW" FontSize="12"/>
+              <TextBlock Text="Production costs: 670 DKK/MWh(th)" FontSize="12"/>
+              <TextBlock Text="CO2 Emissions: 330 kg/MWh(th)" FontSize="12"/>
+              <TextBlock Text="Oil consumption: 1,5 MWh(oil)/MWh(th))" FontSize="12"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+
+        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
+          <StackPanel Orientation="Horizontal" Spacing="10">
+           <!-- <Image Width="32" Height="32" Source="/Assets/Icons/heatpump.png"/>-->
+            <StackPanel>
+              <TextBlock Text="Gas Motor Unit 1" FontWeight="Bold" />
+              <TextBlock Text="Max Heat: 3,5 MW" FontSize="12"/>
+              <TextBlock Text="Production costs: 520 DKK/MWh(th)" FontSize="12"/>
+              <TextBlock Text="CO2 Emissions: 175 kg/MWh(th)" FontSize="12"/>
+              <TextBlock Text="Gas consumption: 0,9 MWh(gas)/MWh(th))" FontSize="12"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+
+        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
+          <StackPanel Orientation="Horizontal" Spacing="10">
+           <!-- <Image Width="32" Height="32" Source="/Assets/Icons/heatpump.png"/>-->
+            <StackPanel>
+              <TextBlock Text="Heat Pump Unit 1" FontWeight="Bold" />
+              <TextBlock Text="Max Heat: 6,0 MW" FontSize="12"/>
+              <TextBlock Text="Max eletriity -6,0 MW" FontSize="12"/>
+              <TextBlock Text="Production costs: 60 DKK/MWh(th)" FontSize="12"/>
+             
+              
             </StackPanel>
           </StackPanel>
         </Border>
