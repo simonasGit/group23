@@ -1,106 +1,17 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
         x:Class="HeatOptimizationApp.Views.DataVisualizationWindow"
         Width="900" Height="750"
         Title="Data Visualization Dashboard">
 
   <ScrollViewer>
-    <StackPanel Margin="20" Spacing="15">
+    <StackPanel Margin="20" Spacing="20">
+      <TextBlock Text="Winter Heat Demand" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+      <lvc:CartesianChart x:Name="WinterChart" Height="300" />
 
-      <TextBlock Text="Data Visualization Dashboard"
-                 FontSize="24"
-                 FontWeight="Bold"
-                 Margin="0,0,0,20"/>
-
-      <WrapPanel ItemWidth="420" ItemHeight="280" Orientation="Horizontal">
-
-        <!-- Heat Metrics Card -->
-        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
-          <StackPanel>
-            <TextBlock Text="🌡 Heat Metrics" FontWeight="Bold" FontSize="16"/>
-            <Border Height="150" Background="#E5E7EB" CornerRadius="4" Margin="0,10">
-              <TextBlock Text="Heat Demand Chart" 
-                         HorizontalAlignment="Center" VerticalAlignment="Center" 
-                         Foreground="#9CA3AF"/>
-            </Border>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
-              <TextBlock Text="Current Demand" FontSize="12"/>
-              <TextBlock Text="00.0 MW" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
-              <TextBlock Text="Production Rate" FontSize="12"/>
-              <TextBlock Text="00.0 MW" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
-            </StackPanel>
-          </StackPanel>
-        </Border>
-
-        <!-- Electricity Production/Consumption Card -->
-        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
-          <StackPanel>
-            <TextBlock Text="⚡ Electricity Production/Consumption" FontWeight="Bold" FontSize="16"/>
-            <Border Height="150" Background="#E5E7EB" CornerRadius="4" Margin="0,10">
-              <TextBlock Text="Electricity Usage Chart" 
-                         HorizontalAlignment="Center" VerticalAlignment="Center" 
-                         Foreground="#9CA3AF"/>
-            </Border>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
-              <TextBlock Text="Production" FontSize="12"/>
-              <TextBlock Text="00.0 MWh" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
-              <TextBlock Text="Consumption" FontSize="12"/>
-              <TextBlock Text="00.0 MWh" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
-            </StackPanel>
-          </StackPanel>
-        </Border>
-
-        <!-- Production Units Status Card -->
-        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
-          <StackPanel>
-            <TextBlock Text="🏭 Production Units Status" FontWeight="Bold" FontSize="16"/>
-            <StackPanel Margin="0,10" Spacing="6">
-              <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                <TextBlock Text="Gas Boiler 1" FontSize="12"/>
-                <Button Content="Active" Background="#D1FAE5" Foreground="#065F46" FontSize="12" Margin="1,0,0,0"/>
-              </StackPanel>
-              <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                <TextBlock Text="Gas Boiler 2" FontSize="12"/>
-                <Button Content="Standby" Background="#FEF3C7" Foreground="#92400E" FontSize="12" Margin="1,0,0,0"/>
-              </StackPanel>
-              <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                <TextBlock Text="Oil Boiler" FontSize="12"/>
-                <Button Content="Inactive" Background="#FEE2E2" Foreground="#991B1B" FontSize="12" Margin="1,0,0,0"/>
-              </StackPanel>
-              <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                <TextBlock Text="Heat Pump" FontSize="12"/>
-                <Button Content="Active" Background="#D1FAE5" Foreground="#065F46" FontSize="12" Margin="1,0,0,0"/>
-              </StackPanel>
-            </StackPanel>
-          </StackPanel>
-        </Border>
-
-        <!-- Cost Analysis Card -->
-        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
-          <StackPanel>
-            <TextBlock Text="💰 Cost Analysis" FontWeight="Bold" FontSize="16"/>
-            <Border Height="150" Background="#E5E7EB" CornerRadius="4" Margin="0,10">
-              <TextBlock Text="Cost/Profit Chart" 
-                         HorizontalAlignment="Center" VerticalAlignment="Center" 
-                         Foreground="#9CA3AF"/>
-            </Border>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
-              <TextBlock Text="Operating Costs" FontSize="12"/>
-              <TextBlock Text="DKK 00,000/day" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
-              <TextBlock Text="Revenue" FontSize="12"/>
-              <TextBlock Text="DKK 00,000/day" FontWeight="Bold" FontSize="12" Margin="1,0,0,0"/>
-            </StackPanel>
-          </StackPanel>
-        </Border>
-
-      </WrapPanel>
-
+      <TextBlock Text="Summer Electricity Price" FontSize="16" FontWeight="Bold" Margin="20,20,0,10"/>
+      <lvc:CartesianChart x:Name="SummerChart" Height="300" />
     </StackPanel>
   </ScrollViewer>
 </Window>
