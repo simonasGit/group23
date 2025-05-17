@@ -23,7 +23,10 @@
 /home/basil/.nuget/packages/avalonia.win32/11.2.1/lib/net8.0/Avalonia.Win32.dll
 /home/basil/.nuget/packages/avalonia.x11/11.2.1/lib/net8.0/Avalonia.X11.dll
 /home/basil/.nuget/packages/communitytoolkit.mvvm/8.2.1/lib/net6.0/CommunityToolkit.Mvvm.dll
-/home/basil/.nuget/packages/harfbuzzsharp/7.3.0.2/lib/net6.0/HarfBuzzSharp.dll
+/home/basil/.nuget/packages/harfbuzzsharp/7.3.0.3/lib/net6.0/HarfBuzzSharp.dll
+/home/basil/.nuget/packages/livechartscore/2.0.0-rc5.4/lib/net8.0/LiveChartsCore.dll
+/home/basil/.nuget/packages/livechartscore.skiasharpview.avalonia/2.0.0-rc5.4/lib/net8.0/LiveChartsCore.SkiaSharpView.Avalonia.dll
+/home/basil/.nuget/packages/livechartscore.skiasharpview/2.0.0-rc5.4/lib/net8.0/LiveChartsCore.SkiaSharpView.dll
 /home/basil/.nuget/packages/microcom.runtime/0.11.0/lib/net5.0/MicroCom.Runtime.dll
 /home/basil/.nuget/packages/microsoft.netcore.app.ref/9.0.3/ref/net9.0/Microsoft.CSharp.dll
 /home/basil/.nuget/packages/microsoft.netcore.app.ref/9.0.3/ref/net9.0/Microsoft.VisualBasic.Core.dll
@@ -32,7 +35,8 @@
 /home/basil/.nuget/packages/microsoft.netcore.app.ref/9.0.3/ref/net9.0/Microsoft.Win32.Registry.dll
 /home/basil/.nuget/packages/microsoft.netcore.app.ref/9.0.3/ref/net9.0/mscorlib.dll
 /home/basil/.nuget/packages/microsoft.netcore.app.ref/9.0.3/ref/net9.0/netstandard.dll
-/home/basil/.nuget/packages/skiasharp/2.88.8/lib/net6.0/SkiaSharp.dll
+/home/basil/.nuget/packages/skiasharp/2.88.9/lib/net6.0/SkiaSharp.dll
+/home/basil/.nuget/packages/skiasharp.harfbuzz/2.88.9/lib/net6.0/SkiaSharp.HarfBuzz.dll
 /home/basil/.nuget/packages/microsoft.netcore.app.ref/9.0.3/ref/net9.0/System.AppContext.dll
 /home/basil/.nuget/packages/microsoft.netcore.app.ref/9.0.3/ref/net9.0/System.Buffers.dll
 /home/basil/.nuget/packages/microsoft.netcore.app.ref/9.0.3/ref/net9.0/System.Collections.Concurrent.dll

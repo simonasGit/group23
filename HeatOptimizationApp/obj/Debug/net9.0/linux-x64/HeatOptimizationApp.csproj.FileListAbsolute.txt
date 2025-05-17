@@ -48,3 +48,8 @@
 /home/basil/code/skool/group23/HeatOptimizationApp/obj/Debug/net9.0/linux-x64/HeatOpti.42727A5E.Up2Date
 /home/basil/code/skool/group23/HeatOptimizationApp/obj/Debug/net9.0/linux-x64/HeatOptimizationApp.genruntimeconfig.cache
 /home/basil/code/skool/group23/HeatOptimizationApp/obj/Debug/net9.0/linux-x64/ref/HeatOptimizationApp.dll
+/home/basil/code/skool/group23/HeatOptimizationApp/bin/Debug/net9.0/linux-x64/2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv
+/home/basil/code/skool/group23/HeatOptimizationApp/bin/Debug/net9.0/linux-x64/LiveChartsCore.dll
+/home/basil/code/skool/group23/HeatOptimizationApp/bin/Debug/net9.0/linux-x64/LiveChartsCore.SkiaSharpView.dll
+/home/basil/code/skool/group23/HeatOptimizationApp/bin/Debug/net9.0/linux-x64/LiveChartsCore.SkiaSharpView.Avalonia.dll
+/home/basil/code/skool/group23/HeatOptimizationApp/bin/Debug/net9.0/linux-x64/SkiaSharp.HarfBuzz.dll
