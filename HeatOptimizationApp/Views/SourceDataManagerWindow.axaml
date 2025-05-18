@@ -1,7 +1,10 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
+        xmlns:local="clr-namespace:HeatOptimizationApp.Views"
         x:Class="HeatOptimizationApp.Views.SourceDataManagerWindow"
-        Width="900" Height="650"
+        x:DataType="local:SourceDataManagerWindow"
+        Width="900" Height="900"
         Title="Source Data Manager (SDM)">
 
   <ScrollViewer>
@@ -17,32 +20,58 @@
       <!-- Graph Cards -->
       <WrapPanel ItemWidth="420" ItemHeight="280" Orientation="Horizontal">
 
-        <!-- Heat Demand Time Series -->
+        <!-- Winter Heat Demand -->
         <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
           <StackPanel Spacing="8">
-            <TextBlock Text="Heat Demand Time Series" FontWeight="Bold" FontSize="16"/>
-            <Border Height="150" Background="#E5E7EB" CornerRadius="4">
-              <TextBlock Text="📉 Heat Demand Graph (1-hour resolution)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#9CA3AF"/>
+            <TextBlock Text="Winter Heat Demand" FontWeight="Bold" FontSize="16"/>
+            <Border Height="150" Background="#E5E7EB" CornerRadius="4" Padding="4">
+              <lvc:CartesianChart Series="{Binding WinterDemandSeries}" />
             </Border>
             <StackPanel Orientation="Vertical" Spacing="4">
               <TextBlock Text="Time Resolution: 1 hour" FontSize="12"/>
-              <TextBlock Text="Data Points: 24/day" FontSize="12"/>
-              <TextBlock Text="Last Updated: 0000-00-00 00:00" FontSize="12"/>
+              <TextBlock Text="Season: Winter" FontSize="12"/>
             </StackPanel>
           </StackPanel>
         </Border>
 
-        <!-- Electricity Price Time Series -->
+        <!-- Summer Heat Demand -->
         <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
           <StackPanel Spacing="8">
-            <TextBlock Text="Electricity Prices Time Series" FontWeight="Bold" FontSize="16"/>
-            <Border Height="150" Background="#E5E7EB" CornerRadius="4">
-              <TextBlock Text="📉 Electricity Price Graph (1-hour resolution)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#9CA3AF"/>
+            <TextBlock Text="Summer Heat Demand" FontWeight="Bold" FontSize="16"/>
+            <Border Height="150" Background="#E5E7EB" CornerRadius="4" Padding="4">
+              <lvc:CartesianChart Series="{Binding SummerDemandSeries}" />
             </Border>
             <StackPanel Orientation="Vertical" Spacing="4">
               <TextBlock Text="Time Resolution: 1 hour" FontSize="12"/>
-              <TextBlock Text="Market Data: Day-ahead" FontSize="12"/>
-              <TextBlock Text="Last Updated: 0000-00-00 00:00" FontSize="12"/>
+              <TextBlock Text="Season: Summer" FontSize="12"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+
+        <!-- Winter Electricity Price -->
+        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
+          <StackPanel Spacing="8">
+            <TextBlock Text="Winter Electricity Price" FontWeight="Bold" FontSize="16"/>
+            <Border Height="150" Background="#E5E7EB" CornerRadius="4" Padding="4">
+              <lvc:CartesianChart Series="{Binding WinterElectricitySeries}" />
+            </Border>
+            <StackPanel Orientation="Vertical" Spacing="4">
+              <TextBlock Text="Time Resolution: 1 hour" FontSize="12"/>
+              <TextBlock Text="Season: Winter" FontSize="12"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+
+        <!-- Summer Electricity Price -->
+        <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
+          <StackPanel Spacing="8">
+            <TextBlock Text="Summer Electricity Price" FontWeight="Bold" FontSize="16"/>
+            <Border Height="150" Background="#E5E7EB" CornerRadius="4" Padding="4">
+              <lvc:CartesianChart Series="{Binding SummerElectricitySeries}" />
+            </Border>
+            <StackPanel Orientation="Vertical" Spacing="4">
+              <TextBlock Text="Time Resolution: 1 hour" FontSize="12"/>
+              <TextBlock Text="Season: Summer" FontSize="12"/>
             </StackPanel>
           </StackPanel>
         </Border>
