@@ -139,6 +139,3 @@ C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOpt
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.genruntimeconfig.cache
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\ref\HeatOptimizationApp.dll
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\bin\Debug\net9.0\2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.dll
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\refint\HeatOptimizationApp.dll
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.pdb
