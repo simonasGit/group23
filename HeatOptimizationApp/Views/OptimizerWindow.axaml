@@ -1,6 +1,9 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+        xmlns:local="clr-namespace:HeatOptimizationApp.Views"
         x:Class="HeatOptimizationApp.Views.OptimizerWindow"
+        x:DataType="local:OptimizerWindow"
         Width="900" Height="650"
         Title="Optimizer (OPT)">
 
@@ -57,20 +60,16 @@
                     </StackPanel>
                 </Border>
 
-                <!-- Optimization Periods -->
+                <!-- Optimization Chart -->
                 <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
                     <StackPanel>
-                        <TextBlock Text="Optimization Periods" FontWeight="Bold" FontSize="16"/>
-                        <StackPanel Margin="10,10">
-                            <TextBlock Text="Winter Period" FontWeight="Bold" FontSize="12"/>
-                            <StackPanel Margin="10,5">
-                                <TextBlock Text="❄️" FontSize="12"/>
-                            </StackPanel>
-                            <TextBlock Text="Summer Period" FontWeight="Bold" FontSize="12" Margin="0,10,0,0"/>
-                            <StackPanel Margin="10,5">
-                                <TextBlock Text="☀️" FontSize="12"/>
-                            </StackPanel>
-                        </StackPanel>
+                        <TextBlock Text="Optimization Chart" FontWeight="Bold" FontSize="16"/>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <lvc:CartesianChart x:Name="WinterChart" Series="{Binding Series}"></lvc:CartesianChart>
+                        </Grid>
                     </StackPanel>
                 </Border>
 
