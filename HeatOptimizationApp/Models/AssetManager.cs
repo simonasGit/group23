@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace HeatOptimizationApp
 {
-    
+
     public class Asset
     {
         public string Name { get; set; }
@@ -12,7 +12,7 @@ namespace HeatOptimizationApp
         public double CO2Emissions { get; set; }   // kg/MWh(th)
     }
 
-    
+
     public class GasBoiler : Asset
     {
         public double GasConsumption { get; set; } // MWh(gas)/MWh(th)
@@ -20,7 +20,7 @@ namespace HeatOptimizationApp
 
     public class OilBoiler : Asset
     {
-        public double OilConsumption { get; set; } // MWh(oil)/MWh(th) remember the units later beacuse converting mught be a problem 
+        public double OilConsumption { get; set; } // MWh(oil)/MWh(th) remember the units later beacuse converting mught be a problem
     }
 
     public class GasMotor : Asset
