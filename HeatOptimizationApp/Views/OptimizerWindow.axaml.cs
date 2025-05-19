@@ -49,13 +49,13 @@ namespace HeatOptimizationApp.Views
                 {
                     Values = gb1,
                     Name = "GB1",
-                    Fill = new SolidColorPaint(SKColors.Goldenrod)
+                    Fill = new SolidColorPaint(SKColors.Yellow)
                 },
                 new StackedColumnSeries<double>
                 {
                     Values = gb2,
                     Name = "GB2",
-                    Fill = new SolidColorPaint(SKColors.SaddleBrown)
+                    Fill = new SolidColorPaint(SKColors.Orange)
                 },
                 new StackedColumnSeries<double>
                 {
