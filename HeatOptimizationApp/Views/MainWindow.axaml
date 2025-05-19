@@ -2,105 +2,74 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="HeatOptimizationApp.Views.MainWindow"
         Width="900" Height="650"
-        Title="📈WattsUp"
-        Background="#F9FAFB"
+        Title="🔥 WattsUp - Heat Optimization System"
+        Background="#1F2937"
         Padding="20">
 
+    <!-- 🔥 Styles Section -->
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#374151"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderBrush" Value="#F59E0B"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+        </Style>
+    </Window.Styles>
+
     <DockPanel LastChildFill="True">
-        <!-- Top Bar -->
-       <!--  <StackPanel DockPanel.Dock="Top"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Right"
-                    Margin="0,0,0,10">
-            <Button Name="AdminButton"
-                    Content="Settings"
-                    Width="100"
-                    Height="30"
-                    Background="#E5E7EB"
-                    BorderBrush="#D1D5DB"
-                    Foreground="Black"/>
-        </StackPanel>-->
 
-        <!-- Main Title -->
-        <TextBlock DockPanel.Dock="Top"
-                   Text="System Components "
-                   FontSize="24"
-                   FontWeight="Bold"
-                   Margin="0,0,0,20"/>
+        <!-- Header -->
+        <StackPanel DockPanel.Dock="Top" Margin="0,0,0,20">
+            <TextBlock Text="🔥 WattsUp – System Components"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       Foreground="#FCD34D"
+                       Margin="0,0,0,10"/>
+            <TextBlock Text="Manage your heat optimization workflow efficiently"
+                       FontSize="14"
+                       Foreground="#D1D5DB"/>
+        </StackPanel>
 
-        <!-- Component Buttons Grid -->
-        <WrapPanel ItemWidth="400"
-                   ItemHeight="100"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   Orientation="Horizontal">
+        <!-- Buttons -->
+        <WrapPanel ItemWidth="420" ItemHeight="100" HorizontalAlignment="Center" Orientation="Horizontal">
 
-            <Button Name="AssetManagerButton"
-                Width="380" Height="90" Margin="10"
-                    Background="White" BorderBrush="#D1D5DB">
+            <Button Name="AssetManagerButton" Width="400" Height="90" Margin="10">
                 <StackPanel>
-                    <TextBlock Text="⚙️  Asset Manager (AM)"
-                               FontWeight="Bold"
-                               FontSize="16"/>
-                    <TextBlock Text="Manages and monitors all heating assets and their operational parameters."
-                               TextWrapping="Wrap"
-                               FontSize="12"/>
+                    <TextBlock Text="⚙️ Asset Manager (AM)" FontWeight="Bold"/>
+                    <TextBlock Text="Manage and monitor heating assets." FontSize="12" Foreground="#9CA3AF"/>
                 </StackPanel>
             </Button>
 
-            <Button Name="SourceDataManagerButton"
-                Width="380" Height="90" Margin="10"
-                    Background="White" BorderBrush="#D1D5DB">
+            <Button Name="SourceDataManagerButton" Width="400" Height="90" Margin="10">
                 <StackPanel>
-                    <TextBlock Text="🛢️  Source Data Manager (SDM)"
-                               FontWeight="Bold"
-                               FontSize="16"/>
-                    <TextBlock Text="Handles input data collection and processing from various sources."
-                               TextWrapping="Wrap"
-                               FontSize="12"/>
+                    <TextBlock Text="🛢️ Source Data Manager (SDM)" FontWeight="Bold"/>
+                    <TextBlock Text="Collect and process source data." FontSize="12" Foreground="#9CA3AF"/>
                 </StackPanel>
             </Button>
 
-            <Button Name="ResultDataManagerButton"
-                Width="380" Height="90" Margin="10"
-                    Background="White" BorderBrush="#D1D5DB">
+            <Button Name="ResultDataManagerButton" Width="400" Height="90" Margin="10">
                 <StackPanel>
-                    <TextBlock Text="📊 Result Data Manager (RDM)"
-                               FontWeight="Bold"
-                               FontSize="16"/>
-                    <TextBlock Text="Processes and stores optimization results and historical analysis."
-                               TextWrapping="Wrap"
-                               FontSize="12"/>
+                    <TextBlock Text="📊 Result Data Manager (RDM)" FontWeight="Bold"/>
+                    <TextBlock Text="Analyze and visualize results." FontSize="12" Foreground="#9CA3AF"/>
                 </StackPanel>
             </Button>
 
-            <Button Name="OptimizerButton"
-                Width="380" Height="90" Margin="10"
-                    Background="White" BorderBrush="#D1D5DB">
+            <Button Name="OptimizerButton" Width="400" Height="90" Margin="10">
                 <StackPanel>
-                    <TextBlock Text="🧠 Optimizer (OPT)"
-                               FontWeight="Bold"
-                               FontSize="16"/>
-                    <TextBlock Text="Executes algorithms for heat production and cost efficiency."
-                               TextWrapping="Wrap"
-                               FontSize="12"/>
+                    <TextBlock Text="🧠 Optimizer (OPT)" FontWeight="Bold"/>
+                    <TextBlock Text="Run heat production optimizations." FontSize="12" Foreground="#9CA3AF"/>
                 </StackPanel>
             </Button>
 
-            <!-- Data Visualization Button (named properly) -->
-            <Button Name="DataVisualizationButton"
-                    Width="780" Height="90" Margin="10"
-                    Background="White" BorderBrush="#D1D5DB">
+            <Button Name="DataVisualizationButton" Width="820" Height="90" Margin="10">
                 <StackPanel>
-                    <TextBlock Text="📈 Data Visualization (DV)"
-                               FontWeight="Bold"
-                               FontSize="16"/>
-                    <TextBlock Text="Provides dashboards and real-time monitoring visuals."
-                               TextWrapping="Wrap"
-                               FontSize="12"/>
+                    <TextBlock Text="📈 Data Visualization (DV)" FontWeight="Bold"/>
+                    <TextBlock Text="Interactive dashboards and heat maps." FontSize="12" Foreground="#9CA3AF"/>
                 </StackPanel>
             </Button>
-
         </WrapPanel>
     </DockPanel>
 </Window>
