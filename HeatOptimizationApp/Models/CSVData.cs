@@ -19,7 +19,7 @@ namespace HeatOptimizationApp.Models
             var winterRows = new List<WinterDataRow>();
             if (!File.Exists(path)) return winterRows;
 
-            var lines = File.ReadAllLines(path).Skip(4);
+            var lines = File.ReadAllLines(path).Skip(3);
 
             foreach (var line in lines)
             {

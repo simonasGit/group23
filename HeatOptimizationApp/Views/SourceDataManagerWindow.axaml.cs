@@ -14,10 +14,12 @@ public partial class SourceDataManagerWindow : Window
     public ISeries[] SummerDemandSeries { get; set; }
     public ISeries[] WinterElectricitySeries { get; set; }
     public ISeries[] SummerElectricitySeries { get; set; }
+    public Axis[] WinterDemandSeriesXAxes { get; set; }
 
     public SourceDataManagerWindow()
     {
         InitializeComponent();
+        DataContext = this;
 
         var path = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
         var winterData = CSVData.WinterData(path);
@@ -33,6 +35,17 @@ public partial class SourceDataManagerWindow : Window
                 Fill = null
             }
         };
+        SDMWinterChart.Series = WinterDemandSeries;
+        SDMWinterChart.XAxes = WinterDemandSeriesXAxes;
+        WinterDemandSeriesXAxes = new Axis[]{
+                    new Axis
+                    {
+                        LabelsRotation = 15,
+                        Labels = winterData
+                            .Select(x => x.TimeFrom)
+                            .ToArray()
+                    }
+                };
 
         SummerDemandSeries = new ISeries[]
         {
