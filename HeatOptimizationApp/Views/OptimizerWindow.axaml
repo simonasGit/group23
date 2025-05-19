@@ -1,80 +1,13 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
-        xmlns:local="clr-namespace:HeatOptimizationApp.Views"
-        x:Class="HeatOptimizationApp.Views.OptimizerWindow"
-        x:DataType="local:OptimizerWindow"
-        Width="900" Height="650"
-        Title="Optimizer (OPT)">
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
+    xmlns:vm="clr-namespace:HeatOptimizationApp.Views"
+    x:Class="HeatOptimizationApp.Views.OptimizerWindow"
+    x:DataType="vm:OptimizerWindow"
+    Title="OptimizerWindow" Width="900" Height="600">
 
-    <ScrollViewer>
-        <StackPanel Margin="20" Spacing="15">
-
-            <TextBlock Text="⚙️ Optimizer (OPT)" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
-
-            <WrapPanel ItemWidth="420" ItemHeight="200" Orientation="Horizontal">
-
-                <!-- Optimization Goals -->
-                <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
-                    <StackPanel>
-                        <TextBlock Text="Optimization Goals" FontWeight="Bold" FontSize="16"/>
-                        <StackPanel Margin="10,10">
-                            <TextBlock Text="🔵 Secure heat availability" FontSize="12"/>
-                            <TextBlock Text="🔵 Minimize heat production costs" FontSize="12"/>
-                            <TextBlock Text="🔵 Maximize electricity profit" FontSize="12"/>
-                            <TextBlock Text="🔵 Optimize electricity consumption costs" FontSize="12"/>
-                        </StackPanel>
-                    </StackPanel>
-                </Border>
-
-                <!-- Key Performance Metrics -->
-                <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
-                    <StackPanel>
-                        <TextBlock Text="Key Performance Metrics" FontWeight="Bold" FontSize="16"/>
-                        <StackPanel Margin="10,10">
-                            <TextBlock Text="Net Production Costs: DKK 0.00/MWh" FontSize="12"/>
-                            <TextBlock Text="Heat Availability: 100%" FontSize="12"/>
-                            <TextBlock Text="Electricity Trading Balance: + DKK 0.00" FontSize="12"/>
-                        </StackPanel>
-                    </StackPanel>
-                </Border>
-
-                <!-- Optimization Scenarios -->
-                <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
-                    <StackPanel>
-                        <TextBlock Text="Optimization Scenarios" FontWeight="Bold" FontSize="16"/>
-                        <StackPanel Margin="10,10">
-                            <TextBlock Text="Scenario 1" FontWeight="Bold" FontSize="12"/>
-                            <StackPanel Margin="10,5">
-                                <TextBlock Text="⚫ Two gas boilers" FontSize="12"/>
-                                <TextBlock Text="⚫ One oil boiler" FontSize="12"/>
-                            </StackPanel>
-                            <TextBlock Text="Scenario 2" FontWeight="Bold" FontSize="12" Margin="0,10,0,0"/>
-                            <StackPanel Margin="10,5">
-                                <TextBlock Text="⚫ One gas boiler" FontSize="12"/>
-                                <TextBlock Text="⚫ One ooil boiler" FontSize="12"/>
-                                <TextBlock Text="⚫ One gas motor" FontSize="12"/>
-                                <TextBlock Text="⚫ One heat pump" FontSize="12"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
-                </Border>
-
-                <!-- Optimization Chart -->
-                <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
-                    <StackPanel>
-                        <TextBlock Text="Optimization Chart" FontWeight="Bold" FontSize="16"/>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <lvc:CartesianChart x:Name="WinterChart" Series="{Binding Series}"></lvc:CartesianChart>
-                        </Grid>
-                    </StackPanel>
-                </Border>
-
-            </WrapPanel>
-
-        </StackPanel>
-    </ScrollViewer>
+    <Grid>
+        <lvc:CartesianChart Series="{Binding Series}" XAxes="{Binding XAxes}" YAxes="{Binding YAxes}" />
+    </Grid>
 </Window>
