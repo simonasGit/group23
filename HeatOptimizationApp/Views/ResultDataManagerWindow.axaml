@@ -1,5 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactions"
+        xmlns:core="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
         x:Class="HeatOptimizationApp.Views.ResultDataManagerWindow"
         Width="900" Height="650"
         Title="Result Data Manager (RDM)">
@@ -15,7 +17,7 @@
         <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
           <StackPanel Spacing="5">
             <TextBlock Text="Production Metrics" FontWeight="Bold" FontSize="16"/>
-            <TextBlock Text="🔥 Heat Production: 0 MWh" FontSize="12"/>
+            <TextBlock Text="🔥 Heat Production: 2296.4 MWh" FontSize="12"/>
             <TextBlock Text="⚡ Electricity Production: 0 MWh" FontSize="12"/>
             <TextBlock Text="🔌 Electricity Consumption: 0 MWh" FontSize="12"/>
           </StackPanel>
@@ -64,6 +66,25 @@
         </Border>
 
       </WrapPanel>
+
+
+<!-- Controls -->
+      <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
+        <StackPanel>
+          <TextBlock Text="Data Management Controls" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+          <WrapPanel ItemWidth="250" ItemHeight="30">
+            <Button x:Name="SaveButton" Content="💾 Save" Background="#E5E7EB" Foreground="Black">
+              <i:Interaction.Triggers>
+                <core:EventTrigger EventName="Click">
+                  <core:ChangePropertyAction TargetObject="{Binding ElementName=SaveButton}" PropertyName="Content" Value="Saved!"/>
+                </core:EventTrigger>
+              </i:Interaction.Triggers>
+            </Button>
+            <Button Content="💾 Save" Background="#E5E7EB" Foreground="Black"/>
+          </WrapPanel>
+        </StackPanel>
+      </Border>
+
 
     </StackPanel>
   </ScrollViewer>
