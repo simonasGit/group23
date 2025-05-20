@@ -78,17 +78,6 @@
 
       </WrapPanel>
 
-      <!-- Controls -->
-      <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
-        <StackPanel>
-          <TextBlock Text="Data Management Controls" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
-          <WrapPanel ItemWidth="250" ItemHeight="30">
-            <Button Content="⏱ Update" Background="#E5E7EB" Foreground="Black"/>
-            <Button Content="💾 Save" Background="#E5E7EB" Foreground="Black"/>
-          </WrapPanel>
-        </StackPanel>
-      </Border>
-
     </StackPanel>
   </ScrollViewer>
 </Window>
