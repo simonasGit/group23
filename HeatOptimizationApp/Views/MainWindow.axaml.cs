@@ -10,11 +10,11 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         //commented because admin button doesnt need to work
-        //!AdminButton.Click += (_, _) => 
-      //  {
-       //     var adminWindow = new AdminWindow();
-      //  adminWindow.Show();
-       // };
+        //!AdminButton.Click += (_, _) =>
+        //  {
+        //     var adminWindow = new AdminWindow();
+        //  adminWindow.Show();
+        // };
         DataVisualizationButton.Click += (_, _) =>
         {
             var dvWindow = new DataVisualizationWindow();
@@ -22,16 +22,16 @@ public partial class MainWindow : Window
         };
         AssetManagerButton.Click += (_, _) =>
         {//using try catch because it was catching, this is for debug and should be removed later hopefuly
-        
+
             var amWindow = new AssetManagerWindow();
             amWindow.Show();
-            
+
         };
-        SourceDataManagerButton.Click += (_, _) => 
-        {
-            var sdmWindow = new SourceDataManagerWindow();
-            sdmWindow.Show();
-        };
+        // SourceDataManagerButton.Click += (_, _) =>
+        // {
+        //     var sdmWindow = new SourceDataManagerWindow();
+        //     sdmWindow.Show();
+        // };
         //the logic is the same if you want to add any other window, but I wanted to make tabs actually
         OptimizerButton.Click += (_, _) =>
         {
@@ -43,8 +43,8 @@ public partial class MainWindow : Window
             var rdmWindow = new ResultDataManagerWindow();
             rdmWindow.Show();
         };
-        
-        
-        
+
+
+
     }
 }

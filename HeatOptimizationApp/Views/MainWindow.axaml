@@ -43,13 +43,6 @@
                 </StackPanel>
             </Button>
 
-            <Button Name="SourceDataManagerButton" Width="400" Height="90" Margin="10">
-                <StackPanel>
-                    <TextBlock Text="🛢️ Source Data Manager (SDM)" FontWeight="Bold"/>
-                    <TextBlock Text="Collect and process source data." FontSize="12" Foreground="#9CA3AF"/>
-                </StackPanel>
-            </Button>
-
             <Button Name="ResultDataManagerButton" Width="400" Height="90" Margin="10">
                 <StackPanel>
                     <TextBlock Text="📊 Result Data Manager (RDM)" FontWeight="Bold"/>
@@ -64,7 +57,7 @@
                 </StackPanel>
             </Button>
 
-            <Button Name="DataVisualizationButton" Width="820" Height="90" Margin="10">
+            <Button Name="DataVisualizationButton" Width="400" Height="90" Margin="10">
                 <StackPanel>
                     <TextBlock Text="📈 Data Visualization (DV)" FontWeight="Bold"/>
                     <TextBlock Text="Interactive dashboards and heat maps." FontSize="12" Foreground="#9CA3AF"/>
