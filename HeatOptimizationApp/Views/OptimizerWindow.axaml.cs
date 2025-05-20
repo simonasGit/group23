@@ -9,6 +9,7 @@ using System.Linq;
 using Avalonia.Interactivity;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
+using LiveChartsCore.SkiaSharpView.Avalonia;
 
 namespace HeatOptimizationApp.Views
 {
@@ -20,10 +21,17 @@ namespace HeatOptimizationApp.Views
 
         public OptimizerWindow()
         {
+
+
+
             InitializeComponent();
 
+            var chart = this.FindControl<CartesianChart>("OptimizerChart");
+            chart.ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.X;
+
+
             var filePath = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
-            var lines = File.ReadAllLines(filePath).Skip(4).ToList(); // Skip headers
+            var lines = File.ReadAllLines(filePath).Skip(4).ToList();
 
             var timestamps = new List<string>();
             var gb1 = new List<double>();
@@ -37,7 +45,7 @@ namespace HeatOptimizationApp.Views
                 if (columns.Length < 4 || !double.TryParse(columns[3], NumberStyles.Any, CultureInfo.InvariantCulture, out var demand))
                     continue;
 
-                timestamps.Add(columns[1]); // Time from
+                timestamps.Add(columns[1]);
                 gb1.Add(Math.Min(demand, 4));
                 gb2.Add(Math.Min(Math.Max(demand - 4, 0), 3));
                 ob1.Add(Math.Max(demand - 7, 0));
@@ -72,7 +80,10 @@ namespace HeatOptimizationApp.Views
                     Labels = timestamps,
                     LabelsRotation = 45,
                     TextSize = 12,
-                    Name = "Time"
+                    Name = "Time",
+                    MinStep = 1,
+                    UnitWidth = 1,
+                    Labeler = value => timestamps.ElementAtOrDefault((int)value) ?? string.Empty
                 }
             };
 
@@ -81,11 +92,13 @@ namespace HeatOptimizationApp.Views
                 new Axis
                 {
                     Name = "Heat Demand (MWh)",
-                    TextSize = 14
+                    TextSize = 14,
+                    MinLimit = 0
                 }
             };
 
             DataContext = this;
         }
+        
     }
 }

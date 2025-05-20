@@ -66,6 +66,18 @@ C:\Users\T490\Documents\group23\HeatOptimizationApp\obj\Debug\net9.0\refint\Aval
 C:\Users\T490\Documents\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOpti.42727A5E.Up2Date
 C:\Users\T490\Documents\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.genruntimeconfig.cache
 C:\Users\T490\Documents\group23\HeatOptimizationApp\obj\Debug\net9.0\ref\HeatOptimizationApp.dll
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.csproj.AssemblyReference.cache
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\Avalonia\Resources.Inputs.cache
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\Avalonia\resources
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.AssemblyInfoInputs.cache
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.AssemblyInfo.cs
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.csproj.CoreCompileInputs.cache
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.sourcelink.json
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\Avalonia\HeatOptimizationApp.dll
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\Avalonia\HeatOptimizationApp.pdb
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\refint\Avalonia\HeatOptimizationApp.dll
+C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\bin\Debug\net9.0\2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\bin\Debug\net9.0\HeatOptimizationApp.exe
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\bin\Debug\net9.0\HeatOptimizationApp.deps.json
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\bin\Debug\net9.0\HeatOptimizationApp.runtimeconfig.json
@@ -124,18 +136,6 @@ C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOpt
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\bin\Debug\net9.0\runtimes\win-arm64\native\libSkiaSharp.dll
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\bin\Debug\net9.0\runtimes\win-x64\native\libSkiaSharp.dll
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\bin\Debug\net9.0\runtimes\win-x86\native\libSkiaSharp.dll
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.csproj.AssemblyReference.cache
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\Avalonia\Resources.Inputs.cache
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\Avalonia\resources
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.AssemblyInfoInputs.cache
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.AssemblyInfo.cs
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.csproj.CoreCompileInputs.cache
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.sourcelink.json
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\Avalonia\HeatOptimizationApp.dll
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\Avalonia\HeatOptimizationApp.pdb
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\refint\Avalonia\HeatOptimizationApp.dll
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOpti.42727A5E.Up2Date
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\HeatOptimizationApp.genruntimeconfig.cache
 C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\obj\Debug\net9.0\ref\HeatOptimizationApp.dll
-C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\bin\Debug\net9.0\2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv

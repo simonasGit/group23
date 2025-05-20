@@ -1,4 +1,4 @@
-<Window
+<Window 
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
@@ -8,6 +8,10 @@
     Title="OptimizerWindow" Width="900" Height="600">
 
     <Grid>
-        <lvc:CartesianChart Series="{Binding Series}" XAxes="{Binding XAxes}" YAxes="{Binding YAxes}" />
+        <lvc:CartesianChart 
+            x:Name="OptimizerChart"
+            Series="{Binding Series}" 
+            XAxes="{Binding XAxes}" 
+            YAxes="{Binding YAxes}" />
     </Grid>
 </Window>

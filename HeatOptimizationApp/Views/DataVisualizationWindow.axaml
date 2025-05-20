@@ -8,7 +8,7 @@
     <ScrollViewer>
         <StackPanel Margin="20" Spacing="20">
 
-            <!-- Winter Electricity Price -->
+            
             <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
                 <StackPanel>
                     <TextBlock Text="❄️ Winter Electricity Price" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
@@ -16,7 +16,7 @@
                 </StackPanel>
             </Border>
 
-            <!-- Winter Heat Demand -->
+            
             <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
                 <StackPanel>
                     <TextBlock Text="🔥 Winter Heat Demand" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
@@ -24,7 +24,7 @@
                 </StackPanel>
             </Border>
 
-            <!-- Summer Electricity Price -->
+            
             <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
                 <StackPanel>
                     <TextBlock Text="🌞 Summer Electricity Price" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
@@ -32,7 +32,7 @@
                 </StackPanel>
             </Border>
 
-            <!-- Summer Heat Demand -->
+            
             <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
                 <StackPanel>
                     <TextBlock Text="🌴 Summer Heat Demand" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
