@@ -78,8 +78,8 @@ namespace HeatOptimizationApp
                 Name = "GM1",
                 MaxHeat = 3.5,
                 MaxElectricity = 2.6,
-                ProductionCost = 650,
-                CO2Emissions = 190,
+                ProductionCost = 990,
+                CO2Emissions = 650,
                 GasConsumption = 1.8
             });
 
@@ -87,8 +87,8 @@ namespace HeatOptimizationApp
             {
                 Name = "HP1",
                 MaxHeat = 6.0,
-                MaxElectricity = 6.0,
-                ProductionCost = 260,
+                MaxElectricity = -6.0,
+                ProductionCost = 60,
                 CO2Emissions = 0
             });
         }
