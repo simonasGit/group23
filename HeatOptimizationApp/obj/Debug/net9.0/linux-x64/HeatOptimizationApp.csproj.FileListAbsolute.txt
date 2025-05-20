@@ -53,6 +53,3 @@
 /home/basil/code/skool/group23/HeatOptimizationApp/bin/Debug/net9.0/linux-x64/LiveChartsCore.SkiaSharpView.dll
 /home/basil/code/skool/group23/HeatOptimizationApp/bin/Debug/net9.0/linux-x64/LiveChartsCore.SkiaSharpView.Avalonia.dll
 /home/basil/code/skool/group23/HeatOptimizationApp/bin/Debug/net9.0/linux-x64/SkiaSharp.HarfBuzz.dll
-/home/basil/code/skool/group23/HeatOptimizationApp/obj/Debug/net9.0/linux-x64/HeatOptimizationApp.dll
-/home/basil/code/skool/group23/HeatOptimizationApp/obj/Debug/net9.0/linux-x64/refint/HeatOptimizationApp.dll
-/home/basil/code/skool/group23/HeatOptimizationApp/obj/Debug/net9.0/linux-x64/HeatOptimizationApp.pdb
