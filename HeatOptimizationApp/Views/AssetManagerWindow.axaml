@@ -9,27 +9,22 @@
 
       <TextBlock Text="⚙️ Asset Manager (AM)" FontSize="24" FontWeight="Bold" />
 
-      <!-- Top Row -->
       <WrapPanel ItemWidth="420" ItemHeight="120" Orientation="Horizontal">
 
-        <!-- Heating Grid Info -->
         <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
           <StackPanel>
             <TextBlock Text="Heating Grid Information" FontWeight="Bold" FontSize="16" />
             <TextBlock Text="District Grid" FontWeight="Bold" FontSize="14" Margin="0,10,0,0"/>
             <TextBlock Text="Main heating distribution network serving district area"
-                       FontSize="12" Foreground="#6B7280"/>
+                         FontSize="12" Foreground="#6B7280"/>
           </StackPanel>
         </Border>
 
-        <!-- System Overview -->
         <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
           <StackPanel Spacing="5">
             <TextBlock Text="System Overview" FontWeight="Bold" FontSize="16" />
-          
             <StackPanel Orientation="Horizontal">
               <TextBlock Text="Heatington" FontSize="12"/>
-              
             </StackPanel>
             <StackPanel Orientation="Horizontal">
               <TextBlock Text="Connected Buildings" FontSize="12"/>
@@ -37,84 +32,75 @@
             </StackPanel>
           </StackPanel>
         </Border>
-
       </WrapPanel>
 
-      <!-- Production Units -->
       <TextBlock Text="Production Units" FontWeight="Bold" FontSize="16" Margin="10,0"/>
 
-      <WrapPanel ItemWidth="410" ItemHeight="120" Orientation="Horizontal">
-
-        <!-- Gas Boiler -->
-        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
-          <StackPanel Orientation="Horizontal" Spacing="10">
-           <!--  <Image Width="32" Height="32" Source="/Assets/Icons/boiler.png"/> this is commented becaus avalonia coulndt find it and crashed i think-->
-            <StackPanel>
+      <WrapPanel ItemWidth="430" ItemHeight="200" Orientation="Horizontal">
+        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
+          <StackPanel Orientation="Horizontal" Spacing="20">
+            <StackPanel VerticalAlignment="Center">
               <TextBlock Text="Gas Boiler Unit 1" FontWeight="Bold" />
               <TextBlock Text="Max Heat: 4,0 MW" FontSize="12"/>
               <TextBlock Text="Production costs: 520 DKK/MWh(th)" FontSize="12"/>
               <TextBlock Text="CO2 Emissions: 175 kg/MWh(th)" FontSize="12"/>
               <TextBlock Text="Gas consumption: 0,9 MWh(gas)/MWh(th))" FontSize="12"/>
             </StackPanel>
-          </StackPanel>
+            <Image Width="128" Height="128" Source="/Assets/boilers.png" />
+            </StackPanel>
         </Border>
 
-        <!-- Heat Pump -->
-        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
-          <StackPanel Orientation="Horizontal" Spacing="10">
-           <!-- <Image Width="32" Height="32" Source="/Assets/Icons/heatpump.png"/>-->
-           <StackPanel>
+        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
+          <StackPanel Orientation="Horizontal" Spacing="20">
+            <StackPanel VerticalAlignment="Center">
               <TextBlock Text="Gas Boiler Unit 2" FontWeight="Bold" />
               <TextBlock Text="Max Heat: 3,0 MW" FontSize="12"/>
               <TextBlock Text="Production costs: 560 DKK/MWh(th)" FontSize="12"/>
               <TextBlock Text="CO2 Emissions: 130 kg/MWh(th)" FontSize="12"/>
               <TextBlock Text="Gas consumption: 0,7 MWh(gas)/MWh(th))" FontSize="12"/>
             </StackPanel>
+            <Image Width="128" Height="128" Source="/Assets/boilers.png"/>
           </StackPanel>
         </Border>
 
-        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
-          <StackPanel Orientation="Horizontal" Spacing="10">
-           <!-- <Image Width="32" Height="32" Source="/Assets/Icons/heatpump.png"/>-->
-            <StackPanel>
+        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
+          <StackPanel Orientation="Horizontal" Spacing="20">
+            <StackPanel VerticalAlignment="Center">
               <TextBlock Text="Oil Boiler Unit 1" FontWeight="Bold" />
               <TextBlock Text="Max Heat: 4,0 MW" FontSize="12"/>
               <TextBlock Text="Production costs: 670 DKK/MWh(th)" FontSize="12"/>
               <TextBlock Text="CO2 Emissions: 330 kg/MWh(th)" FontSize="12"/>
               <TextBlock Text="Oil consumption: 1,5 MWh(oil)/MWh(th))" FontSize="12"/>
             </StackPanel>
+            <Image Width="128" Height="128" Source="/Assets/oilboiler.png"/>
           </StackPanel>
         </Border>
 
-        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
-          <StackPanel Orientation="Horizontal" Spacing="10">
-           <!-- <Image Width="32" Height="32" Source="/Assets/Icons/heatpump.png"/>-->
-            <StackPanel>
+        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
+          <StackPanel Orientation="Horizontal" Spacing="20">
+            <StackPanel VerticalAlignment="Center">
               <TextBlock Text="Gas Motor Unit 1" FontWeight="Bold" />
               <TextBlock Text="Max Heat: 3,5 MW" FontSize="12"/>
               <TextBlock Text="Production costs: 520 DKK/MWh(th)" FontSize="12"/>
               <TextBlock Text="CO2 Emissions: 175 kg/MWh(th)" FontSize="12"/>
               <TextBlock Text="Gas consumption: 0,9 MWh(gas)/MWh(th))" FontSize="12"/>
             </StackPanel>
+            <Image Width="128" Height="128" Source="/Assets/gasmotor.png"/>
           </StackPanel>
         </Border>
 
-        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="10">
-          <StackPanel Orientation="Horizontal" Spacing="10">
-           <!-- <Image Width="32" Height="32" Source="/Assets/Icons/heatpump.png"/>-->
-            <StackPanel>
+        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
+          <StackPanel Orientation="Horizontal" Spacing="20">
+            <StackPanel VerticalAlignment="Center">
               <TextBlock Text="Heat Pump Unit 1" FontWeight="Bold" />
               <TextBlock Text="Max Heat: 6,0 MW" FontSize="12"/>
               <TextBlock Text="Max eletriity -6,0 MW" FontSize="12"/>
               <TextBlock Text="Production costs: 60 DKK/MWh(th)" FontSize="12"/>
-             
-              
             </StackPanel>
+            <Image Width="96" Height="96" Source="/Assets/heatpump.png"/>
           </StackPanel>
         </Border>
-
       </WrapPanel>
-
     </StackPanel>
   </ScrollViewer>
 </Window>
