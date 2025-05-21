@@ -10,6 +10,7 @@ using Avalonia.Interactivity;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
 using LiveChartsCore.SkiaSharpView.Avalonia;
+using HeatOptimizationApp.Models;
 
 namespace HeatOptimizationApp.Views
 {
@@ -31,21 +32,17 @@ namespace HeatOptimizationApp.Views
 
 
             var filePath = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
-            var lines = File.ReadAllLines(filePath).Skip(4).ToList();
+            var winterData = CSVData.WinterData(filePath);
 
-            var timestamps = new List<string>();
+            var timestamps = winterData.Select(row => row.TimeFrom).ToList();
             var gb1 = new List<double>();
             var gb2 = new List<double>();
             var ob1 = new List<double>();
 
-            foreach (var line in lines)
+            foreach (var row in winterData)
             {
-                var columns = line.Split(',');
 
-                if (columns.Length < 4 || !double.TryParse(columns[3], NumberStyles.Any, CultureInfo.InvariantCulture, out var demand))
-                    continue;
-
-                timestamps.Add(columns[1]);
+                var demand = row.HeatDemand;
                 gb1.Add(Math.Min(demand, 4));
                 gb2.Add(Math.Min(Math.Max(demand - 4, 0), 3));
                 ob1.Add(Math.Max(demand - 7, 0));
@@ -99,6 +96,6 @@ namespace HeatOptimizationApp.Views
 
             DataContext = this;
         }
-        
+
     }
 }
