@@ -6,7 +6,6 @@
         Background="#1F2937"
         Padding="20">
 
-    <!-- 🔥 Styles Section -->
     <Window.Styles>
         <Style Selector="Button">
             <Setter Property="Background" Value="#374151"/>
@@ -21,7 +20,6 @@
 
     <DockPanel LastChildFill="True">
 
-        <!-- Header -->
         <StackPanel DockPanel.Dock="Top" Margin="0,0,0,20">
             <TextBlock Text="🔥 WattsUp – System Components"
                        FontSize="28"
@@ -33,9 +31,7 @@
                        Foreground="#D1D5DB"/>
         </StackPanel>
 
-        <!-- Buttons -->
-        <WrapPanel ItemWidth="420" ItemHeight="100" HorizontalAlignment="Center" Orientation="Horizontal">
-
+        <WrapPanel DockPanel.Dock="Top" ItemWidth="420" ItemHeight="100" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,20">
             <Button Name="AssetManagerButton" Width="400" Height="90" Margin="10">
                 <StackPanel>
                     <TextBlock Text="⚙️ Asset Manager (AM)" FontWeight="Bold"/>
@@ -64,5 +60,10 @@
                 </StackPanel>
             </Button>
         </WrapPanel>
-    </DockPanel>
+
+        <Image Source="/Assets/heatintonmap.png"
+       Stretch="Uniform"
+       HorizontalAlignment="Center"
+       VerticalAlignment="Center"
+       Margin="0,20,0,0"/> </DockPanel>
 </Window>
