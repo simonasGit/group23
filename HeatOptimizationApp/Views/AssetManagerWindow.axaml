@@ -1,8 +1,15 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:HeatOptimizationApp.ViewModels"
+        xmlns:m="using:HeatOptimizationApp"
         x:Class="HeatOptimizationApp.Views.AssetManagerWindow"
         Width="900" Height="650"
-        Title="Asset Manager (AM)">
+        Title="Asset Manager (AM)"
+        x:DataType="vm:AssetManagerWindowViewModel">
+
+  <Design.DataContext>
+    <vm:AssetManagerWindowViewModel/>
+  </Design.DataContext>
 
   <ScrollViewer>
     <StackPanel Margin="20" Spacing="20">
@@ -10,7 +17,6 @@
       <TextBlock Text="⚙️ Asset Manager (AM)" FontSize="24" FontWeight="Bold" />
 
       <WrapPanel ItemWidth="420" ItemHeight="120" Orientation="Horizontal">
-
         <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
           <StackPanel>
             <TextBlock Text="Heating Grid Information" FontWeight="Bold" FontSize="16" />
@@ -19,7 +25,6 @@
                          FontSize="12" Foreground="#6B7280"/>
           </StackPanel>
         </Border>
-
         <Border Background="#F3F4F6" CornerRadius="8" Padding="10" Margin="10">
           <StackPanel Spacing="5">
             <TextBlock Text="System Overview" FontWeight="Bold" FontSize="16" />
@@ -36,71 +41,107 @@
 
       <TextBlock Text="Production Units" FontWeight="Bold" FontSize="16" Margin="10,0"/>
 
-      <WrapPanel ItemWidth="430" ItemHeight="200" Orientation="Horizontal">
-        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
-          <StackPanel Orientation="Horizontal" Spacing="20">
-            <StackPanel VerticalAlignment="Center">
-              <TextBlock Text="Gas Boiler Unit 1" FontWeight="Bold" />
-              <TextBlock Text="Max Heat: 4,0 MW" FontSize="12"/>
-              <TextBlock Text="Production costs: 520 DKK/MWh(th)" FontSize="12"/>
-              <TextBlock Text="CO2 Emissions: 175 kg/MWh(th)" FontSize="12"/>
-              <TextBlock Text="Gas consumption: 0,9 MWh(gas)/MWh(th))" FontSize="12"/>
-            </StackPanel>
-            <Image Width="128" Height="128" Source="/Assets/boilers.png" />
-            </StackPanel>
-        </Border>
+      <ItemsControl ItemsSource="{Binding ProductionUnits}">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <WrapPanel ItemWidth="430" ItemHeight="200" Orientation="Horizontal" />
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate x:DataType="vm:ProductionUnitViewModel">
+            <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
+              <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,*,Auto">
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Spacing="5">
+                  <TextBlock Text="{Binding UnitName}" FontWeight="Bold" FontSize="16" />
+                  <Button Content="Edit" Command="{Binding EditUnitCommand}" CommandParameter="{Binding}"
+                          Background="#F59E0B" Foreground="White" CornerRadius="8" Padding="5,2" FontSize="12"
+                          VerticalAlignment="Center" Margin="10,0,0,0" IsVisible="{Binding !IsEditing}"/>
+                </StackPanel>
 
-        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
-          <StackPanel Orientation="Horizontal" Spacing="20">
-            <StackPanel VerticalAlignment="Center">
-              <TextBlock Text="Gas Boiler Unit 2" FontWeight="Bold" />
-              <TextBlock Text="Max Heat: 3,0 MW" FontSize="12"/>
-              <TextBlock Text="Production costs: 560 DKK/MWh(th)" FontSize="12"/>
-              <TextBlock Text="CO2 Emissions: 130 kg/MWh(th)" FontSize="12"/>
-              <TextBlock Text="Gas consumption: 0,7 MWh(gas)/MWh(th))" FontSize="12"/>
-            </StackPanel>
-            <Image Width="128" Height="128" Source="/Assets/boilers.png"/>
-          </StackPanel>
-        </Border>
+                <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Spacing="5" Margin="0,10,0,0">
+                  <StackPanel IsVisible="{Binding !IsEditing}">
+                      <TextBlock Text="{Binding MaxHeat, StringFormat='Max Heat: {0:F1} MW'}" FontSize="12"/>
+                      <TextBlock Text="{Binding ProductionCosts, StringFormat='Production costs: {0:F0} DKK/MWh(th)'}" FontSize="12"/>
+                      <TextBlock Text="{Binding CO2Emissions, StringFormat='CO2 Emissions: {0:F0} kg/MWh(th)'}" FontSize="12"/>
 
-        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
-          <StackPanel Orientation="Horizontal" Spacing="20">
-            <StackPanel VerticalAlignment="Center">
-              <TextBlock Text="Oil Boiler Unit 1" FontWeight="Bold" />
-              <TextBlock Text="Max Heat: 4,0 MW" FontSize="12"/>
-              <TextBlock Text="Production costs: 670 DKK/MWh(th)" FontSize="12"/>
-              <TextBlock Text="CO2 Emissions: 330 kg/MWh(th)" FontSize="12"/>
-              <TextBlock Text="Oil consumption: 1,5 MWh(oil)/MWh(th))" FontSize="12"/>
-            </StackPanel>
-            <Image Width="128" Height="128" Source="/Assets/oilboiler.png"/>
-          </StackPanel>
-        </Border>
+                      <TextBlock FontSize="12">
+                          <TextBlock.Text>
+                              <MultiBinding StringFormat="{} {0}: {1:F1} {2}">
+                                  <Binding Path="AssetModel" Converter="{x:Static vm:AssetTypeConverter.Instance}"/>
+                                  <Binding Path="Consumption"/>
+                                  <Binding Path="AssetModel" Converter="{x:Static vm:UnitSuffixConverter.Instance}"/>
+                              </MultiBinding>
+                          </TextBlock.Text>
+                      </TextBlock>
+                      <TextBlock Text="{Binding MaxElectricity, StringFormat='Max Electricity: {0:F1} MW'}" FontSize="12"
+                                 IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetHasMaxElectricityConverter.Instance}}"/>
+                  </StackPanel>
 
-        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
-          <StackPanel Orientation="Horizontal" Spacing="20">
-            <StackPanel VerticalAlignment="Center">
-              <TextBlock Text="Gas Motor Unit 1" FontWeight="Bold" />
-              <TextBlock Text="Max Heat: 3,5 MW" FontSize="12"/>
-              <TextBlock Text="Production costs: 520 DKK/MWh(th)" FontSize="12"/>
-              <TextBlock Text="CO2 Emissions: 175 kg/MWh(th)" FontSize="12"/>
-              <TextBlock Text="Gas consumption: 0,9 MWh(gas)/MWh(th))" FontSize="12"/>
-            </StackPanel>
-            <Image Width="128" Height="128" Source="/Assets/gasmotor.png"/>
-          </StackPanel>
-        </Border>
+                  <StackPanel IsVisible="{Binding IsEditing}">
+                      <StackPanel Orientation="Horizontal" Spacing="5">
+                          <TextBlock Text="Max Heat:" FontSize="12" VerticalAlignment="Center"/>
+                          <TextBox Text="{Binding MaxHeat}" Width="150" />
+                      </StackPanel>
+                      <StackPanel Orientation="Horizontal" Spacing="5">
+                          <TextBlock Text="Prod. Costs:" FontSize="12" VerticalAlignment="Center"/>
+                          <TextBox Text="{Binding ProductionCosts}" Width="150" />
+                      </StackPanel>
+                      <StackPanel Orientation="Horizontal" Spacing="5">
+                          <TextBlock Text="CO2 Emiss.:" FontSize="12" VerticalAlignment="Center"/>
+                          <TextBox Text="{Binding CO2Emissions}" Width="150" />
+                      </StackPanel>
 
-        <Border Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6" Margin="10" Padding="20">
-          <StackPanel Orientation="Horizontal" Spacing="20">
-            <StackPanel VerticalAlignment="Center">
-              <TextBlock Text="Heat Pump Unit 1" FontWeight="Bold" />
-              <TextBlock Text="Max Heat: 6,0 MW" FontSize="12"/>
-              <TextBlock Text="Max eletriity -6,0 MW" FontSize="12"/>
-              <TextBlock Text="Production costs: 60 DKK/MWh(th)" FontSize="12"/>
-            </StackPanel>
-            <Image Width="96" Height="96" Source="/Assets/heatpump.png"/>
-          </StackPanel>
-        </Border>
-      </WrapPanel>
+                      <StackPanel Orientation="Horizontal" Spacing="5"
+                                  IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetIsTypeConverter.Instance}, ConverterParameter={x:Type m:GasBoiler}}">
+                          <TextBlock Text="Gas Cons.:" FontSize="12" VerticalAlignment="Center"/>
+                          <TextBox Text="{Binding Consumption}" Width="150" />
+                      </StackPanel>
+                      <StackPanel Orientation="Horizontal" Spacing="5"
+                                  IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetIsTypeConverter.Instance}, ConverterParameter={x:Type m:OilBoiler}}">
+                          <TextBlock Text="Oil Cons.:" FontSize="12" VerticalAlignment="Center"/>
+                          <TextBox Text="{Binding Consumption}" Width="150" />
+                      </StackPanel>
+                      <StackPanel Orientation="Horizontal" Spacing="5"
+                                  IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetIsTypeConverter.Instance}, ConverterParameter={x:Type m:GasMotor}}">
+                          <TextBlock Text="Gas Cons.:" FontSize="12" VerticalAlignment="Center"/>
+                          <TextBox Text="{Binding Consumption}" Width="150" />
+                      </StackPanel>
+
+                      <StackPanel Orientation="Horizontal" Spacing="5"
+                                  IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetHasMaxElectricityConverter.Instance}}">
+                          <TextBlock Text="Max Elec.:" FontSize="12" VerticalAlignment="Center"/>
+                          <TextBox Text="{Binding MaxElectricity}" Width="150" />
+                      </StackPanel>
+                  </StackPanel>
+                </StackPanel>
+
+                <Image Grid.Column="1" Grid.RowSpan="2" Width="128" Height="128" Source="/Assets/boilers.png"
+                       VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0"
+                       IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetIsTypeConverter.Instance}, ConverterParameter={x:Type m:GasBoiler}}"/>
+
+                <Image Grid.Column="1" Grid.RowSpan="2" Width="128" Height="128" Source="/Assets/oilboiler.png"
+                       VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0"
+                       IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetIsTypeConverter.Instance}, ConverterParameter={x:Type m:OilBoiler}}"/>
+
+                <Image Grid.Column="1" Grid.RowSpan="2" Width="128" Height="128" Source="/Assets/gasmotor.png"
+                       VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0"
+                       IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetIsTypeConverter.Instance}, ConverterParameter={x:Type m:GasMotor}}"/>
+
+                <Image Grid.Column="1" Grid.RowSpan="2" Width="128" Height="128" Source="/Assets/heatpump.png"
+                       VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0"
+                       IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetIsTypeConverter.Instance}, ConverterParameter={x:Type m:HeatPump}}"/>
+
+                <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" Spacing="10" HorizontalAlignment="Right" Margin="0,10,0,0" IsVisible="{Binding IsEditing}">
+                    <Button Content="Save" Command="{Binding SaveUnitCommand}" CommandParameter="{Binding}"
+                            Background="#4CAF50" Foreground="White" CornerRadius="8" Padding="8,4" FontSize="12"/>
+                    <Button Content="Cancel" Command="{Binding CancelEditCommand}" CommandParameter="{Binding}"
+                            Background="#F44336" Foreground="White" CornerRadius="8" Padding="8,4" FontSize="12"/>
+                </StackPanel>
+              </Grid>
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
     </StackPanel>
   </ScrollViewer>
 </Window>
