@@ -179,8 +179,6 @@ namespace HeatOptimizationApp.ViewModels
                 Consumption = heatPump.MaxElectricity;
                 MaxElectricity = heatPump.MaxElectricity;
             }
-
-            IconSource = GetIconSourceForAsset(asset);
         }
 
         
@@ -294,17 +292,7 @@ namespace HeatOptimizationApp.ViewModels
             OnPropertyChanged(nameof(MaxElectricity));
         }
 
-        private string GetIconSourceForAsset(Asset asset)
-        {
-            return asset switch
-            {
-                GasBoiler => "/Assets/boilers.png",
-                OilBoiler => "/Assets/oilboiler.png",
-                GasMotor => "/Assets/gasmotor.png",
-                HeatPump => "/Assets/heatpump.png",
-                
-            };
-        }
+        
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
