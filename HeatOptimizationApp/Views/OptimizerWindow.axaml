@@ -8,16 +8,39 @@
     Title="Optimizer" Width="900" Height="600">
 
     <Grid>
-        <TabControl>
+        <TabControl x:Name="TabControl">
             <TabItem Header="Scenario 1">
-                <lvc:CartesianChart
-                    x:Name="OptimizerChart"
-                    Series="{Binding Series}"
-                    XAxes="{Binding XAxes}"
-                    YAxes="{Binding YAxes}" />
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="10">
+                    <StackPanel Orientation="Vertical" Spacing="20">
+                        <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
+                            <StackPanel>
+                                <TextBlock Text="🔥 Winter Optimizer" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                                <lvc:CartesianChart
+                                    x:Name="WinterChart"
+                                    Series="{Binding Series}"
+                                    XAxes="{Binding XAxes}"
+                                    YAxes="{Binding YAxes}"
+                                    Height="300"
+                                    ZoomMode="X" />
+                            </StackPanel>
+                        </Border>
+                        <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
+                            <StackPanel>
+                                <TextBlock Text="☀️ Summer Optimizer" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                                <lvc:CartesianChart
+                                    x:Name="SummerChart"
+                                    Series="{Binding SummerSeries}"
+                                    XAxes="{Binding SummerXAxes}"
+                                    YAxes="{Binding SummerYAxes}"
+                                    Height="300"
+                                    ZoomMode="X" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
             </TabItem>
             <TabItem Header="Scenario 2">
-                <TextBlock Text="Scenario 2 content will go here." />
+                <TextBlock Text="Scenario 2 content will go here." Margin="10"/>
             </TabItem>
         </TabControl>
     </Grid>

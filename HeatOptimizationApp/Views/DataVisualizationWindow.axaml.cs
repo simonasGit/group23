@@ -90,7 +90,7 @@ public partial class DataVisualizationWindow : Window
             TextSize = 10
         }
     };
-        WinterChart.YAxes = new[] { new Axis { Name = "Heat Demand (MWh)" } };
+        WinterChart.YAxes = new[] { new Axis { Name = "MWh" } };
         WinterChart.ZoomMode = ZoomAndPanMode.X;
 
         WinterPriceChart.Series = WinterPriceSeries;
@@ -104,7 +104,7 @@ public partial class DataVisualizationWindow : Window
             TextSize = 10
         }
     };
-        WinterPriceChart.YAxes = new[] { new Axis { Name = "Electricity Price (DKK/MWh)" } };
+        WinterPriceChart.YAxes = new[] { new Axis { Name = "DKK/MWh" } };
         WinterPriceChart.ZoomMode = ZoomAndPanMode.X;
 
         SummerChart.Series = SummerSeries;
@@ -118,7 +118,7 @@ public partial class DataVisualizationWindow : Window
             TextSize = 10
         }
     };
-        SummerChart.YAxes = new[] { new Axis { Name = "Electricity Price (DKK/MWh)" } };
+        SummerChart.YAxes = new[] { new Axis { Name = "DKK/MWh" } };
         SummerChart.ZoomMode = ZoomAndPanMode.X;
 
         SummerDemandChart.Series = SummerDemandSeries;
@@ -132,7 +132,7 @@ public partial class DataVisualizationWindow : Window
             TextSize = 10
         }
     };
-        SummerDemandChart.YAxes = new[] { new Axis { Name = "Heat Demand (MWh)" } };
+        SummerDemandChart.YAxes = new[] { new Axis { Name = "MWh" } };
         SummerDemandChart.ZoomMode = ZoomAndPanMode.X;
     }
     
