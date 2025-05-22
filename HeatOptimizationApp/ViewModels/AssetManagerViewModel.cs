@@ -6,14 +6,64 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Avalonia.Data.Converters;
+using System.Collections.Generic;
+using System.IO; 
 
 using HeatOptimizationApp;
 
 
 namespace HeatOptimizationApp.ViewModels
 {
+
     public class AssetManagerWindowViewModel : INotifyPropertyChanged
     {
+
+        private void SaveAssetsToCsv()
+    {
+        var lines = new List<string>
+        {
+            "Name,Type,MaxHeat,ProductionCost,CO2Emissions,Consumption,MaxElectricity"
+        };
+
+        foreach (var asset in _assetManager.Assets)
+        {
+            string type = asset.GetType().Name;
+            string name = asset.Name;
+            double maxHeat = asset.MaxHeat;
+            double productionCost = asset.ProductionCost;
+            double co2 = asset.CO2Emissions;
+
+            double consumption = asset switch
+            {
+                GasBoiler gb => gb.GasConsumption,
+                OilBoiler ob => ob.OilConsumption,
+                GasMotor gm => gm.GasConsumption,
+                HeatPump hp => hp.MaxElectricity,
+                _ => 0
+            };
+
+            double maxElectricity = asset switch
+            {
+            GasMotor gm => gm.MaxElectricity,
+            HeatPump hp => hp.MaxElectricity,
+            _ => 0
+            };
+
+            lines.Add($"{name},{type},{maxHeat},{productionCost},{co2},{consumption},{maxElectricity}");
+        }
+
+        try
+        {
+            string path = "AssetManager.csv";
+            File.WriteAllLines(path, lines);
+
+        }
+        catch (Exception ex)
+        {
+        // Log or handle error
+        Console.WriteLine($"Error writing AssetManager.csv: {ex.Message}");
+        }
+    }
         private readonly AssetManager _assetManager;
 
         public AvaloniaList<ProductionUnitViewModel> ProductionUnits { get; set; }
@@ -26,7 +76,7 @@ namespace HeatOptimizationApp.ViewModels
         {
             _assetManager = new AssetManager();
 
-            
+
             ProductionUnits = new AvaloniaList<ProductionUnitViewModel>();
             foreach (var asset in _assetManager.Assets)
             {
@@ -46,13 +96,15 @@ namespace HeatOptimizationApp.ViewModels
             }
         }
 
-        private void SaveUnit(object? parameter)
+        private void SaveUnit(object? parameter)    
         {
             if (parameter is ProductionUnitViewModel unit)
             {
                 unit.IsEditing = false;
+                SaveAssetsToCsv(); // Save to CSV whenever a unit is saved
             }
         }
+
 
         private void CancelEdit(object? parameter)
         {

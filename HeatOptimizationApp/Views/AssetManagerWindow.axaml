@@ -44,7 +44,7 @@
       <ItemsControl ItemsSource="{Binding ProductionUnits}">
         <ItemsControl.ItemsPanel>
           <ItemsPanelTemplate>
-            <WrapPanel ItemWidth="430" Orientation="Horizontal" />
+            <WrapPanel ItemWidth="430" ItemHeight="200" Orientation="Horizontal" />
           </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
@@ -66,7 +66,7 @@
 
                       <TextBlock FontSize="12">
                           <TextBlock.Text>
-                              <MultiBinding StringFormat="{}{0}: {1:F1} {2}">
+                              <MultiBinding StringFormat="{} {0}: {1:F1} {2}">
                                   <Binding Path="AssetModel" Converter="{x:Static vm:AssetTypeConverter.Instance}"/>
                                   <Binding Path="Consumption"/>
                                   <Binding Path="AssetModel" Converter="{x:Static vm:UnitSuffixConverter.Instance}"/>
@@ -77,37 +77,37 @@
                                  IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetHasMaxElectricityConverter.Instance}}"/>
                   </StackPanel>
 
-                  <StackPanel IsVisible="{Binding IsEditing}" Spacing="8">
-                      <StackPanel Orientation="Horizontal" Spacing="8">
+                  <StackPanel IsVisible="{Binding IsEditing}">
+                      <StackPanel Orientation="Horizontal" Spacing="5">
                           <TextBlock Text="Max Heat:" FontSize="12" VerticalAlignment="Center"/>
                           <TextBox Text="{Binding MaxHeat}" Width="150" />
                       </StackPanel>
-                      <StackPanel Orientation="Horizontal" Spacing="8">
+                      <StackPanel Orientation="Horizontal" Spacing="5">
                           <TextBlock Text="Prod. Costs:" FontSize="12" VerticalAlignment="Center"/>
                           <TextBox Text="{Binding ProductionCosts}" Width="150" />
                       </StackPanel>
-                      <StackPanel Orientation="Horizontal" Spacing="8">
+                      <StackPanel Orientation="Horizontal" Spacing="5">
                           <TextBlock Text="CO2 Emiss.:" FontSize="12" VerticalAlignment="Center"/>
                           <TextBox Text="{Binding CO2Emissions}" Width="150" />
                       </StackPanel>
 
-                      <StackPanel Orientation="Horizontal" Spacing="8"
+                      <StackPanel Orientation="Horizontal" Spacing="5"
                                   IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetIsTypeConverter.Instance}, ConverterParameter={x:Type m:GasBoiler}}">
                           <TextBlock Text="Gas Cons.:" FontSize="12" VerticalAlignment="Center"/>
                           <TextBox Text="{Binding Consumption}" Width="150" />
                       </StackPanel>
-                      <StackPanel Orientation="Horizontal" Spacing="8"
+                      <StackPanel Orientation="Horizontal" Spacing="5"
                                   IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetIsTypeConverter.Instance}, ConverterParameter={x:Type m:OilBoiler}}">
                           <TextBlock Text="Oil Cons.:" FontSize="12" VerticalAlignment="Center"/>
                           <TextBox Text="{Binding Consumption}" Width="150" />
                       </StackPanel>
-                      <StackPanel Orientation="Horizontal" Spacing="8"
+                      <StackPanel Orientation="Horizontal" Spacing="5"
                                   IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetIsTypeConverter.Instance}, ConverterParameter={x:Type m:GasMotor}}">
                           <TextBlock Text="Gas Cons.:" FontSize="12" VerticalAlignment="Center"/>
                           <TextBox Text="{Binding Consumption}" Width="150" />
                       </StackPanel>
 
-                      <StackPanel Orientation="Horizontal" Spacing="8"
+                      <StackPanel Orientation="Horizontal" Spacing="5"
                                   IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetHasMaxElectricityConverter.Instance}}">
                           <TextBlock Text="Max Elec.:" FontSize="12" VerticalAlignment="Center"/>
                           <TextBox Text="{Binding MaxElectricity}" Width="150" />

@@ -48,7 +48,7 @@ namespace HeatOptimizationApp
         {
             Assets.Add(new GasBoiler
             {
-                Name = "GB1",
+                Name = "Gas Boiler 1",
                 MaxHeat = 4.0,
                 ProductionCost = 520,
                 CO2Emissions = 175,
@@ -57,7 +57,7 @@ namespace HeatOptimizationApp
 
             Assets.Add(new GasBoiler
             {
-                Name = "GB2",
+                Name = "Gas Boiler 2",
                 MaxHeat = 3.0,
                 ProductionCost = 560,
                 CO2Emissions = 130,
@@ -66,7 +66,7 @@ namespace HeatOptimizationApp
 
             Assets.Add(new OilBoiler
             {
-                Name = "OB1",
+                Name = "Oil Boiler",
                 MaxHeat = 4.0,
                 ProductionCost = 670,
                 CO2Emissions = 330,
@@ -75,7 +75,7 @@ namespace HeatOptimizationApp
 
             Assets.Add(new GasMotor
             {
-                Name = "GM1",
+                Name = "Gas Motor",
                 MaxHeat = 3.5,
                 MaxElectricity = 2.6,
                 ProductionCost = 990,
@@ -85,7 +85,7 @@ namespace HeatOptimizationApp
 
             Assets.Add(new HeatPump
             {
-                Name = "HP1",
+                Name = "Heat Pump",
                 MaxHeat = 6.0,
                 MaxElectricity = -6.0,
                 ProductionCost = 60,
