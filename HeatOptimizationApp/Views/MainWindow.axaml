@@ -6,20 +6,24 @@
         Background="#1F2937"
         Padding="20">
 
-    <Window.Styles>
-        <Style Selector="Button">
-            <Setter Property="Background" Value="#374151"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="CornerRadius" Value="12"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="BorderBrush" Value="#F59E0B"/>
-            <Setter Property="BorderThickness" Value="1.5"/>
-        </Style>
-    </Window.Styles>
+   <Window.Styles>
+    <Style Selector="Button">
+        <Setter Property="Background" Value="#374151"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="BorderBrush" Value="#F59E0B"/>
+        <Setter Property="BorderThickness" Value="1.5"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Height" Value="90"/>
+    </Style>
+</Window.Styles>
+
 
     <DockPanel LastChildFill="True">
 
+        <!-- Header -->
         <StackPanel DockPanel.Dock="Top" Margin="0,0,0,20">
             <TextBlock Text="🔥 WattsUp – System Components"
                        FontSize="28"
@@ -31,39 +35,55 @@
                        Foreground="#D1D5DB"/>
         </StackPanel>
 
-        <WrapPanel DockPanel.Dock="Top" ItemWidth="420" ItemHeight="100" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,20">
-            <Button Name="AssetManagerButton" Width="400" Height="90" Margin="10">
+        <!-- Button Grid -->
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Row 1 -->
+            <Button Name="AssetManagerButton" Grid.Row="0" Grid.Column="0" Margin="10">
                 <StackPanel>
                     <TextBlock Text="⚙️ Asset Manager (AM)" FontWeight="Bold"/>
                     <TextBlock Text="Manage and monitor heating assets." FontSize="12" Foreground="#9CA3AF"/>
                 </StackPanel>
             </Button>
 
-            <Button Name="ResultDataManagerButton" Width="400" Height="90" Margin="10">
+            <Button Name="ResultDataManagerButton" Grid.Row="0" Grid.Column="1" Margin="10">
                 <StackPanel>
                     <TextBlock Text="📊 Result Data Manager (RDM)" FontWeight="Bold"/>
                     <TextBlock Text="Analyze and visualize results." FontSize="12" Foreground="#9CA3AF"/>
                 </StackPanel>
             </Button>
 
-            <Button Name="OptimizerButton" Width="400" Height="90" Margin="10">
+            <!-- Row 2 -->
+            <Button Name="OptimizerButton" Grid.Row="1" Grid.Column="0" Margin="10">
                 <StackPanel>
                     <TextBlock Text="🧠 Optimizer (OPT)" FontWeight="Bold"/>
                     <TextBlock Text="Run heat production optimizations." FontSize="12" Foreground="#9CA3AF"/>
                 </StackPanel>
             </Button>
 
-            <Button Name="DataVisualizationButton" Width="400" Height="90" Margin="10">
+            <Button Name="DataVisualizationButton" Grid.Row="1" Grid.Column="1" Margin="10">
                 <StackPanel>
                     <TextBlock Text="📈 Data Visualization (DV)" FontWeight="Bold"/>
                     <TextBlock Text="Interactive dashboards and heat maps." FontSize="12" Foreground="#9CA3AF"/>
                 </StackPanel>
             </Button>
-        </WrapPanel>
+        </Grid>
 
+        <!-- Styled Image -->
+        <Border CornerRadius="20" Margin="0,20,0,0" HorizontalAlignment="Center" MaxWidth="800" ClipToBounds="True">
         <Image Source="/Assets/heatintonmap.png"
-       Stretch="Uniform"
-       HorizontalAlignment="Center"
-       VerticalAlignment="Center"
-       Margin="0,20,0,0"/> </DockPanel>
+           Stretch="UniformToFill"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"/>
+        </Border>
+
+    </DockPanel>
 </Window>
