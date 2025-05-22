@@ -22,16 +22,44 @@ namespace HeatOptimizationApp.Views
 
         public OptimizerWindow()
         {
-
-
-
             InitializeComponent();
 
             var chart = this.FindControl<CartesianChart>("OptimizerChart");
             chart.ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.X;
 
+            var filePath = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
+            Scenario1(filePath);
+            DataContext = this;
+
+            var tabControl = this.FindControl<TabControl>("TabControl");
+            if (tabControl != null)
+            {
+                tabControl.SelectionChanged += TabControl_SelectionChanged;
+            }
+            else
+            {
+                Console.WriteLine("TabControl not found. Ensure it has the correct x:Name in the XAML file.");
+            }
+        }
+
+        private void TabControl_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+        {
+            var selectedTab = (sender as TabControl)?.SelectedIndex;
 
             var filePath = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
+
+            if (selectedTab == 0)
+            {
+                Scenario1(filePath);
+            }
+            else if (selectedTab == 1)
+            {
+                Scenario2(filePath);
+            }
+        }
+
+        public void Scenario1(string filePath)
+        {
             var winterData = CSVData.WinterData(filePath);
 
             var timestamps = winterData.Select(row => row.TimeFrom).ToList();
@@ -41,7 +69,6 @@ namespace HeatOptimizationApp.Views
 
             foreach (var row in winterData)
             {
-
                 var demand = row.HeatDemand;
                 gb1.Add(Math.Min(demand, 4));
                 gb2.Add(Math.Min(Math.Max(demand - 4, 0), 3));
@@ -93,9 +120,11 @@ namespace HeatOptimizationApp.Views
                     MinLimit = 0
                 }
             };
-
-            DataContext = this;
         }
 
+        public void Scenario2(string filePath)
+        {
+            // Placeholder for Scenario 2 logic
+        }
     }
 }
