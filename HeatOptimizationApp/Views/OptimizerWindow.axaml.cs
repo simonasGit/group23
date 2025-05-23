@@ -89,47 +89,37 @@ namespace HeatOptimizationApp.Views
         private void LoadScenario2()
         {
             var filePath = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
-            var lines = File.ReadAllLines(filePath).Skip(4);
+            var winterData = CSVData.WinterData(filePath);
+            var summerData = CSVData.SummerData(filePath);
+            var winterTimestamps = winterData.Select(row => row.TimeFrom).ToList();
+            var summerTimestamps = summerData.Select(row => row.TimeFrom).ToList();
 
-            var winterTimestamps = new List<string>();
             var winterHp = new List<double>();
             var winterGb = new List<double>();
             var winterOb = new List<double>();
             var winterGm = new List<double>();
 
-            var summerTimestamps = new List<string>();
             var summerHp = new List<double>();
             var summerGb = new List<double>();
             var summerOb = new List<double>();
             var summerGm = new List<double>();
 
-            foreach (var line in lines)
+            foreach (var line in winterData)
             {
-                var columns = line.Split(',');
-                if (columns.Length < 10)
-                    continue;
+                var (hp, gb, ob, gm) = AllocateHeat(line.HeatDemand, line.ElectricityPrice);
+                winterHp.Add(hp);
+                winterGb.Add(gb);
+                winterOb.Add(ob);
+                winterGm.Add(gm);
+            }
 
-                if (double.TryParse(columns[3], NumberStyles.Any, CultureInfo.InvariantCulture, out var winterDemand) &&
-                    double.TryParse(columns[4], NumberStyles.Any, CultureInfo.InvariantCulture, out var winterPrice))
-                {
-                    winterTimestamps.Add(columns[1]);
-                    var (hp, gb, ob, gm) = AllocateHeat(winterDemand, winterPrice);
-                    winterHp.Add(hp);
-                    winterGb.Add(gb);
-                    winterOb.Add(ob);
-                    winterGm.Add(gm);
-                }
-
-                if (double.TryParse(columns[8], NumberStyles.Any, CultureInfo.InvariantCulture, out var summerDemand) &&
-                    double.TryParse(columns[9], NumberStyles.Any, CultureInfo.InvariantCulture, out var summerPrice))
-                {
-                    summerTimestamps.Add(columns[6]);
-                    var (hp, gb, ob, gm) = AllocateHeat(summerDemand, summerPrice);
-                    summerHp.Add(hp);
-                    summerGb.Add(gb);
-                    summerOb.Add(ob);
-                    summerGm.Add(gm);
-                }
+            foreach (var line in summerData)
+            {
+                var (hp, gb, ob, gm) = AllocateHeat(line.HeatDemand, line.ElectricityPrice);
+                summerHp.Add(hp);
+                summerGb.Add(gb);
+                summerOb.Add(ob);
+                summerGm.Add(gm);
             }
 
             WinterSeries = CreateSeries(winterHp, winterGb, winterOb, winterGm);
