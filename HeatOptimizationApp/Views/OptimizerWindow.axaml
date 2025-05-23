@@ -9,6 +9,7 @@
 
     <Grid>
         <TabControl x:Name="TabControl">
+            <!-- Scenario 1 -->
             <TabItem Header="Scenario 1">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="10">
                     <StackPanel Orientation="Vertical" Spacing="20">
@@ -16,7 +17,6 @@
                             <StackPanel>
                                 <TextBlock Text="🔥 Winter Optimizer" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
                                 <lvc:CartesianChart
-                                    x:Name="WinterChart"
                                     Series="{Binding Series}"
                                     XAxes="{Binding XAxes}"
                                     YAxes="{Binding YAxes}"
@@ -28,7 +28,6 @@
                             <StackPanel>
                                 <TextBlock Text="☀️ Summer Optimizer" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
                                 <lvc:CartesianChart
-                                    x:Name="SummerChart"
                                     Series="{Binding SummerSeries}"
                                     XAxes="{Binding SummerXAxes}"
                                     YAxes="{Binding SummerYAxes}"
@@ -39,8 +38,35 @@
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
+
+            <!-- Scenario 2 -->
             <TabItem Header="Scenario 2">
-                <TextBlock Text="Scenario 2 content will go here." Margin="10"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="10">
+                    <StackPanel Orientation="Vertical" Spacing="20">
+                        <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
+                            <StackPanel>
+                                <TextBlock Text="🔥 Scenario 2 - Winter" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                                <lvc:CartesianChart
+                                    Series="{Binding WinterSeries}"
+                                    XAxes="{Binding WinterXAxes}"
+                                    YAxes="{Binding WinterYAxes}"
+                                    Height="300"
+                                    ZoomMode="X" />
+                            </StackPanel>
+                        </Border>
+                        <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
+                            <StackPanel>
+                                <TextBlock Text="☀️ Scenario 2 - Summer" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                                <lvc:CartesianChart
+                                    Series="{Binding SummerSeries2}"
+                                    XAxes="{Binding SummerXAxes2}"
+                                    YAxes="{Binding SummerYAxes2}"
+                                    Height="300"
+                                    ZoomMode="X" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
             </TabItem>
         </TabControl>
     </Grid>
