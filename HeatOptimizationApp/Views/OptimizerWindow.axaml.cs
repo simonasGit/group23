@@ -52,16 +52,16 @@ namespace HeatOptimizationApp.Views
             var winterGb2 = new List<double>();
             var winterOb1 = new List<double>();
 
-        foreach (var row in winterData)
-        {
-        var demand = row.HeatDemand;
-        winterGb1.Add(Math.Min(demand, 4));
-        winterGb2.Add(Math.Min(Math.Max(demand - 4, 0), 3));
-        winterOb1.Add(Math.Max(demand - 7, 0));
-        }
+            foreach (var row in winterData)
+            {
+                var demand = row.HeatDemand;
+                winterGb1.Add(Math.Min(demand, 4));
+                winterGb2.Add(Math.Min(Math.Max(demand - 4, 0), 3));
+                winterOb1.Add(Math.Max(demand - 7, 0));
+            }
 
-        Series = new ISeries[]
-        {
+            Series = new ISeries[]
+            {
         new StackedColumnSeries<double>
         {
             Values = winterGb1,
@@ -80,10 +80,10 @@ namespace HeatOptimizationApp.Views
             Name = "OB1 (Winter)",
             Fill = new SolidColorPaint(SKColors.Gray)
         }
-        };
+            };
 
-    XAxes = CreateXAxis(winterTimestamps);
-    YAxes = CreateYAxis();
+            XAxes = CreateXAxis(winterTimestamps);
+            YAxes = CreateYAxis();
         }
 
         private void LoadScenario2()
@@ -113,7 +113,7 @@ namespace HeatOptimizationApp.Views
                     double.TryParse(columns[4], NumberStyles.Any, CultureInfo.InvariantCulture, out var winterPrice))
                 {
                     winterTimestamps.Add(columns[1]);
-                    var (hp, gb, ob, gm) = AllocateByPriority(winterDemand, winterPrice);
+                    var (hp, gb, ob, gm) = AllocateHeat(winterDemand, winterPrice);
                     winterHp.Add(hp);
                     winterGb.Add(gb);
                     winterOb.Add(ob);
@@ -124,7 +124,7 @@ namespace HeatOptimizationApp.Views
                     double.TryParse(columns[9], NumberStyles.Any, CultureInfo.InvariantCulture, out var summerPrice))
                 {
                     summerTimestamps.Add(columns[6]);
-                    var (hp, gb, ob, gm) = AllocateByPriority(summerDemand, summerPrice);
+                    var (hp, gb, ob, gm) = AllocateHeat(summerDemand, summerPrice);
                     summerHp.Add(hp);
                     summerGb.Add(gb);
                     summerOb.Add(ob);
@@ -172,55 +172,17 @@ namespace HeatOptimizationApp.Views
             return (allocation["HP"], allocation["GB"], allocation["OB"], allocation["GM"]);
         }
 
-        private (double hp, double gb, double ob, double gm) AllocateByPriority(double demand, double price)
-        {
-            var capacities = new Dictionary<string, double>
-            {
-                ["HP"] = 6.0,
-                ["GB"] = 3.0,
-                ["OB"] = 4.0,
-                ["GM"] = 3.5
-            };
-
-            var allocation = new Dictionary<string, double>
-            {
-                ["HP"] = 0,
-                ["GB"] = 0,
-                ["OB"] = 0,
-                ["GM"] = 0
-            };
-
-            string[] order = GetPriorityOrderElectric(price);
-
-            foreach (var unit in order)
-            {
-                if (demand <= 0) break;
-                double toUse = Math.Min(capacities[unit], demand);
-                allocation[unit] = toUse;
-                demand -= toUse;
-            }
-
-            return (allocation["HP"], allocation["GB"], allocation["OB"], allocation["GM"]);
-        }
-
         private string[] GetPriorityOrder(double price)
         {
-            if (price <= 430.76) return new[] { "HP", "GB", "OB", "GM" };
-            if (price <= 460) return new[] { "HP", "GB", "GM", "OB" };
-            if (price <= 533.67) return new[] { "GB", "HP", "GM", "OB" };
-            if (price <= 610.08) return new[] { "GB", "GM", "HP", "OB" };
-            if (price <= 632.76) return new[] { "GB", "GM", "OB", "HP" };
-            return new[] { "GM", "GB", "OB", "HP" };
-        }
-
-        private string[] GetPriorityOrderElectric(double price)
-        {
-            if (price <= 430.76) return new[] { "HP", "GB", "OB", "GM" };
-            if (price <= 460) return new[] { "HP", "GB", "GM", "OB" };
-            if (price <= 533.67) return new[] { "GB", "HP", "GM", "OB" };
-            if (price <= 610.08) return new[] { "GB", "GM", "HP", "OB" };
-            if (price <= 632.76) return new[] { "GB", "GM", "OB", "HP" };
-            return new[] { "GM", "GB", "OB", "HP" };
+            return price switch
+            {
+                <= 430.76 => new[] { "HP", "GB", "OB", "GM" },
+                <= 460 => new[] { "HP", "GB", "GM", "OB" },
+                <= 533.67 => new[] { "GB", "HP", "GM", "OB" },
+                <= 610.08 => new[] { "GB", "GM", "HP", "OB" },
+                <= 632.76 => new[] { "GB", "GM", "OB", "HP" },
+                _ => new[] { "GM", "GB", "OB", "HP" }
+            };
         }
 
         private ISeries[] CreateSeries(List<double> hp, List<double> gb, List<double> ob, List<double> gm) => new ISeries[]
@@ -246,7 +208,7 @@ namespace HeatOptimizationApp.Views
         {
             new Axis
             {
-                Name = "Heat Supplied (MWh)",
+                Name = "Heat demand (MWh)",
                 MinLimit = 0
             }
         };
