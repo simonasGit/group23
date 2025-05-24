@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using HeatOptimizationApp.Models;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
@@ -135,6 +136,19 @@ namespace HeatOptimizationApp.ViewModels
             var summerGb = new List<double>();
             var summerOb = new List<double>();
             var summerGm = new List<double>();
+            
+            double totalHPW = 0;
+            double totalGBW = 0;
+            double totalOBW = 0;
+            double totalGMW= 0;
+            double winterTotal= 0;
+            double totalHPS = 0;
+            double totalGBS = 0;
+            double totalOBS = 0;
+            double totalGMS= 0;
+            double summerTotal= 0;
+            double actualTotal = 0;
+
 
             foreach (var line in winterData)
             {
@@ -143,7 +157,15 @@ namespace HeatOptimizationApp.ViewModels
                 winterGb.Add(gb);
                 winterOb.Add(ob);
                 winterGm.Add(gm);
+                stotalHPW += hp;
+                totalGBW += gb;
+                totalOBW += ob;
+                totalGMW += gm;
+                winterTotal = totalHPW + totalGBW + totalOBW + totalGMW;
+
+
             }
+                Console.WriteLine($"\nFinal Total heat produced across all data in winter: {winterTotal:F2} MW(th)");
 
             foreach (var line in summerData)
             {
@@ -152,8 +174,14 @@ namespace HeatOptimizationApp.ViewModels
                 summerGb.Add(gb);
                 summerOb.Add(ob);
                 summerGm.Add(gm);
+                totalHPS += hp;
+                totalGBS += gb;
+                totalOBS += ob;
+                totalGMS += gm;
+                summerTotal = totalHPS + totalGBS + totalOBS + totalGMS;
             }
-
+                Console.WriteLine($"\nFinal Total heat produced across all data in summer: {summerTotal:F2} MW(th)");
+                Console.WriteLine($"\nFinal Total heat produced across all data: {winterTotal+summerTotal:F2} MW(th)");
             WinterSeries = CreateSeries(winterHp, winterGb, winterOb, winterGm);
             WinterXAxes = CreateXAxis(winterTimestamps);
             WinterYAxes = CreateYAxis();

@@ -44,7 +44,7 @@ namespace HeatOptimizationApp
             LoadAssets();
         }
 
-        private void LoadAssets()
+        public void LoadAssets()
         {
             Assets.Add(new GasBoiler
             {
