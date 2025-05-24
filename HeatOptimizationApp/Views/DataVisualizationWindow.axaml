@@ -3,6 +3,7 @@
         xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
         x:Class="HeatOptimizationApp.Views.DataVisualizationWindow"
         Width="900" Height="750"
+        Icon="/Assets/1477521928_10_icon-icons.com_74620.png"
         Title="Data Visualization Dashboard">
 
     <ScrollViewer>

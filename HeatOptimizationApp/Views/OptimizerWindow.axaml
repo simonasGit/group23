@@ -5,6 +5,7 @@
     xmlns:vm="clr-namespace:HeatOptimizationApp.Views"
     x:Class="HeatOptimizationApp.Views.OptimizerWindow"
     x:DataType="vm:OptimizerWindow"
+    Icon="/Assets/mind_brain_icon-icons.com_51079.png"
     Title="Optimizer" Width="900" Height="600">
 
     <Grid>

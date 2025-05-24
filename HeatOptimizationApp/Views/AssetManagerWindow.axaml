@@ -5,6 +5,7 @@
         x:Class="HeatOptimizationApp.Views.AssetManagerWindow"
         Width="900" Height="650"
         Title="Asset Manager (AM)"
+        Icon="/Assets/settings_icon-icons.com_49858.png"
         x:DataType="vm:AssetManagerWindowViewModel">
 
   <Design.DataContext>
