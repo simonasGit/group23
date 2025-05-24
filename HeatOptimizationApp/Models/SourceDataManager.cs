@@ -7,6 +7,7 @@ namespace HeatOptimizationApp.Models
 {
     public static class SDM
     {
+        private static readonly string FilePath = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
         public class WinterDataRow
         {
             public string TimeFrom { get; set; }
@@ -14,12 +15,12 @@ namespace HeatOptimizationApp.Models
             public double ElectricityPrice { get; set; }
         }
 
-        public static List<WinterDataRow> WinterData(string path)
+        public static List<WinterDataRow> WinterData()
         {
             var winterRows = new List<WinterDataRow>();
-            if (!File.Exists(path)) return winterRows;
+            if (!File.Exists(FilePath)) return winterRows;
 
-            var lines = File.ReadAllLines(path).Skip(3);
+            var lines = File.ReadAllLines(FilePath).Skip(3);
 
             foreach (var line in lines)
             {
@@ -48,12 +49,12 @@ namespace HeatOptimizationApp.Models
             public double ElectricityPrice { get; set; }
         }
 
-        public static List<SummerDataRow> SummerData(string path)
+        public static List<SummerDataRow> SummerData()
         {
             var summerRows = new List<SummerDataRow>();
-            if (!File.Exists(path)) return summerRows;
+            if (!File.Exists(FilePath)) return summerRows;
 
-            var lines = File.ReadAllLines(path).Skip(4);
+            var lines = File.ReadAllLines(FilePath).Skip(4);
 
             foreach (var line in lines)
             {

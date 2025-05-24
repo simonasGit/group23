@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using HeatOptimizationApp.Models;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
@@ -38,9 +37,8 @@ namespace HeatOptimizationApp.ViewModels
 
         public void LoadScenario1()
         {
-            var filePath = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
-            var winterData = SDM.WinterData(filePath);
-            var summerData = SDM.SummerData(filePath);
+            var winterData = SDM.WinterData();
+            var summerData = SDM.SummerData();
 
             var winterTimestamps = winterData.Select(row => row.TimeFrom).ToList();
             var summerTimestamps = summerData.Select(row => row.TimeFrom).ToList();
@@ -121,9 +119,8 @@ namespace HeatOptimizationApp.ViewModels
 
         public void LoadScenario2()
         {
-            var filePath = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
-            var winterData = SDM.WinterData(filePath);
-            var summerData = SDM.SummerData(filePath);
+            var winterData = SDM.WinterData();
+            var summerData = SDM.SummerData();
             var winterTimestamps = winterData.Select(row => row.TimeFrom).ToList();
             var summerTimestamps = summerData.Select(row => row.TimeFrom).ToList();
 
@@ -136,19 +133,18 @@ namespace HeatOptimizationApp.ViewModels
             var summerGb = new List<double>();
             var summerOb = new List<double>();
             var summerGm = new List<double>();
-            
+
             double totalHPW = 0;
             double totalGBW = 0;
             double totalOBW = 0;
-            double totalGMW= 0;
-            double winterTotal= 0;
+            double totalGMW = 0;
+            double winterTotal = 0;
             double totalHPS = 0;
             double totalGBS = 0;
             double totalOBS = 0;
-            double totalGMS= 0;
-            double summerTotal= 0;
+            double totalGMS = 0;
+            double summerTotal = 0;
             double actualTotal = 0;
-
 
             foreach (var line in winterData)
             {
@@ -157,15 +153,13 @@ namespace HeatOptimizationApp.ViewModels
                 winterGb.Add(gb);
                 winterOb.Add(ob);
                 winterGm.Add(gm);
-                stotalHPW += hp;
+                totalHPW += hp;
                 totalGBW += gb;
                 totalOBW += ob;
                 totalGMW += gm;
                 winterTotal = totalHPW + totalGBW + totalOBW + totalGMW;
-
-
             }
-                Console.WriteLine($"\nFinal Total heat produced across all data in winter: {winterTotal:F2} MW(th)");
+            Console.WriteLine($"\nFinal Total heat produced across all data in winter: {winterTotal:F2} MW(th)");
 
             foreach (var line in summerData)
             {
@@ -180,8 +174,9 @@ namespace HeatOptimizationApp.ViewModels
                 totalGMS += gm;
                 summerTotal = totalHPS + totalGBS + totalOBS + totalGMS;
             }
-                Console.WriteLine($"\nFinal Total heat produced across all data in summer: {summerTotal:F2} MW(th)");
-                Console.WriteLine($"\nFinal Total heat produced across all data: {winterTotal+summerTotal:F2} MW(th)");
+            Console.WriteLine($"\nFinal Total heat produced across all data in summer: {summerTotal:F2} MW(th)");
+            Console.WriteLine($"\nFinal Total heat produced across all data: {winterTotal + summerTotal:F2} MW(th)");
+
             WinterSeries = CreateSeries(winterHp, winterGb, winterOb, winterGm);
             WinterXAxes = CreateXAxis(winterTimestamps);
             WinterYAxes = CreateYAxis();

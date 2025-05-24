@@ -21,10 +21,8 @@ public class DataVisualization
 
     public DataVisualization()
     {
-        var path = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
-
-        var winterData = SDM.WinterData(path);
-        var summerData = SDM.SummerData(path);
+        var winterData = SDM.WinterData();
+        var summerData = SDM.SummerData();
 
         // Get readable labels from TimeFrom
         winterLabels = winterData.Select(w => w.TimeFrom).ToArray();
