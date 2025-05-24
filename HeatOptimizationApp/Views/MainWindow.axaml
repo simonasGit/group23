@@ -2,11 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="HeatOptimizationApp.Views.MainWindow"
         Width="900" Height="650"
-        Title="🔥 WattsUp - Heat Optimization System"
+        Title="WattsUp - Heat Optimization System"
         Background="#1F2937"
-        Padding="20">
-
-   <Window.Styles>
+        Padding="20"
+        Icon="/Assets/fire_115156.ico"> <Window.Styles>
     <Style Selector="Button">
         <Setter Property="Background" Value="#374151"/>
         <Setter Property="Foreground" Value="White"/>
@@ -23,7 +22,6 @@
 
     <DockPanel LastChildFill="True">
 
-        <!-- Header -->
         <StackPanel DockPanel.Dock="Top" Margin="0,0,0,20">
             <TextBlock Text="🔥 WattsUp – System Components"
                        FontSize="28"
@@ -35,7 +33,6 @@
                        Foreground="#D1D5DB"/>
         </StackPanel>
 
-        <!-- Button Grid -->
         <Grid DockPanel.Dock="Top" Margin="0,0,0,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -46,7 +43,6 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Row 1 -->
             <Button Name="AssetManagerButton" Grid.Row="0" Grid.Column="0" Margin="10">
                 <StackPanel>
                     <TextBlock Text="⚙️ Asset Manager (AM)" FontWeight="Bold"/>
@@ -61,7 +57,6 @@
                 </StackPanel>
             </Button>
 
-            <!-- Row 2 -->
             <Button Name="OptimizerButton" Grid.Row="1" Grid.Column="0" Margin="10">
                 <StackPanel>
                     <TextBlock Text="🧠 Optimizer (OPT)" FontWeight="Bold"/>
@@ -77,12 +72,11 @@
             </Button>
         </Grid>
 
-        <!-- Styled Image -->
         <Border CornerRadius="20" Margin="0,20,0,0" HorizontalAlignment="Center" MaxWidth="800" ClipToBounds="True">
-        <Image Source="/Assets/heatintonmap.png"
-           Stretch="UniformToFill"
-           HorizontalAlignment="Center"
-           VerticalAlignment="Center"/>
+            <Image Source="/Assets/heatintonmap.png"
+                   Stretch="UniformToFill"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
         </Border>
 
     </DockPanel>

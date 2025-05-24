@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="HeatOptimizationApp.Views.ResultDataManagerWindow"
         Width="900" Height="650"
+         Icon="/Assets/folder_my_documents_15435.png"
         Title="Result Data Manager (RDM)">
 
   <ScrollViewer>
