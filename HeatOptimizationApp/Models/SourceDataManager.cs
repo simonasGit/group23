@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace HeatOptimizationApp.Models
 {
-    public static class CSVData
+    public static class SDM
     {
         public class WinterDataRow
         {

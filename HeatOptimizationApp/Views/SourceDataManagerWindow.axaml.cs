@@ -22,8 +22,8 @@ public partial class SourceDataManagerWindow : Window
         DataContext = this;
 
         var path = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
-        var winterData = CSVData.WinterData(path);
-        var summerData = CSVData.SummerData(path);
+        var winterData = SDM.WinterData(path);
+        var summerData = SDM.SummerData(path);
 
         WinterDemandSeries = new ISeries[]
         {

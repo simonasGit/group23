@@ -20,12 +20,12 @@ public partial class DataVisualizationWindow : Window
     public DataVisualizationWindow()
     {
         InitializeComponent();
-        
+
 
         var path = "2025 Heat Production Optimization - Danfoss Deliveries - Source Data Manager - SDM.csv";
 
-        var winterData = CSVData.WinterData(path);
-        var summerData = CSVData.SummerData(path);
+        var winterData = SDM.WinterData(path);
+        var summerData = SDM.SummerData(path);
 
         // Get readable labels from TimeFrom
         var winterLabels = winterData.Select(w => w.TimeFrom).ToArray();
@@ -135,6 +135,5 @@ public partial class DataVisualizationWindow : Window
         SummerDemandChart.YAxes = new[] { new Axis { Name = "MWh" } };
         SummerDemandChart.ZoomMode = ZoomAndPanMode.X;
     }
-    
-}
 
+}
