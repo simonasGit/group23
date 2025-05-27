@@ -1,7 +1,8 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using HeatOptimizationApp.Models;
+using HeatOptimizationApp.Models; 
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
@@ -11,7 +12,7 @@ namespace HeatOptimizationApp.ViewModels
 {
     public class Optimizer
     {
-        // Scenario 1
+      
         public ISeries[] Series { get; private set; }
         public Axis[] XAxes { get; private set; }
         public Axis[] YAxes { get; private set; }
@@ -20,7 +21,7 @@ namespace HeatOptimizationApp.ViewModels
         public Axis[] SummerXAxes { get; private set; }
         public Axis[] SummerYAxes { get; private set; }
 
-        // Scenario 2
+     
         public ISeries[] WinterSeries { get; private set; }
         public Axis[] WinterXAxes { get; private set; }
         public Axis[] WinterYAxes { get; private set; }
@@ -29,10 +30,22 @@ namespace HeatOptimizationApp.ViewModels
         public Axis[] SummerXAxes2 { get; private set; }
         public Axis[] SummerYAxes2 { get; private set; }
 
+       
+        public Unit winterHp { get; private set; } = new Unit();
+        public Unit winterGb {get; private set; } = new Unit();
+        public Unit winterOb { get; private set; } = new Unit();
+        public Unit winterGm {get; private set; } = new Unit();
+
+        public Unit summerHp { get; private set; } = new Unit();
+        public Unit summerGb { get; private set; } = new Unit();
+        public Unit summerOb {get; private set; } = new Unit();
+        public Unit summerGm { get; private set; } = new Unit();
+        
         public class Unit
         {
             public List<double> demand;
             public double total;
+
             public Unit()
             {
                 demand = new List<double>();
@@ -42,6 +55,7 @@ namespace HeatOptimizationApp.ViewModels
 
         public Optimizer()
         {
+         
             LoadScenario1();
             LoadScenario2();
         }
@@ -54,6 +68,7 @@ namespace HeatOptimizationApp.ViewModels
             var winterTimestamps = winterData.Select(row => row.TimeFrom).ToList();
             var summerTimestamps = summerData.Select(row => row.TimeFrom).ToList();
 
+         
             var winterGb1 = new Unit();
             var winterGb2 = new Unit();
             var winterOb1 = new Unit();
@@ -85,7 +100,8 @@ namespace HeatOptimizationApp.ViewModels
             }
 
             Console.WriteLine($"\nScenario1: Final Total heat produced across all data in winter: {winterGb1.total + winterGb2.total + winterOb1.total:F2} MW(th)");
-            Console.WriteLine($"\nScenario1: Final Total heat produced across all data:  MW(th)");
+            Console.WriteLine($"\nScenario1: Final Total heat produced across all data in summer: {summerGb1.total + summerGb2.total + summerOb1.total:F2} MW(th)");
+
 
             Series = new ISeries[]
             {
@@ -117,23 +133,23 @@ namespace HeatOptimizationApp.ViewModels
                 new StackedColumnSeries<double>
                 {
                     Values = summerGb1.demand,
-                    Name = "GB1 (Winter)",
+                    Name = "GB1 (Summer)",
                     Fill = new SolidColorPaint(SKColors.Yellow)
                 },
                 new StackedColumnSeries<double>
                 {
                     Values = summerGb2.demand,
-                    Name = "GB2 (Winter)",
+                    Name = "GB2 (Summer)", 
                     Fill = new SolidColorPaint(SKColors.Orange)
                 },
                 new StackedColumnSeries<double>
                 {
                     Values = summerOb1.demand,
-                    Name = "OB1 (Winter)",
+                    Name = "OB1 (Summer)", 
                     Fill = new SolidColorPaint(SKColors.Gray)
                 }
             };
-            SummerXAxes = CreateXAxis(winterTimestamps);
+            SummerXAxes = CreateXAxis(summerTimestamps); 
             SummerYAxes = CreateYAxis();
         }
 
@@ -144,57 +160,39 @@ namespace HeatOptimizationApp.ViewModels
             var winterTimestamps = winterData.Select(row => row.TimeFrom).ToList();
             var summerTimestamps = summerData.Select(row => row.TimeFrom).ToList();
 
-            var winterHp = new Unit();
-            var winterGb = new Unit();
-            var winterOb = new Unit();
-            var winterGm = new Unit();
 
-            var summerHp = new Unit();
-            var summerGb = new Unit();
-            var summerOb = new Unit();
-            var summerGm = new Unit();
-
-            double totalHPW = 0;
-            double totalGBW = 0;
-            double totalOBW = 0;
-            double totalGMW = 0;
             double winterTotal = 0;
-            double totalHPS = 0;
-            double totalGBS = 0;
-            double totalOBS = 0;
-            double totalGMS = 0;
             double summerTotal = 0;
 
             foreach (var line in winterData)
             {
                 var (hp, gb, ob, gm) = AllocateHeat(line.HeatDemand, line.ElectricityPrice);
-                winterHp.demand.Add(hp);
+                winterHp.demand.Add(hp); 
                 winterGb.demand.Add(gb);
                 winterOb.demand.Add(ob);
                 winterGm.demand.Add(gm);
-                winterHp.total += hp;
+                winterHp.total += hp; 
                 winterGb.total += gb;
                 winterOb.total += ob;
                 winterGm.total += gm;
                 winterTotal = winterHp.total + winterGb.total + winterOb.total + winterGm.total;
             }
-            Console.WriteLine($"\nFinal Total heat produced across all data in winter: {winterTotal:F2} MW(th)");
+            Console.WriteLine($"\nScenario2: Final Total heat produced across all data in winter: {winterTotal:F2} MW(th)");
 
             foreach (var line in summerData)
             {
                 var (hp, gb, ob, gm) = AllocateHeat(line.HeatDemand, line.ElectricityPrice);
-                summerHp.demand.Add(hp);
+                summerHp.demand.Add(hp); 
                 summerGb.demand.Add(gb);
                 summerOb.demand.Add(ob);
                 summerGm.demand.Add(gm);
-                summerHp.total += hp;
-                summerGb.total += gb;
+                summerHp.total += hp; 
                 summerOb.total += ob;
                 summerGm.total += gm;
                 summerTotal = summerHp.total + summerGb.total + summerOb.total + summerGm.total;
             }
-            Console.WriteLine($"\nFinal Total heat produced across all data in summer: {summerTotal:F2} MW(th)");
-            Console.WriteLine($"\nFinal Total heat produced across all data: {winterTotal + summerTotal:F2} MW(th)");
+            Console.WriteLine($"\nScenario2: Final Total heat produced across all data in summer: {summerTotal:F2} MW(th)");
+            Console.WriteLine($"\nScenario2: Final Total heat produced across all data (Total Winter + Total Summer): {winterTotal + summerTotal:F2} MW(th)");
 
             WinterSeries = CreateSeries(winterHp.demand, winterGb.demand, winterOb.demand, winterGm.demand);
             WinterXAxes = CreateXAxis(winterTimestamps);
