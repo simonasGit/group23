@@ -7,21 +7,11 @@ namespace HeatOptimizationApp.Views;
 
 public partial class ResultDataManagerWindow : Window
 {
-  
-    private Optimizer optimizer;
-
     public ResultDataManagerWindow()
     {
         InitializeComponent();
-
-
-        optimizer = new Optimizer();
-
-
-
-        Console.WriteLine($"winter GB Total: {optimizer.winterGb.total}");
-    
-     
-        
+        var ResultDataManager = new ResultDataManager();
+        //check
+        Console.WriteLine($"winter GB Total: {ResultDataManager.optimizer.winterGb.total}");
     }
 }
