@@ -13,6 +13,6 @@ public partial class ResultDataManagerWindow : Window
         InitializeComponent();
         var ResultDataManager = new ResultDataManager();
         //check
-        Console.WriteLine($"winter GB Total: {ResultDataManager.optimizer.winterGb.total}");
+        Console.WriteLine($"winter GB Total: {ResultDataManager.optimizer.winterGb.totalheat}");
     }
 }
