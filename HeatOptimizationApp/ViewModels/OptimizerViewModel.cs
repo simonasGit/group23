@@ -41,6 +41,14 @@ namespace HeatOptimizationApp.ViewModels
         public Unit summerOb { get; private set; } = new Unit();
         public Unit summerGm { get; private set; } = new Unit();
 
+        public Unit winterGb1 { get; private set; } = new Unit();
+        public Unit winterGb2 { get; private set; } = new Unit();
+        public Unit winterOb1 { get; private set; } = new Unit();
+
+        public Unit summerGb1 { get; private set; } = new Unit();
+        public Unit summerGb2 { get; private set; } = new Unit();
+        public Unit summerOb1 { get; private set; } = new Unit();
+
         public class Unit
         {
             public List<double> currentheat;
@@ -67,15 +75,6 @@ namespace HeatOptimizationApp.ViewModels
 
             var winterTimestamps = winterData.Select(row => row.TimeFrom).ToList();
             var summerTimestamps = summerData.Select(row => row.TimeFrom).ToList();
-
-
-            var winterGb1 = new Unit();
-            var winterGb2 = new Unit();
-            var winterOb1 = new Unit();
-
-            var summerGb1 = new Unit();
-            var summerGb2 = new Unit();
-            var summerOb1 = new Unit();
 
             foreach (var row in winterData)
             {
@@ -159,7 +158,6 @@ namespace HeatOptimizationApp.ViewModels
             var summerData = SDM.SummerData();
             var winterTimestamps = winterData.Select(row => row.TimeFrom).ToList();
             var summerTimestamps = summerData.Select(row => row.TimeFrom).ToList();
-
 
             double winterTotal = 0;
             double summerTotal = 0;
