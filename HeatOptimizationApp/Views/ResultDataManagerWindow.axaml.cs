@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using System;
 using HeatOptimizationApp.ViewModels;
+using Avalonia.Markup.Xaml;
 
 
 namespace HeatOptimizationApp.Views;
