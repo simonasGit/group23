@@ -15,32 +15,32 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HeatOptimizationApp
-build_property.ProjectDir = C:\Users\rafae\OneDrive\Ambiente de Trabalho\SemesterProjG232025\group23\HeatOptimizationApp\
+build_property.ProjectDir = /home/basil/code/skool/group23/HeatOptimizationApp/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/App.axaml]
+[/home/basil/code/skool/group23/HeatOptimizationApp/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/AdminWindow.axaml]
+[/home/basil/code/skool/group23/HeatOptimizationApp/Views/AdminWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/AssetManagerWindow.axaml]
+[/home/basil/code/skool/group23/HeatOptimizationApp/Views/AssetManagerWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/DataVisualizationWindow.axaml]
+[/home/basil/code/skool/group23/HeatOptimizationApp/Views/DataVisualizationWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/MainWindow.axaml]
+[/home/basil/code/skool/group23/HeatOptimizationApp/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/OptimizerWindow.axaml]
+[/home/basil/code/skool/group23/HeatOptimizationApp/Views/OptimizerWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/ResultDataManagerWindow.axaml]
+[/home/basil/code/skool/group23/HeatOptimizationApp/Views/ResultDataManagerWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/rafae/OneDrive/Ambiente de Trabalho/SemesterProjG232025/group23/HeatOptimizationApp/Views/SourceDataManagerWindow.axaml]
+[/home/basil/code/skool/group23/HeatOptimizationApp/Views/SourceDataManagerWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
