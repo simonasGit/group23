@@ -14,5 +14,6 @@ public partial class ResultDataManagerWindow : Window
         var ResultDataManager = new ResultDataManager();
         //check
         Console.WriteLine($"winter GB Total: {ResultDataManager.optimizer.winterGb.totalheat}");
+        Console.WriteLine($"Assetmanager test: {ResultDataManager.assetManager.Assets[0].ProductionCost}");
     }
 }
