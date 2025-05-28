@@ -1,8 +1,10 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:HeatOptimizationApp.Views"
         x:Class="HeatOptimizationApp.Views.ResultDataManagerWindow"
         Width="900" Height="650"
         Icon="/Assets/folder_my_documents_15435.png"
+        x:DataType="views:ResultDataManagerWindow"
         Title="Result Data Manager (RDM)">
 
     <Grid>
@@ -53,8 +55,8 @@
                                     <TextBlock Text="Summer Period" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,5"/>
                                     <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto" Margin="0,0,0,10">
                                         <TextBlock Grid.Row="0" Grid.Column="0" Text="Produced Heat:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Electricity (Prod/Cons):" FontWeight="Medium" Margin="0,2"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding GB1total}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding GB1total}" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="1" Grid.Column="1" Text="00.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Production Costs:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="2" Grid.Column="1" Text="DKK 000,000" HorizontalAlignment="Right" Margin="0,2"/>

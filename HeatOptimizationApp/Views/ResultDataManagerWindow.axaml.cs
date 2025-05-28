@@ -8,12 +8,15 @@ namespace HeatOptimizationApp.Views;
 
 public partial class ResultDataManagerWindow : Window
 {
+  public double GB1total { get; set; }
     public ResultDataManagerWindow()
     {
+
         InitializeComponent();
         var ResultDataManager = new ResultDataManager();
-        //check
-        Console.WriteLine($"winter GB Total: {ResultDataManager.optimizer.winterGb.totalheat}");
-        Console.WriteLine($"Assetmanager test: {ResultDataManager.assetManager.Assets[0].ProductionCost}");
+        GB1total = ResultDataManager.assetManager.Assets[0].ProductionCost;
+
+        Console.WriteLine(GB1total);
+        this.DataContext = this;
     }
 }
