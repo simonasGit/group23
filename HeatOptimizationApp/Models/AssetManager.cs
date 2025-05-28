@@ -20,7 +20,7 @@ namespace HeatOptimizationApp
 
     public class OilBoiler : Asset
     {
-        public double OilConsumption { get; set; } // MWh(oil)/MWh(th) remember the units later beacuse converting mught be a problem
+        public double OilConsumption { get; set; } // MWh(oil)/MWh(th) remember the units later beacuse converting might be a problem
     }
 
     public class GasMotor : Asset
