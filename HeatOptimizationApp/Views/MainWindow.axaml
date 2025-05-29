@@ -44,33 +44,53 @@
             </Grid.ColumnDefinitions>
 
             <Button Name="AssetManagerButton" Grid.Row="0" Grid.Column="0" Margin="10">
-                <StackPanel>
-                    <TextBlock Text="⚙️ Asset Manager (AM)" FontWeight="Bold"/>
-                    <TextBlock Text="Manage and monitor heating assets." FontSize="12" Foreground="#9CA3AF"/>
-                </StackPanel>
-            </Button>
+               <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+               VerticalAlignment="Center">
+        <Image Source="/Assets/settings_icon-icons.com_49858.png" Width="32" Height="32" Margin="0,0,10,0"/>
+        <StackPanel VerticalAlignment="Center">
+<TextBlock Text="Asset Manager (AM)" FontWeight="Bold"/>      
+     <TextBlock Text="Edit and save heating units" FontSize="12" Foreground="#9CA3AF"/>
+     </StackPanel>
+    </StackPanel>
+</Button>
 
             <Button Name="ResultDataManagerButton" Grid.Row="0" Grid.Column="1" Margin="10">
-                <StackPanel>
-                    <TextBlock Text="📊 Result Data Manager (RDM)" FontWeight="Bold"/>
-                    <TextBlock Text="Analyze and visualize results." FontSize="12" Foreground="#9CA3AF"/>
-                </StackPanel>
-            </Button>
+              <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+        <Image Source="/Assets/folder_my_documents_15435.png" Width="32" Height="32" Margin="0,0,10,0"/>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="Result Data Manager (RDM)" FontWeight="Bold"/>
+           <TextBlock Text="Analyze and visualize overall results" FontSize="12" Foreground="#9CA3AF"/>
+       </StackPanel>
+    </StackPanel>
+</Button>
 
             <Button Name="OptimizerButton" Grid.Row="1" Grid.Column="0" Margin="10">
-                <StackPanel>
-                    <TextBlock Text="🧠 Optimizer (OPT)" FontWeight="Bold"/>
-                    <TextBlock Text="Run heat production optimizations." FontSize="12" Foreground="#9CA3AF"/>
-                </StackPanel>
-            </Button>
-
+               <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+        <Image Source="/Assets/mind_brain_icon-icons.com_51079.png" Width="32" Height="32" Margin="0,0,10,0"/>
+       <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="Optimizer (OPT)" FontWeight="Bold"/>
+                    <TextBlock Text="Run heat production optimizations" FontSize="12" Foreground="#9CA3AF"/>
+        </StackPanel>
+    </StackPanel>
+</Button>
             <Button Name="DataVisualizationButton" Grid.Row="1" Grid.Column="1" Margin="10">
-                <StackPanel>
-                    <TextBlock Text="📈 Data Visualization (DV)" FontWeight="Bold"/>
-                    <TextBlock Text="Interactive dashboards and heat maps." FontSize="12" Foreground="#9CA3AF"/>
-                </StackPanel>
-            </Button>
-        </Grid>
+                <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+        <Image Source="/Assets/1477521928_10_icon-icons.com_74620.png" Width="32" Height="32" Margin="0,0,10,0"/>
+
+        <StackPanel VerticalAlignment="Center">
+           <TextBlock Text="Data Visualization (DV)" FontWeight="Bold"/>
+                    <TextBlock Text="Interactive data charts" FontSize="12" Foreground="#9CA3AF"/>
+        </StackPanel>
+    </StackPanel>
+</Button>
+</Grid>
 
         <Border CornerRadius="20" Margin="0,20,0,0" HorizontalAlignment="Center" MaxWidth="800" ClipToBounds="True">
             <Image Source="/Assets/heatintonmap.png"
