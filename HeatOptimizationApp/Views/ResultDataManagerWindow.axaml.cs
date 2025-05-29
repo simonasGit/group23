@@ -27,6 +27,16 @@ public partial class ResultDataManagerWindow : Window
     public double winterGB2CO2 { get; set; }
     public double winterGB2Consumption { get; set; }
     public double winterGB2Costs { get; set; }
+
+    public double summerOB1total { get; set; }
+    public double summerOB1CO2 { get; set; }
+    public double summerOB1Consumption { get; set; }
+    public double summerOB1Costs { get; set; }
+
+    public double winterOB1total { get; set; }
+    public double winterOB1CO2 { get; set; }
+    public double winterOB1Consumption { get; set; }
+    public double winterOB1Costs { get; set; }
     public ResultDataManagerWindow()
     {
         InitializeComponent();
@@ -55,6 +65,15 @@ public partial class ResultDataManagerWindow : Window
         winterGB2Consumption = ((GasBoiler)Assets[1]).GasConsumption * Optimizer.winterGb2.totalheat;
         winterGB2Costs = Assets[1].ProductionCost * Optimizer.winterGb2.totalheat;
         //el prod/cons
+        summerOB1total = Optimizer.summerOb1.totalheat;
+        summerOB1CO2 = Assets[2].CO2Emissions * Optimizer.summerOb1.totalheat;
+        summerOB1Consumption = ((OilBoiler)Assets[2]).OilConsumption * Optimizer.summerOb1.totalheat;
+        summerOB1Costs = Assets[2].ProductionCost * Optimizer.summerOb1.totalheat;
+
+        winterOB1total = Optimizer.winterOb1.totalheat;
+        winterOB1CO2 = Assets[2].CO2Emissions * Optimizer.winterOb1.totalheat;
+        winterOB1Consumption = ((OilBoiler)Assets[2]).OilConsumption * Optimizer.winterOb1.totalheat;
+        winterOB1Costs = Assets[2].ProductionCost * Optimizer.winterOb1.totalheat;
         this.DataContext = this;
     }
 }
