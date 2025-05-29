@@ -13,7 +13,7 @@
                 <ScrollViewer>
                     <StackPanel Margin="20" Spacing="15">
 
-                        <TextBlock Text="🗃 Result Data Manager (RDM) - Scenario 1" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+                        <TextBlock Text="Result Data Manager (RDM) - Scenario 1" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
 
                         <Grid ColumnDefinitions="*,15,*" RowDefinitions="Auto,Auto">
                             <Border Grid.Row="0" Grid.Column="0" Background="#F3F4F6" CornerRadius="8" Padding="15">
@@ -26,7 +26,7 @@
                                         <TextBlock Grid.Row="1" Grid.Column="0" Text="Electricity (Prod/Cons):" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="1" Grid.Column="1" Text="00.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Production Costs:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding summerGB1Costs, StringFormat={}{0:F2} DKK}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding summerGB1CO2, StringFormat={}{0:F2} DKK}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding summerGB1Consumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
@@ -119,7 +119,7 @@
 
                         <Border Background="#D1E7DD" BorderBrush="#0F5132" BorderThickness="1" CornerRadius="8" Padding="15" Margin="0,20,0,0">
                             <StackPanel Spacing="10">
-                                <TextBlock Text="📊 Total of All Units" FontSize="18" FontWeight="Bold" Foreground="#0F5132"/>
+                                <TextBlock Text="Total of All Units" FontSize="18" FontWeight="Bold" Foreground="#0F5132"/>
                                 <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto">
                                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Total Produced Heat:" FontWeight="SemiBold" Margin="0,2"/>
                                     <TextBlock Grid.Row="0" Grid.Column="1" Text="0000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
@@ -139,8 +139,8 @@
                             <StackPanel>
                                 <TextBlock Text="Data Management Controls" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
                                 <WrapPanel ItemWidth="250" ItemHeight="30">
-                                    <Button Content="⏱ Update" Background="#E5E7EB" Foreground="Black"/>
-                                    <Button Content="💾 Save" Background="#E5E7EB" Foreground="Black"/>
+                                    <Button Content="Update" Background="#E5E7EB" Foreground="Black"/>
+                                    <Button Content="Save" Background="#E5E7EB" Foreground="Black"/>
                                 </WrapPanel>
                             </StackPanel>
                         </Border>
@@ -152,7 +152,7 @@
                 <ScrollViewer>
                     <StackPanel Margin="20" Spacing="15">
 
-                        <TextBlock Text="🗃 Result Data Manager (RDM) - Scenario 2" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+                        <TextBlock Text="Result Data Manager (RDM) - Scenario 2" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
 
                         <Grid ColumnDefinitions="*,15,*" RowDefinitions="Auto,Auto">
                             <Border Grid.Row="0" Grid.Column="0" Background="#F3F4F6" CornerRadius="8" Padding="15">
@@ -290,7 +290,7 @@
 
                         <Border Background="#D1E7DD" BorderBrush="#0F5132" BorderThickness="1" CornerRadius="8" Padding="15" Margin="0,20,0,0">
                             <StackPanel Spacing="10">
-                                <TextBlock Text="📊 Total of All Units" FontSize="18" FontWeight="Bold" Foreground="#0F5132"/>
+                                <TextBlock Text="Total of All Units" FontSize="18" FontWeight="Bold" Foreground="#0F5132"/>
                                 <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto">
                                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Total Produced Heat:" FontWeight="SemiBold" Margin="0,2"/>
                                     <TextBlock Grid.Row="0" Grid.Column="1" Text="0000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
@@ -310,8 +310,7 @@
                             <StackPanel>
                                 <TextBlock Text="Data Management Controls" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
                                 <WrapPanel ItemWidth="250" ItemHeight="30">
-                                    <Button Content="⏱ Update" Background="#E5E7EB" Foreground="Black"/>
-                                    <Button Content="💾 Save" Background="#E5E7EB" Foreground="Black"/>
+                                    <Button Content="Save" Background="#E5E7EB" Foreground="Black"/>
                                 </WrapPanel>
                             </StackPanel>
                         </Border>

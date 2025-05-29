@@ -16,7 +16,7 @@
                     <StackPanel Orientation="Vertical" Spacing="20">
                         <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
                             <StackPanel>
-                                <TextBlock Text="🔥 Winter Optimizer" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                                <TextBlock Text="❄️- Winter" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
                                 <lvc:CartesianChart
                                     Series="{Binding Series}"
                                     XAxes="{Binding XAxes}"
@@ -27,7 +27,7 @@
                         </Border>
                         <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
                             <StackPanel>
-                                <TextBlock Text="☀️ Summer Optimizer" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                                <TextBlock Text="🌞 - Summer" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
                                 <lvc:CartesianChart
                                     Series="{Binding SummerSeries}"
                                     XAxes="{Binding SummerXAxes}"
@@ -46,7 +46,7 @@
                     <StackPanel Orientation="Vertical" Spacing="20">
                         <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
                             <StackPanel>
-                                <TextBlock Text="🔥 Scenario 2 - Winter" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                                <TextBlock Text="❄️- Winter" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
                                 <lvc:CartesianChart
                                     Series="{Binding WinterSeries}"
                                     XAxes="{Binding WinterXAxes}"
@@ -57,7 +57,7 @@
                         </Border>
                         <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
                             <StackPanel>
-                                <TextBlock Text="☀️ Scenario 2 - Summer" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                                <TextBlock Text="🌞 - Summer" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
                                 <lvc:CartesianChart
                                     Series="{Binding SummerSeries2}"
                                     XAxes="{Binding SummerXAxes2}"
