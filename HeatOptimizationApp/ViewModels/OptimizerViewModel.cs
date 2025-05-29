@@ -12,7 +12,8 @@ namespace HeatOptimizationApp.ViewModels
 {
     public class Optimizer
     {
-        
+        public AssetManager assetManager = new AssetManager();
+
         public ISeries[] Series { get; private set; }
         public Axis[] XAxes { get; private set; }
         public Axis[] YAxes { get; private set; }
@@ -54,22 +55,26 @@ namespace HeatOptimizationApp.ViewModels
             public List<double> currentheat;
             public double totalheat;
             public double totalcost;
+            public double CO2;
+            public double Consumption;
             public Unit()
             {
                 currentheat = new List<double>();
                 totalheat = 0;
+                CO2 = 0;
+                Consumption = 0;
             }
         }
 
         public Optimizer()
         {
-
             LoadScenario1();
             LoadScenario2();
         }
 
         public void LoadScenario1()
         {
+            var Assets = assetManager.Assets;
             var winterData = SDM.WinterData();
             var summerData = SDM.SummerData();
 
@@ -87,6 +92,16 @@ namespace HeatOptimizationApp.ViewModels
                 winterOb1.totalheat += Math.Max(demand - 7, 0);
             }
 
+            winterGb1.totalcost = Assets[0].ProductionCost * winterGb1.totalheat;
+            winterGb1.CO2 = Assets[0].CO2Emissions * winterGb1.totalheat;
+            winterGb1.Consumption = ((GasBoiler)Assets[0]).GasConsumption * winterGb1.totalheat;
+            winterGb2.totalcost = Assets[1].ProductionCost * winterGb2.totalheat;
+            winterGb2.CO2 = Assets[1].CO2Emissions * winterGb2.totalheat;
+            winterGb2.Consumption = ((GasBoiler)Assets[1]).GasConsumption * winterGb2.totalheat;
+            winterOb1.totalcost = Assets[2].ProductionCost * winterOb1.totalheat;
+            winterOb1.CO2 = Assets[2].CO2Emissions * winterOb1.totalheat;
+            winterOb1.Consumption = ((OilBoiler)Assets[2]).OilConsumption * winterOb1.totalheat;
+
             foreach (var row in summerData)
             {
                 var demand = row.HeatDemand;
@@ -97,7 +112,16 @@ namespace HeatOptimizationApp.ViewModels
                 summerOb1.currentheat.Add(Math.Max(demand - 7, 0));
                 summerOb1.totalheat += Math.Max(demand - 7, 0);
             }
-                        Console.WriteLine("gb total s1s" + summerGb1.totalheat);
+
+            summerGb1.totalcost = Assets[0].ProductionCost * summerGb1.totalheat;
+            summerGb1.CO2 = Assets[0].CO2Emissions * summerGb1.totalheat;
+            summerGb1.Consumption = ((GasBoiler)Assets[0]).GasConsumption * summerGb1.totalheat;
+            summerGb2.totalcost = Assets[1].ProductionCost * summerGb2.totalheat;
+            summerGb2.CO2 = Assets[1].CO2Emissions * summerGb2.totalheat;
+            summerGb2.Consumption = ((GasBoiler)Assets[1]).GasConsumption * summerGb2.totalheat;
+            summerOb1.totalcost = Assets[2].ProductionCost * summerOb1.totalheat;
+            summerOb1.CO2 = Assets[2].CO2Emissions * summerOb1.totalheat;
+            summerOb1.Consumption = ((OilBoiler)Assets[2]).OilConsumption * summerOb1.totalheat;
 
 
             //Console.WriteLine($"\nScenario1: Final Total heat produced across all data in winter: {winterGb1.totalheat + winterGb2.totalheat + winterOb1.totalheat:F2} MW(th)");
@@ -156,6 +180,7 @@ namespace HeatOptimizationApp.ViewModels
 
         public void LoadScenario2()
         {
+            var Assets = assetManager.Assets;
             var winterData = SDM.WinterData();
             var summerData = SDM.SummerData();
             var winterTimestamps = winterData.Select(row => row.TimeFrom).ToList();
@@ -168,36 +193,59 @@ namespace HeatOptimizationApp.ViewModels
             {
                 var (hp, gb, ob, gm) = AllocateHeat(line.HeatDemand, line.ElectricityPrice);
                 winterHp.currentheat.Add(hp);
-                winterGb.currentheat.Add(gb);
-                winterOb.currentheat.Add(ob);
-                winterGm.currentheat.Add(gm);
                 winterHp.totalheat += hp;
+                winterHp.totalcost += Assets[4].ProductionCost * hp - ((HeatPump)Assets[4]).MaxElectricity / Assets[4].MaxHeat * line.ElectricityPrice * hp;
+                winterGb.currentheat.Add(gb);
                 winterGb.totalheat += gb;
+                winterGb.totalcost += Assets[0].ProductionCost * winterGb.totalheat;
+                winterOb.currentheat.Add(ob);
                 winterOb.totalheat += ob;
+                winterOb.totalcost += Assets[2].ProductionCost * winterOb.totalheat;
+                winterGm.currentheat.Add(gm);
                 winterGm.totalheat += gm;
+                winterGm.totalcost += Assets[3].ProductionCost * gm - (((GasMotor)Assets[3]).MaxElectricity) / (Assets[3].MaxHeat) * gm * line.ElectricityPrice;
                 winterTotal = winterHp.totalheat + winterGb.totalheat + winterOb.totalheat + winterGm.totalheat;
             }
+            winterHp.Consumption = -((HeatPump)Assets[4]).MaxElectricity * winterHp.totalheat;
+            winterGb.CO2 = Assets[0].CO2Emissions * winterGb.totalheat;
+            winterGb.Consumption = ((GasBoiler)Assets[0]).GasConsumption * winterGb.totalheat;
+            winterOb.CO2 = Assets[2].CO2Emissions * winterOb.totalheat;
+            winterOb.Consumption = ((OilBoiler)Assets[2]).OilConsumption * winterOb.totalheat;
+            winterGm.CO2 = Assets[3].CO2Emissions * winterGm.totalheat;
+            winterGm.Consumption = ((GasMotor)Assets[3]).GasConsumption * winterGm.totalheat;
             //Console.WriteLine($"\nScenario2: Final Total heat produced across all data in winter: {winterTotal:F2} MW(th)");
 
             foreach (var line in summerData)
             {
                 var (hp, gb, ob, gm) = AllocateHeat(line.HeatDemand, line.ElectricityPrice);
                 summerHp.currentheat.Add(hp);
-                summerGb.currentheat.Add(gb);
-                summerOb.currentheat.Add(ob);
-                summerGm.currentheat.Add(gm);
                 summerHp.totalheat += hp;
+                summerHp.totalcost += Assets[4].ProductionCost * hp - ((HeatPump)Assets[4]).MaxElectricity / Assets[4].MaxHeat * line.ElectricityPrice * hp;
+                summerGb.currentheat.Add(gb);
+                summerGb.totalheat += gb;
+                summerGb.totalcost += Assets[0].ProductionCost * summerGb.totalheat;
+                summerOb.currentheat.Add(ob);
                 summerOb.totalheat += ob;
+                summerOb.totalcost += Assets[2].ProductionCost * summerOb.totalheat;
+                summerGm.currentheat.Add(gm);
                 summerGm.totalheat += gm;
-                summerGm.totalcost += 990*gm - (2.6)/(3.5) * gm*line.ElectricityPrice ;
+                summerGm.totalcost += Assets[3].ProductionCost * gm - (((GasMotor)Assets[3]).MaxElectricity) / (Assets[3].MaxHeat) * gm * line.ElectricityPrice;
                 summerTotal = summerHp.totalheat + summerGb.totalheat + summerOb.totalheat + summerGm.totalheat;
-            
             }
-            //Console.WriteLine($"\nScenario2: Final Total heat produced across all data in summer: {summerTotal:F2} MW(th)");
-            //Console.WriteLine($"\nScenario2: Final Total heat produced across all data (Total Winter + Total Summer): {winterTotal + summerTotal:F2} MW(th)");
-            //Console.WriteLine($"summer gm total cost {summerGm.totalcost:F2}");
+
+            summerHp.Consumption = -((HeatPump)Assets[4]).MaxElectricity * summerHp.totalheat;
+            summerGb.CO2 = Assets[0].CO2Emissions * summerGb.totalheat;
+            summerGb.Consumption = ((GasBoiler)Assets[0]).GasConsumption * summerGb.totalheat;
+            summerOb.CO2 = Assets[2].CO2Emissions * summerOb.totalheat;
+            summerOb.Consumption = ((OilBoiler)Assets[2]).OilConsumption * summerOb.totalheat;
+            summerGm.CO2 = Assets[3].CO2Emissions * summerGm.totalheat;
+            summerGm.Consumption = ((GasMotor)Assets[3]).GasConsumption * summerGm.totalheat;
+
+
+
+
             Console.WriteLine("summer gm total s2s" + summerGm.totalcost);
-            
+
 
 
             WinterSeries = CreateSeries(winterHp.currentheat, winterGb.currentheat, winterOb.currentheat, winterGm.currentheat);
