@@ -20,7 +20,7 @@
             
             <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
                 <StackPanel>
-                    <TextBlock Text="🔥 Winter Heat Demand" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="❄️ Winter Heat Demand" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
                     <lvc:CartesianChart x:Name="WinterChart" Height="300" />
                 </StackPanel>
             </Border>
@@ -36,7 +36,7 @@
             
             <Border Background="#FFF" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="15">
                 <StackPanel>
-                    <TextBlock Text="🌴 Summer Heat Demand" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="🌞 Summer Heat Demand" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
                     <lvc:CartesianChart x:Name="SummerDemandChart" Height="300" />
                 </StackPanel>
             </Border>
