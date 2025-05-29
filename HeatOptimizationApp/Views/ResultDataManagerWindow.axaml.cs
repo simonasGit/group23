@@ -69,6 +69,9 @@ public partial class ResultDataManagerWindow : Window
         summerOB1CO2 = Assets[2].CO2Emissions * Optimizer.summerOb1.totalheat;
         summerOB1Consumption = ((OilBoiler)Assets[2]).OilConsumption * Optimizer.summerOb1.totalheat;
         summerOB1Costs = Assets[2].ProductionCost * Optimizer.summerOb1.totalheat;
+        Console.WriteLine("summergb1cow" + summerGB1CO2);
+        Console.WriteLine("summergb1costs" + summerGB1Costs);
+
 
         winterOB1total = Optimizer.winterOb1.totalheat;
         winterOB1CO2 = Assets[2].CO2Emissions * Optimizer.winterOb1.totalheat;

@@ -30,6 +30,7 @@ namespace HeatOptimizationApp.Views
         public ISeries[] SummerSeries2 { get; set; }
         public Axis[] SummerXAxes2 { get; set; }
         public Axis[] SummerYAxes2 { get; set; }
+        
 
         public OptimizerWindow()
         {

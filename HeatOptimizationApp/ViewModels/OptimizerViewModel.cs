@@ -12,7 +12,7 @@ namespace HeatOptimizationApp.ViewModels
 {
     public class Optimizer
     {
-
+        
         public ISeries[] Series { get; private set; }
         public Axis[] XAxes { get; private set; }
         public Axis[] YAxes { get; private set; }
@@ -97,9 +97,11 @@ namespace HeatOptimizationApp.ViewModels
                 summerOb1.currentheat.Add(Math.Max(demand - 7, 0));
                 summerOb1.totalheat += Math.Max(demand - 7, 0);
             }
+                        Console.WriteLine("gb total s1s" + summerGb1.totalheat);
 
-            Console.WriteLine($"\nScenario1: Final Total heat produced across all data in winter: {winterGb1.totalheat + winterGb2.totalheat + winterOb1.totalheat:F2} MW(th)");
-            Console.WriteLine($"\nScenario1: Final Total heat produced across all data in summer: {summerGb1.totalheat + summerGb2.totalheat + summerOb1.totalheat:F2} MW(th)");
+
+            //Console.WriteLine($"\nScenario1: Final Total heat produced across all data in winter: {winterGb1.totalheat + winterGb2.totalheat + winterOb1.totalheat:F2} MW(th)");
+            //Console.WriteLine($"\nScenario1: Final Total heat produced across all data in summer: {summerGb1.totalheat + summerGb2.totalheat + summerOb1.totalheat:F2} MW(th)");
 
 
             Series = new ISeries[]
@@ -175,7 +177,7 @@ namespace HeatOptimizationApp.ViewModels
                 winterGm.totalheat += gm;
                 winterTotal = winterHp.totalheat + winterGb.totalheat + winterOb.totalheat + winterGm.totalheat;
             }
-            Console.WriteLine($"\nScenario2: Final Total heat produced across all data in winter: {winterTotal:F2} MW(th)");
+            //Console.WriteLine($"\nScenario2: Final Total heat produced across all data in winter: {winterTotal:F2} MW(th)");
 
             foreach (var line in summerData)
             {
@@ -187,10 +189,16 @@ namespace HeatOptimizationApp.ViewModels
                 summerHp.totalheat += hp;
                 summerOb.totalheat += ob;
                 summerGm.totalheat += gm;
+                summerGm.totalcost += 990*gm - (2.6)/(3.5) * gm*line.ElectricityPrice ;
                 summerTotal = summerHp.totalheat + summerGb.totalheat + summerOb.totalheat + summerGm.totalheat;
+            
             }
-            Console.WriteLine($"\nScenario2: Final Total heat produced across all data in summer: {summerTotal:F2} MW(th)");
-            Console.WriteLine($"\nScenario2: Final Total heat produced across all data (Total Winter + Total Summer): {winterTotal + summerTotal:F2} MW(th)");
+            //Console.WriteLine($"\nScenario2: Final Total heat produced across all data in summer: {summerTotal:F2} MW(th)");
+            //Console.WriteLine($"\nScenario2: Final Total heat produced across all data (Total Winter + Total Summer): {winterTotal + summerTotal:F2} MW(th)");
+            //Console.WriteLine($"summer gm total cost {summerGm.totalcost:F2}");
+            Console.WriteLine("summer gm total s2s" + summerGm.totalcost);
+            
+
 
             WinterSeries = CreateSeries(winterHp.currentheat, winterGb.currentheat, winterOb.currentheat, winterGm.currentheat);
             WinterXAxes = CreateXAxis(winterTimestamps);

@@ -26,7 +26,7 @@
                                         <TextBlock Grid.Row="1" Grid.Column="0" Text="Electricity (Prod/Cons):" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="1" Grid.Column="1" Text="00.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Production Costs:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding summerGB1CO2, StringFormat={}{0:F2} DKK}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding summerGB1Costs, StringFormat={}{0:F2} DKK}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding summerGB1Consumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
