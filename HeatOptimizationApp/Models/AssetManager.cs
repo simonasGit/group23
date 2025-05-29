@@ -52,7 +52,7 @@ namespace HeatOptimizationApp
                 MaxHeat = 4.0,
                 ProductionCost = 520,
                 CO2Emissions = 175,
-                GasConsumption = 0.9
+                GasConsumption = 0.9,
             });
 
             Assets.Add(new GasBoiler
