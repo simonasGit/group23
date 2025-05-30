@@ -37,6 +37,18 @@ public partial class ResultDataManagerWindow : Window
     public double winterOB1CO2 { get; set; }
     public double winterOB1Consumption { get; set; }
     public double winterOB1Costs { get; set; }
+
+    public double S1TotalHeat { get; set; }
+    public double S1TotalElectricity { get; set; }
+    public double S1TotalConsumption { get; set; }
+    public double S1TotalCosts { get; set; }
+    public double S1TotalCO2 { get; set; }
+
+    public double S2TotalHeat { get; set; }
+    public double S2TotalElectricity { get; set; }
+    public double S2TotalConsumption { get; set; }
+    public double S2TotalCosts { get; set; }
+    public double S2TotalCO2 { get; set; }
     //scenario 2
 
     public double summerHPtotal { get; set; }
@@ -73,11 +85,13 @@ public partial class ResultDataManagerWindow : Window
     public double summerGMCO2 { get; set; }
     public double summerGMConsumption { get; set; }
     public double summerGMCosts { get; set; }
+    public double summerGMElectricity { get; set; }
 
     public double winterGMtotal { get; set; }
     public double winterGMCO2 { get; set; }
     public double winterGMConsumption { get; set; }
     public double winterGMCosts { get; set; }
+    public double winterGMElectricity { get; set; }
     public ResultDataManagerWindow()
     {
         InitializeComponent();
@@ -148,15 +162,29 @@ public partial class ResultDataManagerWindow : Window
         winterOBConsumption = Optimizer.winterGb.Consumption;
         winterOBCosts = Optimizer.winterGb.totalcost;
 
-        summerGMtotal = Optimizer.summerGb.totalheat;
-        summerGMCO2 = Optimizer.summerGb.CO2;
-        summerGMConsumption = Optimizer.summerGb.Consumption;
-        summerGMCosts = Optimizer.summerGb.totalcost;
+        summerGMtotal = Optimizer.summerGm.totalheat;
+        summerGMCO2 = Optimizer.summerGm.CO2;
+        summerGMConsumption = Optimizer.summerGm.Consumption;
+        summerGMCosts = Optimizer.summerGm.totalcost;
+        summerGMElectricity = Optimizer.summerGm.electricity;
 
-        winterGMtotal = Optimizer.winterGb.totalheat;
-        winterGMCO2 = Optimizer.winterGb.CO2;
-        winterGMConsumption = Optimizer.winterGb.Consumption;
-        winterGMCosts = Optimizer.winterGb.totalcost;
+        winterGMtotal = Optimizer.winterGm.totalheat;
+        winterGMCO2 = Optimizer.winterGm.CO2;
+        winterGMConsumption = Optimizer.winterGm.Consumption;
+        winterGMCosts = Optimizer.winterGm.totalcost;
+        winterGMElectricity = Optimizer.winterGm.electricity;
+        //totals
+        S1TotalHeat = Optimizer.S1totalheat;
+        S1TotalElectricity = Optimizer.S1totalelectricity;
+        S1TotalCosts = Optimizer.S1totalcosts;
+        S1TotalConsumption = Optimizer.S1totalconsumption;
+        S1TotalCO2 = Optimizer.S1totalCO2;
+
+        S2TotalHeat = Optimizer.S2totalheat;
+        S2TotalElectricity = Optimizer.S2totalelectricity;
+        S2TotalCosts = Optimizer.S2totalcosts;
+        S2TotalConsumption = Optimizer.S2totalconsumption;
+        S2TotalCO2 = Optimizer.S2totalCO2;
         this.DataContext = this;
     }
 }

@@ -30,7 +30,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding summerGB1Consumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerGB1CO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerGB1CO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
 
                                     <TextBlock Text="Winter Period" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,5"/>
@@ -44,7 +44,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding winterGB1Consumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterGB1CO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterGB1CO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
@@ -63,7 +63,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding summerGB2Consumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerGB2CO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerGB2CO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
 
                                     <TextBlock Text="Winter Period" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,5"/>
@@ -77,7 +77,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding winterGB2Consumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterGB1CO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterGB1CO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
@@ -96,7 +96,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding summerOB1Consumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerOB1CO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerOB1CO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
 
                                     <TextBlock Text="Winter Period" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,5"/>
@@ -110,7 +110,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding winterOB1Consumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterOB1CO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterOB1CO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
@@ -122,15 +122,15 @@
                                 <TextBlock Text="Total of All Units" FontSize="18" FontWeight="Bold" Foreground="#0F5132"/>
                                 <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto">
                                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Total Produced Heat:" FontWeight="SemiBold" Margin="0,2"/>
-                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="0000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding S1TotalHeat, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Total Electricity (Prod/Cons):" FontWeight="SemiBold" Margin="0,2"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding S1TotalElectricity, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                     <TextBlock Grid.Row="2" Grid.Column="0" Text="Total Production Costs:" FontWeight="SemiBold" Margin="0,2"/>
-                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="DKK 0,000,000" HorizontalAlignment="Right" Margin="0,2"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding S1TotalCosts, StringFormat={}{0:F2} DKK}" HorizontalAlignment="Right" Margin="0,2"/>
                                     <TextBlock Grid.Row="3" Grid.Column="0" Text="Total Primary Energy Cons.:" FontWeight="SemiBold" Margin="0,2"/>
-                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="0000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding S1TotalConsumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                     <TextBlock Grid.Row="4" Grid.Column="0" Text="Total CO2 Produced:" FontWeight="SemiBold" Margin="0,2"/>
-                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="000.00 tons" HorizontalAlignment="Right" Margin="0,2"/>
+                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding S1TotalCO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                 </Grid>
                             </StackPanel>
                         </Border>
@@ -169,7 +169,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding summerHPConsumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerHPCO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerHPCO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
 
                                     <TextBlock Text="Winter Period" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,5"/>
@@ -183,7 +183,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding winterHPConsumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterHPCO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterHPCO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
@@ -202,7 +202,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding summerGBConsumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerGBCO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerGBCO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
 
                                     <TextBlock Text="Winter Period" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,5"/>
@@ -216,7 +216,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding winterGBConsumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterGBCO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterGBCO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
@@ -235,7 +235,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding summerOBConsumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerOBCO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerOBCO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
 
                                     <TextBlock Text="Winter Period" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,5"/>
@@ -249,7 +249,7 @@
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding winterOBConsumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterOBCO2, StringFormat={}{0:F2} Tons}" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterOBCO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
@@ -260,29 +260,29 @@
                                     <TextBlock Text="Summer Period" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,5"/>
                                     <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto" Margin="0,0,0,10">
                                         <TextBlock Grid.Row="0" Grid.Column="0" Text="Produced Heat:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding summerGMtotal, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="1" Grid.Column="0" Text="Electricity (Prod/Cons):" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="00.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding summerGMElectricity, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Production Costs:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="DKK 000,000" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding summerGMCosts, StringFormat={}{0:F2} DKK}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding summerGMConsumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="00.00 tons" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding summerGMCO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
 
                                     <TextBlock Text="Winter Period" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,5"/>
                                     <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto">
                                         <TextBlock Grid.Row="0" Grid.Column="0" Text="Produced Heat:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding winterGMtotal, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="1" Grid.Column="0" Text="Electricity (Prod/Cons):" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="00.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding winterGMElectricity, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Production Costs:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="DKK 000,000" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding winterGMCosts, StringFormat={}{0:F2} DKK}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="3" Grid.Column="0" Text="Primary Energy Cons.:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding winterGMConsumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="CO2 Produced:" FontWeight="Medium" Margin="0,2"/>
-                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="00.00 tons" HorizontalAlignment="Right" Margin="0,2"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding winterGMCO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
@@ -293,15 +293,15 @@
                                 <TextBlock Text="Total of All Units" FontSize="18" FontWeight="Bold" Foreground="#0F5132"/>
                                 <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto">
                                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Total Produced Heat:" FontWeight="SemiBold" Margin="0,2"/>
-                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="0000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding S2TotalHeat, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Total Electricity (Prod/Cons):" FontWeight="SemiBold" Margin="0,2"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding S2TotalElectricity, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                     <TextBlock Grid.Row="2" Grid.Column="0" Text="Total Production Costs:" FontWeight="SemiBold" Margin="0,2"/>
-                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="DKK 0,000,000" HorizontalAlignment="Right" Margin="0,2"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding S2TotalCosts, StringFormat={}{0:F2} DKK}" HorizontalAlignment="Right" Margin="0,2"/>
                                     <TextBlock Grid.Row="3" Grid.Column="0" Text="Total Primary Energy Cons.:" FontWeight="SemiBold" Margin="0,2"/>
-                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="0000.00 MWh" HorizontalAlignment="Right" Margin="0,2"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding S2TotalConsumption, StringFormat={}{0:F2} MWh}" HorizontalAlignment="Right" Margin="0,2"/>
                                     <TextBlock Grid.Row="4" Grid.Column="0" Text="Total CO2 Produced:" FontWeight="SemiBold" Margin="0,2"/>
-                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="000.00 tons" HorizontalAlignment="Right" Margin="0,2"/>
+                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding S2TotalCO2, StringFormat={}{0:F2} kg}" HorizontalAlignment="Right" Margin="0,2"/>
                                 </Grid>
                             </StackPanel>
                         </Border>
