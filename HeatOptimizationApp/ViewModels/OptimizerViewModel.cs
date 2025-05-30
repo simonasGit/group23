@@ -97,12 +97,12 @@ namespace HeatOptimizationApp.ViewModels
             foreach (var row in winterData)
             {
                 var demand = row.HeatDemand;
-                winterGb1.currentheat.Add(Math.Min(demand, 4)); //gb1 instead of 4
-                winterGb1.totalheat += Math.Min(demand, 4);//gb1 instead of 4
-                winterGb2.currentheat.Add(Math.Min(Math.Max(demand - 4, 0), 3));//gb1 instead of 4 and gb2 for 3
-                winterGb2.totalheat += Math.Min(Math.Max(demand - 4, 0), 3);//gb1 instead of 4 and gb2 for 3
-                winterOb1.currentheat.Add(Math.Max(demand - 7, 0)); //gb + gb2 instead of 7
-                winterOb1.totalheat += Math.Max(demand - 7, 0); // gb + gb2 instead of 7
+                winterGb1.currentheat.Add(Math.Min(demand, Assets[0].MaxHeat)); //gb1 instead of 4
+                winterGb1.totalheat += Math.Min(demand, Assets[0].MaxHeat);//gb1 instead of 4
+                winterGb2.currentheat.Add(Math.Min(Math.Max(demand - Assets[0].MaxHeat, 0), Assets[1].MaxHeat));//gb1 instead of 4 and gb2 for 3
+                winterGb2.totalheat += Math.Min(Math.Max(demand - Assets[0].MaxHeat, 0), Assets[1].MaxHeat);//gb1 instead of 4 and gb2 for 3
+                winterOb1.currentheat.Add(Math.Max(demand - (Assets[0].MaxHeat + Assets[1].MaxHeat), 0)); //gb + gb2 instead of 7
+                winterOb1.totalheat += Math.Max(demand - (Assets[0].MaxHeat + Assets[1].MaxHeat), 0); // gb + gb2 instead of 7
             }
 
             winterGb1.totalcost = Assets[0].ProductionCost * winterGb1.totalheat;
@@ -282,12 +282,13 @@ namespace HeatOptimizationApp.ViewModels
 
         private (double hp, double gb, double ob, double gm) AllocateHeat(double demand, double price)
         {
+            var Assets = assetManager.Assets;
             var capacities = new Dictionary<string, double>
             {
-                ["HP"] = 6.0, // Assets[indesx].MaxHeat,
-                ["GB"] = 3.0,
-                ["OB"] = 4.0,
-                ["GM"] = 3.5
+                ["HP"] = Assets[4].MaxHeat,
+                ["GB"] = Assets[0].MaxHeat,
+                ["OB"] = Assets[2].MaxHeat,
+                ["GM"] = Assets[3].MaxHeat,
             };
 
             var allocation = new Dictionary<string, double>
