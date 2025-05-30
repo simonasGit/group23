@@ -1,26 +1,27 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
 
 namespace HeatOptimizationApp
 {
-
     public class Asset
     {
         public string Name { get; set; }
         public double MaxHeat { get; set; }
-        public double ProductionCost { get; set; } // this is in DKK/MWh(th) but we can maybe change it late
-        public double CO2Emissions { get; set; }   // kg/MWh(th)
+        public double ProductionCost { get; set; }
+        public double CO2Emissions { get; set; }
     }
-
 
     public class GasBoiler : Asset
     {
-        public double GasConsumption { get; set; } // MWh(gas)/MWh(th)
+        public double GasConsumption { get; set; }
     }
 
     public class OilBoiler : Asset
     {
-        public double OilConsumption { get; set; } // MWh(oil)/MWh(th) remember the units later beacuse converting might be a problem
+        public double OilConsumption { get; set; }
     }
 
     public class GasMotor : Asset
@@ -34,66 +35,87 @@ namespace HeatOptimizationApp
         public double MaxElectricity { get; set; }
     }
 
-
-    public class AssetManager //theyre all public so they can be acessed outside and from the other files
+    public class AssetManager
     {
         public List<Asset> Assets { get; } = new List<Asset>();
 
         public AssetManager()
         {
-            LoadAssets();
+            string path = "AssetManager.csv"; // colocar no /Assets/ folder
+
+            if (!File.Exists(path))
+            {
+                throw new FileNotFoundException($"CSV file not found at path: {path}");
+            }
+
+            LoadAssetsFromCsv(path);
         }
 
-        public void LoadAssets()
+        private void LoadAssetsFromCsv(string filePath) //lendo o .csv
         {
-            Assets.Add(new GasBoiler
-            {
-                Name = "Gas Boiler 1",
-                MaxHeat = 4.0,
-                ProductionCost = 520,
-                CO2Emissions = 175,
-                GasConsumption = 0.9,
-            });
+            var lines = File.ReadAllLines(filePath);
 
-            Assets.Add(new GasBoiler
-            {
-                Name = "Gas Boiler 2",
-                MaxHeat = 3.0,
-                ProductionCost = 560,
-                CO2Emissions = 130,
-                GasConsumption = 0.7
-            });
+            if (lines.Length <= 1)
+                throw new Exception("CSV file is empty or missing data.");
 
-            Assets.Add(new OilBoiler
+            foreach (var line in lines.Skip(1)) // skip header
             {
-                Name = "Oil Boiler",
-                MaxHeat = 4.0,
-                ProductionCost = 670,
-                CO2Emissions = 330,
-                OilConsumption = 1.5
-            });
+                var parts = line.Split(',');
 
-            Assets.Add(new GasMotor
-            {
-                Name = "Gas Motor",
-                MaxHeat = 3.5,
-                MaxElectricity = 2.6,
-                ProductionCost = 990,
-                CO2Emissions = 650,
-                GasConsumption = 1.8
-            });
+                if (parts.Length < 7)
+                    continue;
 
-            Assets.Add(new HeatPump
-            {
-                Name = "Heat Pump",
-                MaxHeat = 6.0,
-                MaxElectricity = -6.0,
-                ProductionCost = 60,
-                CO2Emissions = 0
-            });
+                string name = parts[0].Trim();
+                string type = parts[1].Trim();
+                double maxHeat = double.Parse(parts[2], CultureInfo.InvariantCulture);
+                double productionCost = double.Parse(parts[3], CultureInfo.InvariantCulture);
+                double co2 = double.Parse(parts[4], CultureInfo.InvariantCulture);
+                double consumption = double.Parse(parts[5], CultureInfo.InvariantCulture);
+                double maxElectricity = double.Parse(parts[6], CultureInfo.InvariantCulture);
+
+                Asset asset = type switch
+                {
+                    "GasBoiler" => new GasBoiler
+                    {
+                        Name = name,
+                        MaxHeat = maxHeat,
+                        ProductionCost = productionCost,
+                        CO2Emissions = co2,
+                        GasConsumption = consumption
+                    },
+                    "OilBoiler" => new OilBoiler
+                    {
+                        Name = name,
+                        MaxHeat = maxHeat,
+                        ProductionCost = productionCost,
+                        CO2Emissions = co2,
+                        OilConsumption = consumption
+                    },
+                    "GasMotor" => new GasMotor
+                    {
+                        Name = name,
+                        MaxHeat = maxHeat,
+                        MaxElectricity = maxElectricity,
+                        ProductionCost = productionCost, //opt does not change fr somethinkg
+                        CO2Emissions = co2,
+                        GasConsumption = consumption
+                    },
+                    "HeatPump" => new HeatPump
+                    {
+                        Name = name,
+                        MaxHeat = maxHeat,
+                        MaxElectricity = maxElectricity,
+                        ProductionCost = productionCost,
+                        CO2Emissions = co2
+                    },
+                    _ => null
+                };
+
+                if (asset != null)
+                {
+                    Assets.Add(asset);
+                }
+            }
         }
     }
-
-
-
 }

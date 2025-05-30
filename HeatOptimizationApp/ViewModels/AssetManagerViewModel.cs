@@ -60,7 +60,7 @@ namespace HeatOptimizationApp.ViewModels
         }
         catch (Exception ex)
         {
-        // Log or handle error
+     
         Console.WriteLine($"Error writing AssetManager.csv: {ex.Message}");
         }
     }
@@ -134,9 +134,7 @@ namespace HeatOptimizationApp.ViewModels
     public class ProductionUnitViewModel : INotifyPropertyChanged
     {
         internal Asset _asset;
-        public Asset AssetModel => _asset; // Public property for XAML
-
-        //
+        public Asset AssetModel => _asset; 
         private AssetManagerWindowViewModel _parentViewModel;
 
 
