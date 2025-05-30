@@ -74,8 +74,6 @@
                               </MultiBinding>
                           </TextBlock.Text>
                       </TextBlock>
-                      <TextBlock Text="{Binding MaxElectricity, StringFormat='Max Electricity: {0:F1} MW'}" FontSize="12"
-                                 IsVisible="{Binding Path=AssetModel, Converter={x:Static vm:AssetHasMaxElectricityConverter.Instance}}"/>
                   </StackPanel>
 
                   <StackPanel IsVisible="{Binding IsEditing}" Spacing="8">
