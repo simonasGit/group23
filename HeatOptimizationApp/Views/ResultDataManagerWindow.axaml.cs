@@ -1,13 +1,17 @@
 using Avalonia.Controls;
 using System;
-using HeatOptimizationApp.ViewModels;
-using Avalonia.Markup.Xaml;
-
+using System.IO; // Required for file operations
+using CsvHelper; // Required for CsvHelper
+using System.Globalization; // Required for CultureInfo
+using System.Collections.Generic; // Required for List<T>
+using HeatOptimizationApp.ViewModels; // Assuming ResultDataManager is here
+using Avalonia.Markup.Xaml; // Ensure this is present for InitializeComponent
 
 namespace HeatOptimizationApp.Views;
 
 public partial class ResultDataManagerWindow : Window
 {
+    // Scenario 1 Properties
     public double summerGB1total { get; set; }
     public double summerGB1CO2 { get; set; }
     public double summerGB1Consumption { get; set; }
@@ -44,13 +48,7 @@ public partial class ResultDataManagerWindow : Window
     public double S1TotalCosts { get; set; }
     public double S1TotalCO2 { get; set; }
 
-    public double S2TotalHeat { get; set; }
-    public double S2TotalElectricity { get; set; }
-    public double S2TotalConsumption { get; set; }
-    public double S2TotalCosts { get; set; }
-    public double S2TotalCO2 { get; set; }
-    //scenario 2
-
+    // Scenario 2 Properties
     public double summerHPtotal { get; set; }
     public double summerHPCO2 { get; set; }
     public double summerHPConsumption { get; set; }
@@ -92,15 +90,24 @@ public partial class ResultDataManagerWindow : Window
     public double winterGMConsumption { get; set; }
     public double winterGMCosts { get; set; }
     public double winterGMElectricity { get; set; }
+
+    public double S2TotalHeat { get; set; }
+    public double S2TotalElectricity { get; set; }
+    public double S2TotalConsumption { get; set; }
+    public double S2TotalCosts { get; set; }
+    public double S2TotalCO2 { get; set; }
+
     public ResultDataManagerWindow()
     {
         InitializeComponent();
 
         var ResultDataManager = new ResultDataManager();
+        // Assuming assetManager and optimizer are initialized within ResultDataManager's constructor
+        // or are accessible public properties.
         var Assets = ResultDataManager.assetManager.Assets;
         var Optimizer = ResultDataManager.optimizer;
 
-        //SCENARIO 1
+        // SCENARIO 1 Data Population
         summerGB1total = Optimizer.summerGb1.totalheat;
         summerGB1CO2 = Optimizer.summerGb1.CO2;
         summerGB1Consumption = Optimizer.summerGb1.Consumption;
@@ -120,7 +127,7 @@ public partial class ResultDataManagerWindow : Window
         winterGB2CO2 = Optimizer.winterGb2.CO2;
         winterGB2Consumption = Optimizer.winterGb2.Consumption;
         winterGB2Costs = Optimizer.winterGb2.totalcost;
-        //el prod/cons
+        
         summerOB1total = Optimizer.summerOb1.totalheat;
         summerOB1CO2 = Optimizer.summerOb1.CO2;
         summerOB1Consumption = Optimizer.summerOb1.Consumption;
@@ -131,7 +138,7 @@ public partial class ResultDataManagerWindow : Window
         winterOB1Consumption = Optimizer.winterOb1.Consumption;
         winterOB1Costs = Optimizer.winterOb1.totalcost;
 
-        //SCENARIO 2
+        // SCENARIO 2 Data Population
         summerHPtotal = Optimizer.summerHp.totalheat;
         summerHPCO2 = Optimizer.summerHp.CO2;
         summerHPConsumption = Optimizer.summerHp.Consumption;
@@ -152,15 +159,15 @@ public partial class ResultDataManagerWindow : Window
         winterGBConsumption = Optimizer.winterGb.Consumption;
         winterGBCosts = Optimizer.winterGb.totalcost;
 
-        summerOBtotal = Optimizer.summerGb.totalheat;
-        summerOBCO2 = Optimizer.summerGb.CO2;
-        summerOBConsumption = Optimizer.summerGb.Consumption;
-        summerOBCosts = Optimizer.summerGb.totalcost;
+        summerOBtotal = Optimizer.summerOb.totalheat; // Corrected to use summerOb
+        summerOBCO2 = Optimizer.summerOb.CO2;         // Corrected to use summerOb
+        summerOBConsumption = Optimizer.summerOb.Consumption; // Corrected to use summerOb
+        summerOBCosts = Optimizer.summerOb.totalcost;   // Corrected to use summerOb
 
-        winterOBtotal = Optimizer.winterGb.totalheat;
-        winterOBCO2 = Optimizer.winterGb.CO2;
-        winterOBConsumption = Optimizer.winterGb.Consumption;
-        winterOBCosts = Optimizer.winterGb.totalcost;
+        winterOBtotal = Optimizer.winterOb.totalheat; // Corrected to use winterOb
+        winterOBCO2 = Optimizer.winterOb.CO2;         // Corrected to use winterOb
+        winterOBConsumption = Optimizer.winterOb.Consumption; // Corrected to use winterOb
+        winterOBCosts = Optimizer.winterOb.totalcost;   // Corrected to use winterOb
 
         summerGMtotal = Optimizer.summerGm.totalheat;
         summerGMCO2 = Optimizer.summerGm.CO2;
@@ -173,7 +180,8 @@ public partial class ResultDataManagerWindow : Window
         winterGMConsumption = Optimizer.winterGm.Consumption;
         winterGMCosts = Optimizer.winterGm.totalcost;
         winterGMElectricity = Optimizer.winterGm.electricity;
-        //totals
+
+        // Totals
         S1TotalHeat = Optimizer.S1totalheat;
         S1TotalElectricity = Optimizer.S1totalelectricity;
         S1TotalCosts = Optimizer.S1totalcosts;
@@ -185,6 +193,142 @@ public partial class ResultDataManagerWindow : Window
         S2TotalCosts = Optimizer.S2totalcosts;
         S2TotalConsumption = Optimizer.S2totalconsumption;
         S2TotalCO2 = Optimizer.S2totalCO2;
+
         this.DataContext = this;
+
+       
+        if (this.FindControl<Button>("SaveButtonScenario1") is Button saveButtonScenario1)
+        {
+            saveButtonScenario1.Click += SaveButton_Click;
+        }
+
+        
+        if (this.FindControl<Button>("SaveButtonScenario2") is Button saveButtonScenario2)
+        {
+            saveButtonScenario2.Click += SaveButton_Click;
+        }
+       
+    }
+
+  
+    private void SaveButton_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+       
+        string filePath = "ResultDataManager.csv";
+
+        try
+        {
+           
+            var dataToSave = new List<object>
+            {
+                new
+                {
+                   
+                    Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+
+                    // Scenario 1 Data
+                    Scenario = "Scenario 1",
+                    SummerGB1TotalHeat = summerGB1total,
+                    SummerGB1CO2 = summerGB1CO2,
+                    SummerGB1Consumption = summerGB1Consumption,
+                    SummerGB1Costs = summerGB1Costs,
+                    WinterGB1TotalHeat = winterGB1total,
+                    WinterGB1CO2 = winterGB1CO2,
+                    WinterGB1Consumption = winterGB1Consumption,
+                    WinterGB1Costs = winterGB1Costs,
+                    SummerGB2TotalHeat = summerGB2total,
+                    SummerGB2CO2 = summerGB2CO2,
+                    SummerGB2Consumption = summerGB2Consumption,
+                    SummerGB2Costs = summerGB2Costs,
+                    WinterGB2TotalHeat = winterGB2total,
+                    WinterGB2CO2 = winterGB2CO2,
+                    WinterGB2Consumption = winterGB2Consumption,
+                    WinterGB2Costs = winterGB2Costs,
+                    SummerOB1TotalHeat = summerOB1total,
+                    SummerOB1CO2 = summerOB1CO2,
+                    SummerOB1Consumption = summerOB1Consumption,
+                    SummerOB1Costs = summerOB1Costs,
+                    WinterOB1TotalHeat = winterOB1total,
+                    WinterOB1CO2 = winterOB1CO2,
+                    WinterOB1Consumption = winterOB1Consumption,
+                    WinterOB1Costs = winterOB1Costs,
+                    S1_TotalHeat = S1TotalHeat,
+                    S1_TotalElectricity = S1TotalElectricity,
+                    S1_TotalConsumption = S1TotalConsumption,
+                    S1_TotalCosts = S1TotalCosts,
+                    S1_TotalCO2 = S1TotalCO2,
+
+                    // Scenario 2 Data
+                    
+                   
+                    Scenario2 = "Scenario 2", // Renamed to avoid duplicate 'Scenario' column
+                    SummerHPTotalHeat = summerHPtotal,
+                    SummerHPCO2 = summerHPCO2,
+                    SummerHPConsumption = summerHPConsumption,
+                    SummerHPCosts = summerHPCosts,
+                    WinterHPTotalHeat = winterHPtotal,
+                    WinterHPCO2 = winterHPCO2,
+                    WinterHPConsumption = winterHPConsumption,
+                    WinterHPCosts = winterHPCosts,
+                    SummerGBTotalHeat = summerGBtotal,
+                    SummerGBCO2 = summerGBCO2,
+                    SummerGBConsumption = summerGBConsumption,
+                    SummerGBCosts = summerGBCosts,
+                    WinterGBTotalHeat = winterGBtotal,
+                    WinterGBCO2 = winterGBCO2,
+                    WinterGBConsumption = winterGBConsumption,
+                    WinterGBCosts = winterGBCosts,
+                    SummerOBTotalHeat = summerOBtotal,
+                    SummerOBCO2 = summerOBCO2,
+                    SummerOBConsumption = summerOBConsumption,
+                    SummerOBCosts = summerOBCosts,
+                    WinterOBTotalHeat = winterOBtotal,
+                    WinterOBCO2 = winterOBCO2,
+                    WinterOBConsumption = winterOBConsumption,
+                    WinterOBCosts = winterOBCosts,
+                    SummerGMTotalHeat = summerGMtotal,
+                    SummerGMCO2 = summerGMCO2,
+                    SummerGMConsumption = summerGMConsumption,
+                    SummerGMCosts = summerGMCosts,
+                    SummerGMElectricity = summerGMElectricity,
+                    WinterGMTotalHeat = winterGMtotal,
+                    WinterGMCO2 = winterGMCO2,
+                    WinterGMConsumption = winterGMConsumption,
+                    WinterGMCosts = winterGMCosts,
+                    WinterGMElectricity = winterGMElectricity,
+                    S2_TotalHeat = S2TotalHeat,
+                    S2_TotalElectricity = S2TotalElectricity,
+                    S2_TotalConsumption = S2TotalConsumption,
+                    S2_TotalCosts = S2TotalCosts,
+                    S2_TotalCO2 = S2TotalCO2
+                }
+            };
+
+           
+            bool fileExists = File.Exists(filePath);
+
+            using (var stream = File.Open(filePath, FileMode.Append, FileAccess.Write))
+            using (var writer = new StreamWriter(stream))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                if (!fileExists)
+                {
+                    
+                    csv.WriteHeader<object>(); 
+                    csv.NextRecord(); 
+                }
+
+                csv.WriteRecords(dataToSave);
+            }
+
+            Console.WriteLine("aaaa");
+           
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("naodeu");
+            
+        }
     }
 }

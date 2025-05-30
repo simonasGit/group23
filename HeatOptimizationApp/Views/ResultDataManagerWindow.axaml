@@ -139,7 +139,8 @@
                             <StackPanel>
                                 <TextBlock Text="Data Management Controls" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
                                 <WrapPanel ItemWidth="250" ItemHeight="30">
-                                    <Button Content="Save" Background="#E5E7EB" Foreground="Black"/>
+                                    <Button x:Name="SaveButtonScenario1" Content="Save" Background="#E5E7EB" Foreground="Black" Click="SaveButton_Click"/>
+                                    
                                 </WrapPanel>
                             </StackPanel>
                         </Border>
@@ -309,8 +310,11 @@
                             <StackPanel>
                                 <TextBlock Text="Data Management Controls" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
                                 <WrapPanel ItemWidth="250" ItemHeight="30">
-                                    <Button Content="Save" Background="#E5E7EB" Foreground="Black"/>
-                                </WrapPanel>
+                                    <Button x:Name="SaveButtonScenario2" Content="Save" Background="#E5E7EB" Foreground="Black" Click="SaveButton_Click"/>
+                                    </WrapPanel>
+
+
+            
                             </StackPanel>
                         </Border>
                     </StackPanel>
