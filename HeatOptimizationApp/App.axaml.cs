@@ -1,12 +1,13 @@
-using Avalonia;
+using Avalonia; 
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
-using System.Linq;
+using System.Linq; 
 using Avalonia.Markup.Xaml;
-using HeatOptimizationApp.ViewModels;
-using HeatOptimizationApp.Views;
-//some of these using stuff ill remove later becauyse most are not even being used, theyre just avalonia standard stuff
+using HeatOptimizationApp.ViewModels; 
+using HeatOptimizationApp.Views;    
+using System.Globalization; 
+using System.Threading;     
 
 namespace HeatOptimizationApp
 {
@@ -19,10 +20,19 @@ namespace HeatOptimizationApp
 
         public override void OnFrameworkInitializationCompleted()
         {
+            
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+
+
+
+
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.MainWindow = new MainWindow();
+                
             }
+
 
             base.OnFrameworkInitializationCompleted();
         }
